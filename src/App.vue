@@ -1,9 +1,22 @@
 <template>
   <div id="nav">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="@/assets/fitactive.png"
+            alt=""
+            height="24"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+      </div>
+    </nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/login">Login</router-link> |
+    <router-link to=/signup>Signup</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
