@@ -12,7 +12,7 @@
         </a>
       </div>
     </nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Welcome</router-link> |
     <router-link to="/login">Login</router-link> |
     <router-link to=/signup>Signup</router-link>
   </div>
@@ -21,7 +21,7 @@
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
