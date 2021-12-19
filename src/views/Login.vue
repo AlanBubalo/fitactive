@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>You can login here!</h1>
+  <div class="login">
+    <h1>Login</h1>
     <div class="container">
       <div class="row">
         <div class="col-sm"></div>
@@ -28,7 +28,7 @@
                 placeholder="Password"
               />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-fit">Login</button>
           </form>
         </div>
         <div class="col-sm"></div>
@@ -36,3 +36,9 @@
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.login {
+  margin-top: 20px;
+}
+</style>

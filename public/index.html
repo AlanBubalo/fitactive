@@ -12,17 +12,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg-color: #F83E5F;
+      --main-bg-color-hover: #e64562;
+      --middle-bg-color: #E44B84;
+      --secondary-bg-color: #C560C1;
+      --fit-white: #F8F8F8;
+      --fit-black: #363636;
+    }
+  </style>
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
 </head>
 
 <body>
-  <noscript>
+  <!--
+    <noscript>
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
         properly without JavaScript enabled. Please enable it to
         continue.</strong>
-  </noscript>
+    </noscript>
+  -->
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>
