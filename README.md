@@ -37,5 +37,7 @@ Figma: [Link](https://www.figma.com/proto/9Qh8w7U50m8wDmv93WramF/FitActive?node-
 [Programsko inženjerstvo](https://www.notion.so/fiputreca/Programsko-in-enjerstvo-e353945331df468e8382cdad1e91c4b8), akademska godina 2021./2022.\
 Mentor: [doc. dr. sc. Nikola Tanković](https://fipu.unipu.hr/fipu/nikola.tankovic)
 
+### Kod za pokretanje aplikacije
+
     npm install
     npm run serve
