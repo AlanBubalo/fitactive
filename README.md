@@ -5,10 +5,10 @@ Naša aplikacija može prikazati svakodnevne aktivnosti, možete upisati svoju t
 
 ### Tim 56:
 
-- Alan Bubalo [abubalo@unipu.hr](abubalo@unipu.hr)
-  - implementacija modula za administraciju (login, signup), spremanje korisničkih podataka
-- Thomas Siard [tsiard@unipu.hr](tsiard@unipu.hr)
-  - implementacija modula za notifikacije i rutine na kalendaru, dabir vršenja kardija
+- Alan Bubalo ([abubalo@student.unipu.hr](abubalo@student.unipu.hr))
+  - implementacija modula za administraciju (login, signup), spremanje korisničkih podataka, odabir bršenja tjelovježba
+- Thomas Siard ([tsiard@student.unipu.hr](tsiard@student.unipu.hr))
+  - implementacija modula za notifikacije i rutine na kalendaru, odabir vršenja kardija
 
 ### Prototip aplikacije
 
@@ -30,8 +30,8 @@ Figma: [Link](https://www.figma.com/proto/9Qh8w7U50m8wDmv93WramF/FitActive?node-
 - Podsjetnik za količinu čaša vode
   - Potvrdi popijenu čašu vode
 
-`npm install`
-`npm run serve`
+            npm install
+            npm run serve
 
 ### Organizacija
 
