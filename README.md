@@ -29,11 +29,6 @@ Figma: [Link](https://www.figma.com/proto/9Qh8w7U50m8wDmv93WramF/FitActive?node-
   - Odabir željenog vremena za buđenje
 - Podsjetnik za količinu čaša vode
   - Potvrdi popijenu čašu vode
--
-
-
-    npm install
-    npm run serve
 
 ### Organizacija
 
@@ -41,3 +36,6 @@ Figma: [Link](https://www.figma.com/proto/9Qh8w7U50m8wDmv93WramF/FitActive?node-
 [Fakultet informatike u Puli](https://fipu.unipu.hr)\
 [Programsko inženjerstvo](https://www.notion.so/fiputreca/Programsko-in-enjerstvo-e353945331df468e8382cdad1e91c4b8), akademska godina 2021./2022.\
 Mentor: [doc. dr. sc. Nikola Tanković](https://fipu.unipu.hr/fipu/nikola.tankovic)
+
+    npm install
+    npm run serve
