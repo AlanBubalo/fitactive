@@ -40,4 +40,4 @@ Mentor: [doc. dr. sc. Nikola Tanković](https://fipu.unipu.hr/fipu/nikola.tankov
 ## Kod za pokretanje aplikacije
 
     npm install
-    npm run
+    npm run serve
