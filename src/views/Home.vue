@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <img alt="FitActive logo" src="@/assets/welcome.jpg" />
-    <HelloWorld msg="Welcome to FitActive" />
   </div>
 </template>
 
