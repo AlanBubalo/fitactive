@@ -7,6 +7,7 @@
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
+        <p class="text-primary">{{ errorMessage }}</p>
         <form>
           <!--
           <div class="form-group my-2">
@@ -30,6 +31,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              required
             />
             <!-- <small id="emailHelp" class="form-text text-muted"
                 >We'll never share your email with anyone else.</small
@@ -43,6 +45,7 @@
               class="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
+              required
             />
           </div>
           <div class="form-group my-2">
@@ -55,9 +58,10 @@
               class="form-control"
               id="exampleInputConfirmPassword1"
               placeholder="Confirm Password"
+              required
             />
           </div>
-          <button type="button" @click="signup" class="btn btn-fit">
+          <button type="button" @click="signup" class="btn my-btn-primary">
             Sign up
           </button>
         </form>
@@ -92,24 +96,28 @@ export default {
       email: "",
       password: "",
       passwordConfirm: "",
+      errorMessage: "",
     };
   },
   methods: {
     signup() {
-      console.log(firebase);
-      /*
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(
-          function () {
-            console.log("yay");
-          }.catch(function () {
-            console.error("ajoj");
+      if (this.password === this.passwordConfirm) {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(() => {
+            console.log("Congratulations, you just created an account!");
           })
-        );
-      console.log("cekaj");
-      */
+          .catch((error) => {
+            var mes = error.message.slice(10);
+            var mesa = mes.split(" (auth");
+            this.errorMessage = mesa[0];
+            console.error(error);
+          });
+        console.log("Wait a few moments...");
+      } else {
+        this.errorMessage = "Passwords do not match. Try again.";
+      }
     },
   },
 };

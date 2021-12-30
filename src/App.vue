@@ -8,33 +8,45 @@
             class="d-inline-block align-text-top"
           />
         </a> -->
-
-    <div class="mr-auto"></div>
+    <div class="mr-auto text-white">
+      {{ store.currentUser }}
+    </div>
     <div>
-      <router-link to="/" class="px-3">Welcome Page</router-link>
-      <router-link to="/login" class="px-3">Log in</router-link>
-      <router-link to="/signup" class="px-3">Sign up</router-link>
-      <router-link to="/" class="px-3" v-if="false">Home</router-link>
-      <router-link to="/" class="px-3" v-if="false">Cardio</router-link>
-      <router-link to="/" class="px-3" v-if="false">Workout</router-link>
-      <router-link to="/" class="px-3" v-if="false">Calendar</router-link>
-      <router-link to="/" class="px-3" v-if="false"
-        >Workout Schedule</router-link
+      <router-link v-if="!store.currentUser" to="/" class="px-3"
+        >Welcome Page</router-link
       >
-      <router-link to="/" class="px-3" v-if="false">Profile</router-link>
+      <router-link v-if="!store.currentUser" to="/login" class="px-3"
+        >Log in</router-link
+      >
+      <router-link v-if="!store.currentUser" to="/signup" class="px-3"
+        >Sign up</router-link
+      >
+      <router-link v-if="store.currentUser" to="/home" class="px-3"
+        >Home</router-link
+      >
+      <!--
+      <router-link v-if="store.currentUser" to="/" class="px-3"
+        >Cardio</router-link
+      >
+      <router-link v-if="store.currentUser" to="/" class="px-3"
+        >Workout</router-link
+      >
+      <router-link v-if="store.currentUser" to="/" class="px-3"
+        >Calendar</router-link
+      >
+      <router-link v-if="store.currentUser" to="/" class="px-3"
+        >Workout Schedule</router-link
+      > -->
+      <a v-if="store.currentUser" href="#" @click.prevent="logout" class="px-3"
+        >Log out</a
+      >
     </div>
   </nav>
   <router-view />
 </template>
 
 <style lang="scss">
-// ----- Colors ----- //
-$primary-color: #f83e5f;
-$primary-color-hover: #e64562;
-$middle-color: #e44b84;
-$secondary-color: #c560c1;
-$white: #f8f8f8;
-$black: #262626;
+@import "@/colors";
 
 #app {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -68,7 +80,7 @@ $black: #262626;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
     text-shadow: 0.4rem 0.2rem $primary-color;
   }
@@ -102,7 +114,7 @@ $black: #262626;
   }
 }
 
-.btn-fit {
+.my-btn-primary {
   background-color: $primary-color;
   border-color: $primary-color;
   color: $white !important;
@@ -116,7 +128,19 @@ $black: #262626;
   }
 }
 
-.text-btn {
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-white {
+  color: $white !important;
+}
+
+.text-black {
+  color: $black !important;
+}
+
+.my-link-primary {
   color: $primary-color;
   text-decoration: none;
   font-weight: bold;
@@ -125,10 +149,42 @@ $black: #262626;
     color: $primary-color-hover;
   }
 }
-
-input[type="checkbox"] {
-  &.active {
-    background-color: $primary-color;
-  }
-}
 </style>
+
+<script>
+import store from "@/store";
+import { firebase } from "@/firebase";
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
+    console.log(user.email);
+    store.currentUser = true;
+    console.log(store.currentUser);
+  } else {
+    // User is not signed in.
+    console.log("No user");
+    store.currentUser = false;
+    console.log(store.currentUser);
+  }
+});
+
+export default {
+  name: "app",
+  data() {
+    return {
+      store,
+    };
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ name: "Welcome" });
+        });
+    },
+  },
+};
+</script>

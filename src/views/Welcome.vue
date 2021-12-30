@@ -8,12 +8,19 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-sm"></div>
-      <div class="col-sm text-center">
-        <router-link class="btn btn-fit" role="button" to="/login">Log in</router-link>
-        <p>Getting started? <router-link class="text-btn" to=/signup>Sign up</router-link></p>
+      <div class="col-lg col-md"></div>
+      <div class="col-lg col-md-6 text-center">
+        <router-link class="btn my-btn-primary" role="button" to="/login"
+          >Log in</router-link
+        >
+        <p>
+          Getting started?
+          <router-link class="my-link-primary" to="/signup"
+            >Sign up</router-link
+          >
+        </p>
       </div>
-      <div class="col-sm"></div>
+      <div class="col-lg col-md"></div>
     </div>
   </div>
 </template>

@@ -14,6 +14,7 @@
             <label for="exampleInputEmail1" class="py-1">Email address</label>
             <input
               type="email"
+              v-model="email"
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -23,7 +24,13 @@
               >We'll never share your email with anyone else.</small
             > -->
           </div>
-          <button type="submit" class="btn btn-fit">Send</button>
+          <button
+            type="button"
+            @click="sendPassword"
+            class="btn my-btn-primary"
+          >
+            Send
+          </button>
         </form>
       </div>
       <div class="col-lg col-md"></div>
@@ -43,11 +50,35 @@
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
+import { firebase } from "@/firebase";
 
 export default {
   name: "SendPassword",
+  data() {
+    return {
+      email: "",
+      errorMessage: "",
+    };
+  },
   components: {
     HeaderImage,
+  },
+  methods: {
+    sendPassword() {
+      firebase
+        .auth()
+        .sendPasswordResetEmail(this.email)
+        .then(() => {
+          // Password reset email sent!
+          alert("Password reset email sent!");
+        })
+        .catch((error) => {
+          var mes = error.message.slice(10);
+          var mesa = mes.split(" (auth");
+          this.errorMessage = mesa[0];
+          console.error(error);
+        });
+    },
   },
 };
 </script>
