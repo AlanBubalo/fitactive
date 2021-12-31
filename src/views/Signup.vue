@@ -8,7 +8,7 @@
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
         <p class="text-primary">{{ errorMessage }}</p>
-        <form>
+        <form @submit.prevent="signup">
           <!--
           <div class="form-group my-2">
             <label for="exampleInputName" class="py-1">Full Name</label>
@@ -31,7 +31,6 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
-              required
             />
             <!-- <small id="emailHelp" class="form-text text-muted"
                 >We'll never share your email with anyone else.</small
@@ -45,7 +44,6 @@
               class="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
-              required
             />
           </div>
           <div class="form-group my-2">
@@ -58,13 +56,21 @@
               class="form-control"
               id="exampleInputConfirmPassword1"
               placeholder="Confirm Password"
-              required
             />
           </div>
-          <button type="button" @click="signup" class="btn my-btn-primary">
-            Sign up
-          </button>
+          <button type="submit" class="btn my-btn-primary">Sign up</button>
         </form>
+        <div class="d-flex justify-content-between bd-highlight">
+          <p>
+            Already have an account?
+            <router-link
+              to="/login"
+              class="my-link-primary bd-highlight"
+              replace
+              >Log in</router-link
+            >
+          </p>
+        </div>
       </div>
       <div class="col-lg col-md"></div>
     </div>
@@ -106,7 +112,7 @@ export default {
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(() => {
-            console.log("Congratulations, you just created an account!");
+            console.log("Created an account!");
           })
           .catch((error) => {
             var mes = error.message.slice(10);
@@ -114,7 +120,7 @@ export default {
             this.errorMessage = mesa[0];
             console.error(error);
           });
-        console.log("Wait a few moments...");
+        console.log("Signing up...");
       } else {
         this.errorMessage = "Passwords do not match. Try again.";
       }

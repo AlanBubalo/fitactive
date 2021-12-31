@@ -1,6 +1,6 @@
 <template>
   <div class="header-image">
-    <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
+    <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Log in</div>
   </div>
   <div class="container p-4">
@@ -8,7 +8,7 @@
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
         <p class="text-primary">{{ errorMessage }}</p>
-        <form>
+        <form @submit.prevent="login">
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">Email address</label>
             <input
@@ -25,35 +25,49 @@
           </div>
           <div class="form-group my-2">
             <label for="exampleInputPassword1" class="py-1">Password</label>
-            <input
-              :type="type"
-              v-model="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
-              required
-            />
-            <a
-              href="#"
-              class="my-link-primary text-black"
-              @click.prevent="showPassword"
-            >
-              {{ btn_text }} Password
-            </a>
+            <div class="d-flex justify-content-between bd-highlight">
+              <div class="flex-grow-1 bd-highlight">
+                <input
+                  :type="type"
+                  v-model="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <div class="bd-highlight ms-3">
+                <button
+                  class="btn small-btn-primary text-black"
+                  @click.prevent="showPassword"
+                  type="button"
+                >
+                  {{ btn_text }}
+                </button>
+              </div>
+            </div>
           </div>
           <label>
             <input type="checkbox" checked="checked" name="remember" /> Remember
             me
           </label>
 
-          <button class="btn my-btn-primary" @click="login" type="button">
-            Log in
-          </button>
-
-          <router-link class="my-link-primary" to="/sendpassword"
+          <button type="submit" class="btn my-btn-primary">Log in</button>
+        </form>
+        <div class="d-flex justify-content-between bd-highlight">
+          <router-link class="my-link-primary bd-highlight" to="/sendpassword"
             >Forgot password?</router-link
           >
-        </form>
+          <p>
+            Need an account?
+            <router-link
+              to="/signup"
+              class="my-link-primary bd-highlight"
+              replace
+              >Sign up</router-link
+            >
+          </p>
+        </div>
       </div>
       <div class="col-lg col-md"></div>
     </div>
@@ -61,12 +75,27 @@
 </template>
 
 <style scoped lang="scss">
+@import "@/colors";
+
 .img {
   width: 100%;
   height: 350px;
   object-fit: cover;
-  object-position: 50% 45%;
+  object-position: 50% 70%;
   border-radius: 0 0 3rem 3rem;
+}
+
+.small-btn-primary {
+  background-color: $black;
+  border: none;
+  color: $white !important;
+  padding: 0.5rem 0;
+  width: 70px;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: $black-hover;
+  }
 }
 </style>
 
@@ -91,13 +120,11 @@ export default {
   },
   methods: {
     login() {
-      console.log("login..." + this.email);
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then((result) => {
-          console.log("Logged in successfully.", result);
-          this.$router.replace({ name: "Home" });
+        .then((user) => {
+          console.log("Logged in.");
         })
         .catch((error) => {
           var mes = error.message.slice(10);
@@ -105,15 +132,11 @@ export default {
           this.errorMessage = mesa[0];
           console.error(error);
         });
+      console.log("Logging in...");
     },
     showPassword() {
-      if (this.type === "password") {
-        this.type = "text";
-        this.btn_text = "Hide";
-      } else {
-        this.type = "password";
-        this.btn_text = "Show";
-      }
+      this.type = this.type == "password" ? "text" : "password";
+      this.btn_text = this.btn_text == "Show" ? "Hide" : "Show";
     },
   },
 };

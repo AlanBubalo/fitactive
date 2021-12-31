@@ -1,3 +1,3 @@
 export default {
-  currentUser: false,
+  currentUser: null,
 };

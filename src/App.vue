@@ -1,47 +1,18 @@
 <template>
-  <nav id="nav" class="navbar p-0">
-    <!-- <a class="navbar-brand" href="#">
-          <img
-            src="@/assets/fitactive.png"
-            alt=""
-            height="24"
-            class="d-inline-block align-text-top"
-          />
-        </a> -->
+  <nav v-if="store.currentUser" id="nav" class="navbar p-0">
+    <!-- FitActive Logo -->
     <div class="mr-auto text-white">
-      {{ store.currentUser }}
+      <h1 class="fs-3 px-2 m-2 fw-bold">FitActive</h1>
     </div>
     <div>
-      <router-link v-if="!store.currentUser" to="/" class="px-3"
-        >Welcome Page</router-link
-      >
-      <router-link v-if="!store.currentUser" to="/login" class="px-3"
-        >Log in</router-link
-      >
-      <router-link v-if="!store.currentUser" to="/signup" class="px-3"
-        >Sign up</router-link
-      >
-      <router-link v-if="store.currentUser" to="/home" class="px-3"
-        >Home</router-link
-      >
-      <!--
-      <router-link v-if="store.currentUser" to="/" class="px-3"
-        >Cardio</router-link
-      >
-      <router-link v-if="store.currentUser" to="/" class="px-3"
-        >Workout</router-link
-      >
-      <router-link v-if="store.currentUser" to="/" class="px-3"
-        >Calendar</router-link
-      >
-      <router-link v-if="store.currentUser" to="/" class="px-3"
-        >Workout Schedule</router-link
-      > -->
-      <a v-if="store.currentUser" href="#" @click.prevent="logout" class="px-3"
-        >Log out</a
-      >
+      <router-link to="/home" class="px-3">Home</router-link>
+      <router-link to="/cardio" class="px-3">Cardio</router-link>
+      <router-link to="/workout" class="px-3">Workout</router-link>
+      <router-link to="/calendar" class="px-3">Calendar</router-link>
+      <router-link to="/schedule" class="px-3">Schedule</router-link>
     </div>
   </nav>
+
   <router-view />
 </template>
 
@@ -58,6 +29,10 @@
 #nav {
   background-color: $black;
   min-height: 3rem;
+
+  h1 {
+    text-shadow: 0.2rem 0.1rem $primary-color;
+  }
 
   a {
     color: $white;
@@ -89,9 +64,9 @@
 .advice {
   background: linear-gradient($primary-color, $secondary-color);
   border-radius: 0 0 3rem 3rem;
+  color: $white;
 
-  p {
-    color: $white;
+  * {
     padding: 3rem;
   }
 }
@@ -110,21 +85,7 @@
   }
 
   &:hover {
-    background-color: #fdfdfd;
-  }
-}
-
-.my-btn-primary {
-  background-color: $primary-color;
-  border-color: $primary-color;
-  color: $white !important;
-  width: 100%;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 1rem;
-
-  &:hover {
-    background-color: $primary-color-hover;
+    background-color: $white-hover;
   }
 }
 
@@ -138,6 +99,20 @@
 
 .text-black {
   color: $black !important;
+}
+
+.my-btn-primary {
+  background-color: $primary-color;
+  border: none;
+  color: $white !important;
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: $primary-color-hover;
+  }
 }
 
 .my-link-primary {
@@ -154,20 +129,7 @@
 <script>
 import store from "@/store";
 import { firebase } from "@/firebase";
-
-firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    // User is signed in.
-    console.log(user.email);
-    store.currentUser = true;
-    console.log(store.currentUser);
-  } else {
-    // User is not signed in.
-    console.log("No user");
-    store.currentUser = false;
-    console.log(store.currentUser);
-  }
-});
+import { useRouter, useRoute } from "vue-router";
 
 export default {
   name: "app",
@@ -176,15 +138,26 @@ export default {
       store,
     };
   },
-  methods: {
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          this.$router.push({ name: "Welcome" });
-        });
-    },
+  setup() {
+    const router = useRouter();
+    const route = useRoute();
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (!user) {
+        // User is not signed in.
+        store.currentUser = "";
+        console.log(store.currentUser);
+        router.replace("/");
+      } else if (
+        route.path == "/" ||
+        route.path == "/login" ||
+        route.path == "/signup"
+      ) {
+        // User is signed in.
+        store.currentUser = user.email;
+        console.log(store.currentUser);
+        router.replace("/home");
+      }
+    });
   },
 };
 </script>

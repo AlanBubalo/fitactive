@@ -4,7 +4,16 @@
     <div class="title">Home</div>
   </div>
   <div class="advice text-center">
-    <p>Welcome, user</p>
+    <p>Welcome, {{}}</p>
+  </div>
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg col-md"></div>
+      <div class="col-lg col-md-6">
+        <button class="btn my-btn-primary" @click="logout">Log out</button>
+      </div>
+      <div class="col-lg col-md"></div>
+    </div>
   </div>
 </template>
 
@@ -20,11 +29,25 @@
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
+import { firebase } from "@/firebase";
 
 export default {
   name: "Home",
   components: {
     HeaderImage,
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("Logged out");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    },
   },
 };
 </script>
