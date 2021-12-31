@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import store from "@/store";
 
 const routes = [
   {
@@ -22,15 +23,49 @@ const routes = [
     component: () => import("@/views/SendPassword.vue"),
   },
   {
+    path: "/setupprofile",
+    name: "SetupProfile",
+    component: () => import("@/views/SetupProfile.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
+  {
     path: "/home",
     name: "Home",
     component: () => import("@/views/Home.vue"),
+    meta: {
+      needsUser: true,
+    },
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  console.log(
+    "Stara ruta je ",
+    from.name,
+    "Nova ruta je ",
+    to.name,
+    "korisnik: ",
+    store.currentUser
+  );
+
+  const noUser = store.currentUser === null;
+  /*
+  if (from.name == "SignUp") {
+      next("SetupProfile");
+    }
+  */
+  if (noUser && to.meta.needsUser) {
+    next("/");
+  } else {
+    next();
+  }
 });
 
 export default router;

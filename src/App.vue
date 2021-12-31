@@ -129,7 +129,27 @@
 <script>
 import store from "@/store";
 import { firebase } from "@/firebase";
-import { useRouter, useRoute } from "vue-router";
+import router from "@/router";
+
+firebase.auth().onAuthStateChanged(function (user) {
+  const currentRoute = router.currentRoute.value.name;
+  const needsUser = router.currentRoute.value.meta.needsUser;
+  if (user) {
+    // User is signed in.
+    store.currentUser = user.email;
+    console.log(store.currentUser);
+
+    if (!needsUser) {
+      console.log("eee");
+      router.push("/home");
+    }
+  } else {
+    // User is not signed in.
+    store.currentUser = "";
+    console.log("No user");
+    if (needsUser) router.push("/");
+  }
+});
 
 export default {
   name: "app",
@@ -137,27 +157,6 @@ export default {
     return {
       store,
     };
-  },
-  setup() {
-    const router = useRouter();
-    const route = useRoute();
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (!user) {
-        // User is not signed in.
-        store.currentUser = "";
-        console.log(store.currentUser);
-        router.replace("/");
-      } else if (
-        route.path == "/" ||
-        route.path == "/login" ||
-        route.path == "/signup"
-      ) {
-        // User is signed in.
-        store.currentUser = user.email;
-        console.log(store.currentUser);
-        router.replace("/home");
-      }
-    });
   },
 };
 </script>

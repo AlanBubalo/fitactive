@@ -10,6 +10,9 @@
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
+        <router-link class="my-link-primary" to="/setupprofile"
+          >Setup Profile</router-link
+        >
         <button class="btn my-btn-primary" @click="logout">Log out</button>
       </div>
       <div class="col-lg col-md"></div>
@@ -30,6 +33,7 @@
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase } from "@/firebase";
+import router from "@/router";
 
 export default {
   name: "Home",

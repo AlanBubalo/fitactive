@@ -91,6 +91,7 @@
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase } from "@/firebase";
+import router from "@/router";
 
 export default {
   name: "Signup",
