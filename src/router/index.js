@@ -29,6 +29,17 @@ const routes = [
     meta: {
       needsUser: true,
     },
+    beforeRouteLeave(to, from, next) {
+      const answer = confirm(
+        "Do you really want to leave? You have unsaved changes!"
+      );
+      console.log(answer);
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
+    },
   },
   {
     path: "/home",

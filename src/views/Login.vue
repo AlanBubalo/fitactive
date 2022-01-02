@@ -19,9 +19,6 @@
               placeholder="Enter email"
               required
             />
-            <!-- <small id="emailHelp" class="form-text text-muted"
-              >We'll never share your email with anyone else.</small
-            > -->
           </div>
           <div class="form-group my-2">
             <label for="exampleInputPassword1" class="py-1">Password</label>

@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="store.currentUser" id="nav" class="navbar p-0">
+  <nav v-if="false" id="nav" class="navbar p-0">
     <!-- FitActive Logo -->
     <div class="mr-auto text-white">
       <h1 class="fs-3 px-2 m-2 fw-bold">FitActive</h1>
@@ -31,7 +31,7 @@
   min-height: 3rem;
 
   h1 {
-    text-shadow: 0.2rem 0.1rem $primary-color;
+    text-shadow: 0.2rem 0.1rem $primary;
   }
 
   a {
@@ -40,9 +40,13 @@
     text-decoration: none;
 
     &.router-link-exact-active {
-      color: $primary-color;
+      color: $primary;
     }
   }
+}
+
+.bg-white {
+  background: $white;
 }
 
 .header-image {
@@ -57,12 +61,12 @@
     transform: translate(-50%, -50%);
     font-size: 4rem;
     font-weight: bold;
-    text-shadow: 0.4rem 0.2rem $primary-color;
+    text-shadow: 0.4rem 0.2rem $primary;
   }
 }
 
 .advice {
-  background: linear-gradient($primary-color, $secondary-color);
+  background: $gradient-primary-secondary;
   border-radius: 0 0 3rem 3rem;
   color: $white;
 
@@ -81,7 +85,7 @@
   background-color: $white;
 
   &:focus {
-    border-color: $primary-color;
+    border-color: $primary;
   }
 
   &:hover {
@@ -90,7 +94,7 @@
 }
 
 .text-primary {
-  color: $primary-color !important;
+  color: $primary !important;
 }
 
 .text-white {
@@ -101,8 +105,12 @@
   color: $black !important;
 }
 
-.my-btn-primary {
-  background-color: $primary-color;
+.bg-black {
+  background-color: $black;
+}
+
+.my-btn-black {
+  background-color: $black;
   border: none;
   color: $white !important;
   width: 100%;
@@ -111,17 +119,31 @@
   border-radius: 1rem;
 
   &:hover {
-    background-color: $primary-color-hover;
+    background-color: $black-hover;
+  }
+}
+
+.my-btn-primary {
+  background-color: $primary;
+  border: none;
+  color: $white !important;
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: $primary-hover;
   }
 }
 
 .my-link-primary {
-  color: $primary-color;
+  color: $primary;
   text-decoration: none;
   font-weight: bold;
 
   &:hover {
-    color: $primary-color-hover;
+    color: $primary-hover;
   }
 }
 </style>
@@ -131,16 +153,13 @@ import store from "@/store";
 import { firebase } from "@/firebase";
 import router from "@/router";
 
-firebase.auth().onAuthStateChanged(function (user) {
+firebase.auth().onAuthStateChanged(async (user) => {
   const currentRoute = router.currentRoute.value.name;
   const needsUser = router.currentRoute.value.meta.needsUser;
   if (user) {
     // User is signed in.
     store.currentUser = user.email;
-    console.log(store.currentUser);
-
     if (!needsUser) {
-      console.log("eee");
       router.push("/home");
     }
   } else {

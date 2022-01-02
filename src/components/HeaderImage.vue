@@ -21,7 +21,7 @@
     transform: translate(-50%, -50%);
     font-size: 4rem;
     font-weight: bold;
-    text-shadow: 0.4rem 0.2rem $primary-color;
+    text-shadow: 0.4rem 0.2rem $primary;
   }
 }
 
