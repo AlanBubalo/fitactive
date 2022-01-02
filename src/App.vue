@@ -45,12 +45,7 @@
   }
 }
 
-.bg-white {
-  background: $white;
-}
-
 .header-image {
-  color: $white;
   position: relative;
   text-align: center;
 
@@ -68,7 +63,6 @@
 .advice {
   background: $gradient-primary-secondary;
   border-radius: 0 0 3rem 3rem;
-  color: $white;
 
   * {
     padding: 3rem;
@@ -82,14 +76,11 @@
 }
 
 .form-control {
-  background-color: $white;
+  border: none;
+  background-color: $white !important;
 
   &:focus {
     border-color: $primary;
-  }
-
-  &:hover {
-    background-color: $white-hover;
   }
 }
 
@@ -105,35 +96,55 @@
   color: $black !important;
 }
 
+.bg-primary {
+  background-color: $primary !important;
+  color: $white !important;
+}
+
+.bg-secondary {
+  background-color: $secondary !important;
+  color: $white !important;
+}
+
 .bg-black {
-  background-color: $black;
+  background-color: $black !important;
+  color: $white !important;
 }
 
-.my-btn-black {
-  background-color: $black;
-  border: none;
-  color: $white !important;
+.bg-white {
+  background-color: $white !important;
+  color: $black !important;
+}
+
+.my-btn {
   width: 100%;
   padding: 1rem;
   margin: 1rem 0;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+}
+
+.small-btn-primary {
+  padding: 0.5rem 0;
+  width: 70px;
+  border-radius: 0.3rem;
+}
+
+.box-shadow {
+  position: relative;
+  transition: 0.4s ease-in-out;
+  z-index: 1;
 
   &:hover {
-    background-color: $black-hover;
+    box-shadow: 6px 6px 0px $black;
+    top: -2px;
+    left: -2px;
   }
-}
 
-.my-btn-primary {
-  background-color: $primary;
-  border: none;
-  color: $white !important;
-  width: 100%;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 1rem;
-
-  &:hover {
-    background-color: $primary-hover;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
   }
 }
 
@@ -146,6 +157,68 @@
     color: $primary-hover;
   }
 }
+
+/* Checkbox Container */
+.my-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    // Background of unchecked checkbox
+    background-color: $white;
+    border-radius: 5px;
+    transition: 0.3s background-color;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+
+      // Icon for checked checkbox
+      left: 8px;
+      top: 3px;
+      width: 4px;
+      height: 12px;
+      border: solid $white;
+      border-width: 0 2px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover span {
+    // Background of unchecked checkbox when hovered
+    background-color: darken($white, 5%);
+  }
+
+  input:checked {
+    ~ span {
+      // Background of checked checkbox
+      background-color: $primary;
+
+      &::after {
+        display: block;
+      }
+    }
+  }
+}
+/* hide default checkbox  */
+/* custom checkbox */
+/* the check icon */
+
+/**** Here's the trick ***/
 </style>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="header-image">
+  <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Sign Up</div>
   </div>
@@ -15,7 +15,7 @@
             <input
               type="name"
               v-model="username"
-              class="form-control"
+              class="form-control box-shadow"
               id="exampleInputName"
               aria-describedby="NameHelp"
               placeholder="Full Name"
@@ -27,7 +27,7 @@
             <input
               type="email"
               v-model="email"
-              class="form-control"
+              class="form-control box-shadow"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
@@ -41,7 +41,7 @@
             <input
               type="password"
               v-model="password"
-              class="form-control"
+              class="form-control box-shadow"
               id="exampleInputPassword1"
               placeholder="Password"
             />
@@ -53,12 +53,14 @@
             <input
               type="password"
               v-model="passwordConfirm"
-              class="form-control"
+              class="form-control box-shadow"
               id="exampleInputConfirmPassword1"
               placeholder="Confirm Password"
             />
           </div>
-          <button type="submit" class="btn my-btn-primary">Sign up</button>
+          <button type="submit" class="btn my-btn bg-primary box-shadow">
+            Sign up
+          </button>
         </form>
         <div class="d-flex justify-content-between bd-highlight">
           <p>

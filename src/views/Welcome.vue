@@ -1,16 +1,22 @@
 <template>
-  <div class="header-image">
-    <img class="img" alt="FitActive Logo" src="@/assets/welcome.jpg" />
-    <div class="title">Welcome to FitActive</div>
+  <div class="text-white">
+    <div class="header-image">
+      <img class="img" alt="FitActive Logo" src="@/assets/welcome.jpg" />
+      <div class="title">Welcome to FitActive</div>
+    </div>
+    <div class="advice text-center">
+      <p>"All progress takes place outside the comfort zone."</p>
+    </div>
   </div>
-  <div class="advice text-center">
-    <p>"All progress takes place outside the comfort zone."</p>
-  </div>
+
   <div class="container">
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6 text-center">
-        <router-link class="btn my-btn-primary" role="button" to="/login"
+        <router-link
+          class="btn my-btn bg-primary box-shadow"
+          role="button"
+          to="/login"
           >Log in</router-link
         >
         <p>

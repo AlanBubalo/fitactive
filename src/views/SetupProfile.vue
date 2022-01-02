@@ -1,5 +1,5 @@
 <template>
-  <div class="header-image">
+  <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Set up Your Profile</div>
   </div>
@@ -13,7 +13,7 @@
             <input
               type="text"
               v-model="name"
-              class="form-control"
+              class="form-control box-shadow"
               id="exampleInputName"
               placeholder="Enter your name"
               required
@@ -26,7 +26,7 @@
                 <input
                   type="number"
                   v-model="weight"
-                  class="form-control"
+                  class="form-control box-shadow"
                   id="exampleInputWeight"
                   placeholder=""
                   min="0"
@@ -40,7 +40,7 @@
                 <input
                   type="number"
                   v-model="height"
-                  class="form-control"
+                  class="form-control box-shadow"
                   id="exampleInputHeight"
                   placeholder=""
                   min="0"
@@ -54,7 +54,7 @@
                 <input
                   type="number"
                   v-model="age"
-                  class="form-control"
+                  class="form-control box-shadow"
                   id="exampleInputAge"
                   placeholder=""
                   min="0"
@@ -67,7 +67,7 @@
                 <label for="exampleInputGender" class="py-1">Gender</label>
                 <select
                   v-model="gender"
-                  class="form-select form-control"
+                  class="form-select form-control box-shadow"
                   id="exampleInputGender"
                   placeholder=""
                   name="gender"
@@ -78,7 +78,9 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="btn my-btn-primary">Save</button>
+          <button type="submit" class="btn my-btn bg-primary box-shadow">
+            Save
+          </button>
         </form>
       </div>
       <div class="col-lg col-md"></div>

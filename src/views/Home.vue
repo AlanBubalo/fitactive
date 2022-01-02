@@ -1,11 +1,14 @@
 <template>
-  <div class="header-image">
-    <img class="img" alt="FitActive Logo" src="@/assets/welcome.jpg" />
-    <div class="title">Home</div>
+  <div class="text-white">
+    <div class="header-image">
+      <img class="img" alt="FitActive Logo" src="@/assets/welcome.jpg" />
+      <div class="title">Home</div>
+    </div>
+    <div class="advice text-center">
+      <p>Welcome, {{}}</p>
+    </div>
   </div>
-  <div class="advice text-center">
-    <p>Welcome, {{}}</p>
-  </div>
+
   <div class="container p-4">
     <div class="row">
       <div class="col-lg col-md"></div>
@@ -13,7 +16,9 @@
         <router-link class="my-link-primary" to="/setupprofile"
           >Setup Profile</router-link
         >
-        <button class="btn my-btn-primary" @click="logout">Log out</button>
+        <button class="btn my-btn bg-primary box-shadow" @click="logout">
+          Log out
+        </button>
       </div>
       <div class="col-lg col-md"></div>
     </div>

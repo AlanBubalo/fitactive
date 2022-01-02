@@ -1,5 +1,5 @@
 <template>
-  <div class="header-image">
+  <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Log in</div>
   </div>
@@ -14,7 +14,7 @@
             <input
               type="email"
               v-model="email"
-              class="form-control"
+              class="form-control box-shadow"
               id="exampleInputEmail1"
               placeholder="Enter email"
               required
@@ -27,7 +27,7 @@
                 <input
                   :type="type"
                   v-model="password"
-                  class="form-control"
+                  class="form-control box-shadow"
                   id="exampleInputPassword1"
                   placeholder="Password"
                   required
@@ -35,7 +35,7 @@
               </div>
               <div class="bd-highlight ms-3">
                 <button
-                  class="btn small-btn-primary text-black"
+                  class="btn small-btn-primary bg-secondary box-shadow"
                   @click.prevent="showPassword"
                   type="button"
                 >
@@ -44,22 +44,26 @@
               </div>
             </div>
           </div>
-          <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember
-            me
+          <label class="my-checkbox">
+            <input type="checkbox" name="remember" />
+            <span></span>
+            Remember me
           </label>
-
-          <button type="submit" class="btn my-btn-primary">Log in</button>
+          <button type="submit" class="btn my-btn bg-primary box-shadow">
+            Log in
+          </button>
         </form>
         <div class="d-flex justify-content-between bd-highlight">
-          <router-link class="my-link-primary bd-highlight" to="/sendpassword"
+          <router-link
+            class="my-link-primary bd-highlight text-shadow"
+            to="/sendpassword"
             >Forgot password?</router-link
           >
           <p>
             Need an account?
             <router-link
               to="/signup"
-              class="my-link-primary bd-highlight"
+              class="my-link-primary bd-highlight text-shadow"
               replace
               >Sign up</router-link
             >
@@ -80,19 +84,6 @@
   object-fit: cover;
   object-position: 50% 70%;
   border-radius: 0 0 3rem 3rem;
-}
-
-.small-btn-primary {
-  background-color: $black;
-  border: none;
-  color: $white !important;
-  padding: 0.5rem 0;
-  width: 70px;
-  border-radius: 1rem;
-
-  &:hover {
-    background-color: $black-hover;
-  }
 }
 </style>
 

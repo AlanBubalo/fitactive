@@ -1,5 +1,5 @@
 <template>
-  <div class="header-image">
+  <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
     <div class="title"></div>
   </div>
@@ -15,7 +15,7 @@
             <input
               type="email"
               v-model="email"
-              class="form-control"
+              class="form-control box-shadow"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
@@ -27,7 +27,7 @@
           <button
             type="button"
             @click="sendPassword"
-            class="btn my-btn-primary"
+            class="btn my-btn bg-primary box-shadow"
           >
             Send
           </button>
