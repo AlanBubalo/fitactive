@@ -5,7 +5,7 @@
       <div class="title">Home</div>
     </div>
     <div class="advice text-center">
-      <p>Welcome, {{}}</p>
+      <p>Welcome, {{ userName }}</p>
     </div>
   </div>
 
@@ -37,15 +37,40 @@
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
-import { firebase } from "@/firebase";
+import store from "@/store";
+import { firebase, db } from "@/firebase";
 import router from "@/router";
 
 export default {
   name: "Home",
+  data() {
+    return {
+      userName: "",
+    };
+  },
   components: {
     HeaderImage,
   },
+  mounted() {
+    this.getName();
+  },
   methods: {
+    getName() {
+      db.collection("profile")
+        .doc(store.currentUser)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            this.userName = doc.data().name;
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
     logout() {
       firebase
         .auth()

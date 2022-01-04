@@ -214,11 +214,6 @@
     }
   }
 }
-/* hide default checkbox  */
-/* custom checkbox */
-/* the check icon */
-
-/**** Here's the trick ***/
 </style>
 
 <script>
@@ -232,12 +227,12 @@ firebase.auth().onAuthStateChanged(async (user) => {
   if (user) {
     // User is signed in.
     store.currentUser = user.email;
-    if (!needsUser) {
-      router.push("/home");
-    }
+    const currentUser = user.email;
+    if (!needsUser) router.push("/home");
   } else {
     // User is not signed in.
     store.currentUser = "";
+    const currentUser = null;
     console.log("No user");
     if (needsUser) router.push("/");
   }

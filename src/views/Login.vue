@@ -45,7 +45,7 @@
             </div>
           </div>
           <label class="my-checkbox">
-            <input type="checkbox" name="remember" />
+            <input type="checkbox" name="remember" v-model="rememberMe" />
             <span></span>
             Remember me
           </label>
@@ -101,26 +101,23 @@ export default {
       type: "password",
       btn_text: "Show",
       errorMessage: "",
+      rememberMe: false,
     };
   },
   components: {
     HeaderImage,
   },
   methods: {
-    login() {
-      firebase
+    async login() {
+      const persistence = this.rememberMe
+        ? firebase.auth.Auth.Persistence.LOCAL
+        : firebase.auth.Auth.Persistence.SESSION;
+
+      await firebase.auth().setPersistence(persistence);
+
+      return firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then((user) => {
-          console.log("Logged in.");
-        })
-        .catch((error) => {
-          var mes = error.message.slice(10);
-          var mesa = mes.split(" (auth");
-          this.errorMessage = mesa[0];
-          console.error(error);
-        });
-      console.log("Logging in...");
+        .signInWithEmailAndPassword(this.email, this.password);
     },
     showPassword() {
       this.type = this.type == "password" ? "text" : "password";

@@ -116,6 +116,7 @@ export default {
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(() => {
             console.log("Created an account!");
+            router.push("/SetupProfile");
           })
           .catch((error) => {
             var mes = error.message.slice(10);

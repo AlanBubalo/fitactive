@@ -70,7 +70,7 @@ export default {
         .sendPasswordResetEmail(this.email)
         .then(() => {
           // Password reset email sent!
-          alert("Password reset email sent!");
+          alert("Password reset email sent! Check your email account.");
         })
         .catch((error) => {
           var mes = error.message.slice(10);

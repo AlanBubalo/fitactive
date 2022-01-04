@@ -12,7 +12,7 @@
             <label for="exampleInputName" class="py-1">First Name</label>
             <input
               type="text"
-              v-model="name"
+              v-model="newName"
               class="form-control box-shadow"
               id="exampleInputName"
               placeholder="Enter your name"
@@ -25,7 +25,7 @@
                 <label for="exampleInputWeight" class="py-1">Weight (kg)</label>
                 <input
                   type="number"
-                  v-model="weight"
+                  v-model="newWeight"
                   class="form-control box-shadow"
                   id="exampleInputWeight"
                   placeholder=""
@@ -39,7 +39,7 @@
                 <label for="exampleInputHeight" class="py-1">Height (cm)</label>
                 <input
                   type="number"
-                  v-model="height"
+                  v-model="newHeight"
                   class="form-control box-shadow"
                   id="exampleInputHeight"
                   placeholder=""
@@ -53,7 +53,7 @@
                 <label for="exampleInputAge" class="py-1">Age</label>
                 <input
                   type="number"
-                  v-model="age"
+                  v-model="newAge"
                   class="form-control box-shadow"
                   id="exampleInputAge"
                   placeholder=""
@@ -66,7 +66,7 @@
               <div class="form-group my-2">
                 <label for="exampleInputGender" class="py-1">Gender</label>
                 <select
-                  v-model="gender"
+                  v-model="newGender"
                   class="form-select form-control box-shadow"
                   id="exampleInputGender"
                   placeholder=""
@@ -119,6 +119,7 @@
 
 <script>
 import { firebase, db } from "@/firebase";
+import store from "@/store";
 import router from "@/router";
 import colors from "@/colors.scss";
 
@@ -126,28 +127,55 @@ export default {
   name: "SetupProfile",
   data() {
     return {
-      name: null,
-      weight: null,
-      height: null,
-      age: null,
-      gender: null,
+      newName: null,
+      newWeight: null,
+      newHeight: null,
+      newAge: null,
+      newGender: null,
+      store,
     };
   },
-  /*
-  beforeCreate() {
-    this.$nextTick(() => {
-      document.querySelector("body").style.backgroundImage =
-        "linear-gradient(#f83e5f, #c560c1)";
-      document.querySelector("body").style.backgroundAttachment = "fixed";
-    });
+  mounted() {
+    this.getProfile();
   },
-  beforeDestroy() {
-    document.querySelector("body").style.backgroundColor = "#f8f8f8";
-  },
-  */
   methods: {
+    getProfile() {
+      db.collection("profile")
+        .doc(store.currentUser)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            this.newName = doc.data().name;
+            this.newWeight = doc.data().weight;
+            this.newHeight = doc.data().height;
+            this.newAge = doc.data().age;
+            this.newGender = doc.data().gender;
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
     save() {
-      router.push("/home");
+      db.collection("profile")
+        .doc(store.currentUser)
+        .set({
+          name: this.newName,
+          weight: this.newWeight,
+          height: this.newHeight,
+          age: this.newAge,
+          gender: this.newGender,
+        })
+        .then((doc) => {
+          console.log("Saved.");
+          router.push("/home");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
   },
 };
