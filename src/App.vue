@@ -1,15 +1,23 @@
 <template>
-  <nav v-if="false" id="nav" class="navbar p-0">
+  <nav id="nav" class="navbar p-0">
     <!-- FitActive Logo -->
     <div class="mr-auto text-white">
       <h1 class="fs-3 px-2 m-2 fw-bold">FitActive</h1>
     </div>
     <div>
-      <router-link to="/home" class="px-3">Home</router-link>
-      <router-link to="/cardio" class="px-3">Cardio</router-link>
-      <router-link to="/workout" class="px-3">Workout</router-link>
-      <router-link to="/calendar" class="px-3">Calendar</router-link>
-      <router-link to="/schedule" class="px-3">Schedule</router-link>
+      <div v-if="currentUser">
+        <router-link to="/home" class="px-3">Home</router-link>
+        <router-link to="/cardio" class="px-3">Cardio</router-link>
+        <router-link to="/workout" class="px-3">Workout</router-link>
+        <router-link to="/calendar" class="px-3">Calendar</router-link>
+        <router-link to="/schedule" class="px-3">Schedule</router-link>
+        <a href="#" @click.prevent="logout" class="px-3">Logout</a>
+      </div>
+      <div v-else>
+        <router-link to="/" class="px-3">Welcome</router-link>
+        <router-link to="/login" class="px-3">Login</router-link>
+        <router-link to="/signup" class="px-3">Signup</router-link>
+      </div>
     </div>
   </nav>
 
@@ -221,29 +229,43 @@ import store from "@/store";
 import { firebase } from "@/firebase";
 import router from "@/router";
 
-firebase.auth().onAuthStateChanged(async (user) => {
-  const currentRoute = router.currentRoute.value.name;
-  const needsUser = router.currentRoute.value.meta.needsUser;
-  if (user) {
-    // User is signed in.
-    store.currentUser = user.email;
-    const currentUser = user.email;
-    if (!needsUser) router.push("/home");
-  } else {
-    // User is not signed in.
-    store.currentUser = "";
-    const currentUser = null;
-    console.log("No user");
-    if (needsUser) router.push("/");
-  }
-});
-
 export default {
   name: "app",
   data() {
     return {
+      currentUser: null,
       store,
     };
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      const needsUser = router.currentRoute.value.meta.needsUser;
+      if (user) {
+        // User is signed in.
+        store.currentUser = user.email;
+        this.currentUser = user.email;
+        if (!needsUser) router.push("/home");
+      } else {
+        // User is not signed in.
+        store.currentUser = "";
+        this.currentUser = null;
+        console.log("No user");
+        if (needsUser) router.push("/");
+      }
+    });
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("Logged out");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    },
   },
 };
 </script>
