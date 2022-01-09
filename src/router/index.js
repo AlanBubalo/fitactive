@@ -37,6 +37,15 @@ const routes = [
       needsUser: true,
     },
   },
+
+  {
+    path: "/calendar",
+    name: "Calendar",
+    component: () => import("@/views/Calendar.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
 ];
 
 const router = createRouter({
