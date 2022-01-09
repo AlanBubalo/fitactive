@@ -1,24 +1,17 @@
 <template>
-  <div class="text-white">
-    <div class="header-image">
-      <img class="img" alt="FitActive Logo" src="@/assets/welcome.jpg" />
-      <div class="title">Home</div>
-    </div>
-    <div class="advice text-center">
-      <p>Welcome, {{ userName }}</p>
-    </div>
+  <div class="advice text-center text-white">
+    <p>Welcome, {{ userName }}</p>
   </div>
 
   <div class="container p-4">
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
-        <router-link class="my-link-primary" to="/setupprofile"
-          >Setup Profile</router-link
+        <router-link to="/setupprofile">
+          <button class="btn my-btn bg-primary box-shadow">
+            Setup Profile
+          </button></router-link
         >
-        <button class="btn my-btn bg-primary box-shadow" @click="logout">
-          Log out
-        </button>
       </div>
       <div class="col-lg col-md"></div>
     </div>
@@ -26,18 +19,34 @@
 </template>
 
 <style scoped lang="scss">
+@import "@/colors";
+
 .img {
   width: 100%;
   height: 600px;
   object-fit: cover;
   object-position: 50% 23%;
 }
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 0.4rem 0.2rem $primary;
+}
+
+.advice {
+  background: $gradient-primary-secondary;
+  border-radius: 0 0 2rem 2rem;
+
+  * {
+    padding: 1rem;
+  }
+}
 </style>
 
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
-import store from "@/store";
 import { firebase, db } from "@/firebase";
 import router from "@/router";
 
@@ -56,8 +65,9 @@ export default {
   },
   methods: {
     getName() {
+      const email = firebase.auth().currentUser.email;
       db.collection("profile")
-        .doc(store.currentUser)
+        .doc(email)
         .get()
         .then((doc) => {
           if (doc.exists) {

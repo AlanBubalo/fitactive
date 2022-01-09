@@ -21,7 +21,7 @@
         >
         <p>
           Getting started?
-          <router-link class="my-link-primary" to="/signup"
+          <router-link class="hover-left my-link-primary" to="/signup"
             >Sign up</router-link
           >
         </p>

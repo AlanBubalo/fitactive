@@ -1,26 +1,83 @@
 <template>
-  <nav id="nav" class="navbar p-0">
-    <!-- FitActive Logo -->
-    <div class="mr-auto text-white">
-      <h1 class="fs-3 px-2 m-2 fw-bold">FitActive</h1>
+  <nav id="nav" class="navbar navbar-expand-lg">
+    <router-link
+      to="/"
+      id="logo"
+      class="navbar-brand fs-2 px-2 mx-3 fw-bold text-white text-shadow-hover"
+      >FitActive</router-link
+    >
+    <button
+      class="btn navbar-toggler navbar-dark"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon navbar-dark"></span>
+    </button>
+
+    <div v-if="currentUser" class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <router-link
+            to="/cardio"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >CARDIO</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
+            to="/workout"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >WOURKOUT</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
+            to="/calendar"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >CALENDAR</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
+            to="/schedule"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >SCHEDULE</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            href="#"
+            @click.prevent="logout"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >LOGOUT</a
+          >
+        </li>
+      </ul>
     </div>
-    <div>
-      <div v-if="currentUser">
-        <router-link to="/home" class="px-3">Home</router-link>
-        <router-link to="/cardio" class="px-3">Cardio</router-link>
-        <router-link to="/workout" class="px-3">Workout</router-link>
-        <router-link to="/calendar" class="px-3">Calendar</router-link>
-        <router-link to="/schedule" class="px-3">Schedule</router-link>
-        <a href="#" @click.prevent="logout" class="px-3">Logout</a>
-      </div>
-      <div v-else>
-        <router-link to="/" class="px-3">Welcome</router-link>
-        <router-link to="/login" class="px-3">Login</router-link>
-        <router-link to="/signup" class="px-3">Signup</router-link>
-      </div>
+
+    <div v-else class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <router-link
+            to="/login"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >LOGIN</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
+            to="/signup"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >SIGNUP</router-link
+          >
+        </li>
+      </ul>
     </div>
   </nav>
-
   <router-view />
 </template>
 
@@ -37,10 +94,6 @@
 #nav {
   background-color: $black;
   min-height: 3rem;
-
-  h1 {
-    text-shadow: 0.2rem 0.1rem $primary;
-  }
 
   a {
     color: $white;
@@ -70,7 +123,7 @@
 
 .advice {
   background: $gradient-primary-secondary;
-  border-radius: 0 0 3rem 3rem;
+  border-radius: 0 0 2rem 2rem;
 
   * {
     padding: 3rem;
@@ -137,15 +190,31 @@
   border-radius: 0.3rem;
 }
 
+.text-shadow-hover {
+  position: relative;
+  transition: 0.3s ease-in-out;
+  z-index: 1;
+
+  &:hover,
+  &:focus {
+    text-shadow: 4px 3px 0px $primary;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+  }
+}
+
 .box-shadow {
   position: relative;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
   z-index: 1;
 
   &:hover {
-    box-shadow: 6px 6px 0px $black;
-    top: -2px;
-    left: -2px;
+    box-shadow: 5px 5px 0px $black;
   }
 
   &::before,
@@ -157,12 +226,33 @@
 }
 
 .my-link-primary {
-  color: $primary;
+  color: $primary !important;
   text-decoration: none;
   font-weight: bold;
+}
 
+.hover-left {
+  padding: 3px;
+  position: relative;
+  text-decoration: none;
+  color: $white;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $primary;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+  }
   &:hover {
-    color: $primary-hover;
+    &:after {
+      transform-origin: bottom left;
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -225,7 +315,6 @@
 </style>
 
 <script>
-import store from "@/store";
 import { firebase } from "@/firebase";
 import router from "@/router";
 
@@ -234,7 +323,6 @@ export default {
   data() {
     return {
       currentUser: null,
-      store,
     };
   },
   mounted() {
@@ -242,12 +330,10 @@ export default {
       const needsUser = router.currentRoute.value.meta.needsUser;
       if (user) {
         // User is signed in.
-        store.currentUser = user.email;
         this.currentUser = user.email;
         if (!needsUser) router.push("/home");
       } else {
         // User is not signed in.
-        store.currentUser = "";
         this.currentUser = null;
         console.log("No user");
         if (needsUser) router.push("/");

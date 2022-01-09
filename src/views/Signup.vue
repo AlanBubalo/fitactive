@@ -9,19 +9,6 @@
       <div class="col-lg col-md-6">
         <p class="text-primary">{{ errorMessage }}</p>
         <form @submit.prevent="signup">
-          <!--
-          <div class="form-group my-2">
-            <label for="exampleInputName" class="py-1">Full Name</label>
-            <input
-              type="name"
-              v-model="username"
-              class="form-control box-shadow"
-              id="exampleInputName"
-              aria-describedby="NameHelp"
-              placeholder="Full Name"
-            />
-          </div>
-          -->
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">Email address</label>
             <input
@@ -32,9 +19,6 @@
               aria-describedby="emailHelp"
               placeholder="Enter email"
             />
-            <!-- <small id="emailHelp" class="form-text text-muted"
-                >We'll never share your email with anyone else.</small
-              > -->
           </div>
           <div class="form-group my-2">
             <label for="exampleInputPassword1" class="py-1">Password</label>
@@ -67,7 +51,7 @@
             Already have an account?
             <router-link
               to="/login"
-              class="my-link-primary bd-highlight"
+              class="hover-left my-link-primary bd-highlight"
               replace
               >Log in</router-link
             >
@@ -125,6 +109,7 @@ export default {
             console.error(error);
           });
         console.log("Signing up...");
+        router.push("/setupprofile");
       } else {
         this.errorMessage = "Passwords do not match. Try again.";
       }

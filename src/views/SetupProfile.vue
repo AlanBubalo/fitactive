@@ -119,20 +119,23 @@
 
 <script>
 import { firebase, db } from "@/firebase";
-import store from "@/store";
 import router from "@/router";
-import colors from "@/colors.scss";
 
 export default {
   name: "SetupProfile",
   data() {
     return {
+      email: firebase.auth().currentUser.email,
       newName: null,
       newWeight: null,
       newHeight: null,
       newAge: null,
       newGender: null,
-      store,
+      oldName: null,
+      oldWeight: null,
+      oldHeight: null,
+      oldAge: null,
+      oldGender: null,
     };
   },
   mounted() {
@@ -141,7 +144,7 @@ export default {
   methods: {
     getProfile() {
       db.collection("profile")
-        .doc(store.currentUser)
+        .doc(this.email)
         .get()
         .then((doc) => {
           if (doc.exists) {
@@ -150,7 +153,17 @@ export default {
             this.newHeight = doc.data().height;
             this.newAge = doc.data().age;
             this.newGender = doc.data().gender;
+            this.oldName = this.newName;
+            this.oldWeight = this.newWeight;
+            this.oldHeight = this.newHeight;
+            this.oldAge = this.newAge;
+            this.oldGender = this.newGender;
           } else {
+            this.oldName = this.newName;
+            this.oldWeight = this.newWeight;
+            this.oldHeight = this.newHeight;
+            this.oldAge = this.newAge;
+            this.oldGender = this.newGender;
             // doc.data() will be undefined in this case
             console.log("No such document!");
           }
@@ -161,7 +174,7 @@ export default {
     },
     save() {
       db.collection("profile")
-        .doc(store.currentUser)
+        .doc(this.email)
         .set({
           name: this.newName,
           weight: this.newWeight,
@@ -177,6 +190,27 @@ export default {
           console.error(error);
         });
     },
+  },
+  beforeRouteLeave(to, from, next) {
+    if (
+      this.oldName != this.newName ||
+      this.oldWeight != this.newWeight ||
+      this.oldHeight != this.newHeight ||
+      this.oldAge != this.newAge ||
+      this.oldGender != this.newGender
+    ) {
+      const answer = window.confirm(
+        "Do you really want to leave? You have unsaved changes!"
+      );
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
+    } else {
+      console.log("Unchanged");
+      next();
+    }
   },
 };
 </script>

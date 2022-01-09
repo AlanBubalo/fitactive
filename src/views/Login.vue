@@ -54,16 +54,18 @@
           </button>
         </form>
         <div class="d-flex justify-content-between bd-highlight">
-          <router-link
-            class="my-link-primary bd-highlight text-shadow"
-            to="/sendpassword"
-            >Forgot password?</router-link
-          >
+          <p>
+            <router-link
+              class="hover-left my-link-primary bd-highlight"
+              to="/sendpassword"
+              >Forgot password?</router-link
+            >
+          </p>
           <p>
             Need an account?
             <router-link
               to="/signup"
-              class="my-link-primary bd-highlight text-shadow"
+              class="hover-left my-link-primary bd-highlight"
               replace
               >Sign up</router-link
             >

@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from "@/store";
 
 const routes = [
   {
@@ -29,17 +28,6 @@ const routes = [
     meta: {
       needsUser: true,
     },
-    beforeRouteLeave(to, from, next) {
-      const answer = confirm(
-        "Do you really want to leave? You have unsaved changes!"
-      );
-      console.log(answer);
-      if (answer) {
-        next();
-      } else {
-        next(false);
-      }
-    },
   },
   {
     path: "/home",
@@ -57,22 +45,15 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(
-    "Stara ruta je ",
-    from.name,
-    "Nova ruta je ",
-    to.name,
-    "korisnik: ",
-    store.currentUser
-  );
+  const authUser =
+    Object.keys(window.sessionStorage).filter((item) =>
+      item.startsWith("firebase:authUser")
+    )[0] != null
+      ? true
+      : false;
+  console.log("From", from.name, "to", to.name, "logged in:", authUser);
 
-  const noUser = store.currentUser === null;
-  /*
-  if (from.name == "SignUp") {
-      next("SetupProfile");
-    }
-  */
-  if (noUser && to.meta.needsUser) {
+  if (!authUser && to.meta.needsUser) {
     next("/");
   } else {
     next();
