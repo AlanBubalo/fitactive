@@ -125,7 +125,10 @@ export default {
   name: "SetupProfile",
   data() {
     return {
-      email: firebase.auth().currentUser.email,
+      email: window.sessionStorage
+        .getItem(Object.keys(window.sessionStorage))
+        .slice(47)
+        .split('"')[0],
       newName: null,
       newWeight: null,
       newHeight: null,
@@ -136,6 +139,7 @@ export default {
       oldHeight: null,
       oldAge: null,
       oldGender: null,
+      saved: false,
     };
   },
   mounted() {
@@ -184,6 +188,7 @@ export default {
         })
         .then((doc) => {
           console.log("Saved.");
+          this.saved = true;
           router.push("/home");
         })
         .catch((error) => {
@@ -192,7 +197,8 @@ export default {
     },
   },
   beforeRouteLeave(to, from, next) {
-    if (
+    if (this.saved) next();
+    else if (
       this.oldName != this.newName ||
       this.oldWeight != this.newWeight ||
       this.oldHeight != this.newHeight ||

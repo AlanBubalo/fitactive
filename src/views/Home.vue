@@ -54,6 +54,10 @@ export default {
   name: "Home",
   data() {
     return {
+      email: window.sessionStorage
+        .getItem(Object.keys(window.sessionStorage))
+        .slice(47)
+        .split('"')[0],
       userName: "",
     };
   },
@@ -65,9 +69,8 @@ export default {
   },
   methods: {
     getName() {
-      const email = firebase.auth().currentUser.email;
       db.collection("profile")
-        .doc(email)
+        .doc(this.email)
         .get()
         .then((doc) => {
           if (doc.exists) {

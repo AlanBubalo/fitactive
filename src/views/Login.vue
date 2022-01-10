@@ -44,11 +44,13 @@
               </div>
             </div>
           </div>
+          <!-- 
           <label class="my-checkbox">
             <input type="checkbox" name="remember" v-model="rememberMe" />
             <span></span>
             Remember me
           </label>
+          -->
           <button type="submit" class="btn my-btn bg-primary box-shadow">
             Log in
           </button>
@@ -111,15 +113,24 @@ export default {
   },
   methods: {
     async login() {
+      /*
       const persistence = this.rememberMe
         ? firebase.auth.Auth.Persistence.LOCAL
         : firebase.auth.Auth.Persistence.SESSION;
-
-      await firebase.auth().setPersistence(persistence);
-
-      return firebase
+      */
+      firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password);
+        .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(() => {
+          return firebase
+            .auth()
+            .signInWithEmailAndPassword(this.email, this.password);
+        })
+        .catch((error) => {
+          var mes = error.message.slice(10);
+          var mesa = mes.split(" (auth");
+          this.errorMessage = mesa[0];
+        });
     },
     showPassword() {
       this.type = this.type == "password" ? "text" : "password";

@@ -60,10 +60,13 @@ router.beforeEach((to, from, next) => {
     )[0] != null
       ? true
       : false;
+
   console.log("From", from.name, "to", to.name, "logged in:", authUser);
 
   if (!authUser && to.meta.needsUser) {
     next("/");
+  } else if (authUser && !to.meta.needsUser) {
+    next("/home");
   } else {
     next();
   }
