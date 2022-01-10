@@ -4,8 +4,8 @@
       to="/"
       id="logo"
       class="navbar-brand fs-2 px-2 mx-3 fw-bold text-white text-shadow-hover"
-      >FitActive</router-link
-    >
+      >FitActive
+    </router-link>
     <button
       class="btn navbar-toggler navbar-dark"
       type="button"
@@ -117,7 +117,7 @@
     transform: translate(-50%, -50%);
     font-size: 4rem;
     font-weight: bold;
-    text-shadow: 0.4rem 0.2rem $primary;
+    text-shadow: 0.4rem 0.3rem $primary;
   }
 }
 

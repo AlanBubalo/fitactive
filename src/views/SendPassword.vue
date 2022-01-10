@@ -24,6 +24,7 @@
               >We'll never share your email with anyone else.</small
             > -->
           </div>
+          <p class="text-primary">{{ errorMessage }}</p>
           <button
             type="button"
             @click="sendPassword"

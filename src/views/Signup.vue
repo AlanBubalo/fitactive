@@ -7,7 +7,6 @@
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
-        <p class="text-primary">{{ errorMessage }}</p>
         <form @submit.prevent="signup">
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">Email address</label>
@@ -42,6 +41,7 @@
               placeholder="Confirm Password"
             />
           </div>
+          <p class="text-primary">{{ errorMessage }}</p>
           <button type="submit" class="btn my-btn bg-primary box-shadow">
             Sign up
           </button>
