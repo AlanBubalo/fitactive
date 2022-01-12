@@ -84,17 +84,6 @@ export default {
           console.error(error);
         });
     },
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          console.log("Logged out");
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
-    },
   },
 };
 </script>
