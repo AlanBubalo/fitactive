@@ -20,8 +20,69 @@
         <div id="collapse1" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              This is some placeholder content for a horizontal collapse. It's
-              hidden by default and shown when triggered.
+              <img class="imgg" src="@/assets/full-body.jpg" />
+              <div class="row">
+                <div class="col">
+                  <h3 class="text-center">Beginner</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Intermediate</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Advanced</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -41,8 +102,71 @@
         <div id="collapse2" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              This is some placeholder content for a horizontal collapse. It's
-              hidden by default and shown when triggered.
+              <div class="row">
+                <div class="col">
+                  <h3 class="text-center">Beginner</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Abs</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Jumping Jacks</li>
+                    <li>Sit-Ups</li>
+                    <li>Leg Hold</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Intermediate</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Abs</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Jumping Jacks</li>
+                    <li>Sit-Ups</li>
+                    <li>Leg Hold</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Advanced</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Abs</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Jumping Jacks</li>
+                    <li>Sit-Ups</li>
+                    <li>Leg Hold</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -62,8 +186,72 @@
         <div id="collapse3" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              This is some placeholder content for a horizontal collapse. It's
-              hidden by default and shown when triggered.
+              <img class="img" src="@/assets/arms.jpg" />
+              <div class="row">
+                <div class="col">
+                  <h3 class="text-center">Beginner</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Arms</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Bench Press</li>
+                    <li>Pull-Ups</li>
+                    <li>Hammer Curls</li>
+                    <li>Standing Barbell Curl</li>
+                    <li>Push-Ups</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Intermediate</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Arms</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Bench Press</li>
+                    <li>Pull-Ups</li>
+                    <li>Hammer Curls</li>
+                    <li>Standing Barbell Curl</li>
+                    <li>Push-Ups</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Advanced</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Arms</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Bench Press</li>
+                    <li>Pull-Ups</li>
+                    <li>Hammer Curls</li>
+                    <li>Standing Barbell Curl</li>
+                    <li>Push-Ups</li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -83,8 +271,68 @@
         <div id="collapse4" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              This is some placeholder content for a horizontal collapse. It's
-              hidden by default and shown when triggered.
+              <div class="row">
+                <div class="col">
+                  <h3 class="text-center">Beginner</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Intermediate</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Advanced</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -104,8 +352,68 @@
         <div id="collapse5" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              This is some placeholder content for a horizontal collapse. It's
-              hidden by default and shown when triggered.
+              <div class="row">
+                <div class="col">
+                  <h3 class="text-center">Beginner</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Intermediate</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Advanced</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -125,8 +433,68 @@
         <div id="collapse6" class="panel-collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              This is some placeholder content for a horizontal collapse. It's
-              hidden by default and shown when triggered.
+              <div class="row">
+                <div class="col">
+                  <h3 class="text-center">Beginner</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Intermediate</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+                <div class="col">
+                  <h3 class="text-center">Advanced</h3>
+                  <h4 class="text-center pb-3">Warm up</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Squats</li>
+                    <li>Sit-Ups</li>
+                    <li>Push-Ups</li>
+                    <li>Pull-Ups</li>
+                    <li>Plank</li>
+                  </ol>
+                  <h4 class="text-center pb-3">Full Body</h4>
+                  <div>Exercises</div>
+                  <ol>
+                    <li>Leg stretch</li>
+                    <li>Jumping Jacks</li>
+                    <li>Mill</li>
+                    <li>Jogging</li>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -142,6 +510,22 @@
 
 <style scoped lang="scss">
 @import "@/colors";
+
+.img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 70%;
+  border-radius: 1rem;
+}
+
+.imgg {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 80%;
+  border-radius: 1rem;
+}
 
 .my-rounded {
   border: 1px solid lighten($black, 70%) !important;

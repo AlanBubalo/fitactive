@@ -22,6 +22,13 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link
+            to="/home"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >HOME</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
             to="/cardio"
             class="nav-link p-2 px-3 text-center hover-left"
             >CARDIO</router-link
@@ -48,15 +55,15 @@
             >SCHEDULE</router-link
           >
         </li>
-        <li class="nav-item">
-          <a
-            href="#"
-            @click.prevent="logout"
-            class="nav-link p-2 px-3 text-center hover-left"
-            >LOGOUT</a
-          >
-        </li>
       </ul>
+      <div class="logout">
+        <a
+          href="#"
+          @click.prevent="logout"
+          class="nav-link p-2 px-3 text-center hover-left"
+          >LOGOUT</a
+        >
+      </div>
     </div>
 
     <div v-else class="collapse navbar-collapse" id="navbarNav">
@@ -119,6 +126,10 @@
     font-weight: bold;
     text-shadow: 0.4rem 0.3rem $primary;
   }
+}
+
+.lougout {
+  margin-left: auto;
 }
 
 .advice {

@@ -50,12 +50,6 @@
             Remember me
           </label>
           -->
-          <p class="text-primary">{{ errorMessage }}</p>
-          <button type="submit" class="btn my-btn bg-primary box-shadow">
-            Log in
-          </button>
-        </form>
-        <div class="d-flex justify-content-between bd-highlight">
           <p>
             <router-link
               class="hover-left my-link-primary bd-highlight"
@@ -63,6 +57,12 @@
               >Forgot password?</router-link
             >
           </p>
+          <p class="text-primary">{{ errorMessage }}</p>
+          <button type="submit" class="btn my-btn bg-primary box-shadow">
+            Log in
+          </button>
+        </form>
+        <div class="d-flex justify-content-between bd-highlight">
           <p>
             Need an account?
             <router-link
@@ -105,7 +105,6 @@ export default {
       type: "password",
       btn_text: "Show",
       errorMessage: "",
-      rememberMe: false,
     };
   },
   components: {

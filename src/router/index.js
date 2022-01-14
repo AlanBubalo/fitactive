@@ -53,6 +53,15 @@ const routes = [
       needsUser: true,
     },
   },
+
+  {
+    path: "/cardio",
+    name: "Cardio",
+    component: () => import("@/views/Cardio.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
 ];
 
 const router = createRouter({

@@ -21,13 +21,26 @@
           </div>
           <div class="form-group my-2">
             <label for="exampleInputPassword1" class="py-1">Password</label>
-            <input
-              type="password"
-              v-model="password"
-              class="form-control box-shadow"
-              id="exampleInputPassword1"
-              placeholder="Password"
-            />
+            <div class="d-flex justify-content-between bd-highlight">
+              <div class="flex-grow-1 bd-highlight">
+                <input
+                  :type="type"
+                  v-model="password"
+                  class="form-control box-shadow"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="bd-highlight ms-3">
+                <button
+                  class="btn small-btn-primary bg-secondary box-shadow"
+                  @click.prevent="showPassword"
+                  type="button"
+                >
+                  {{ btn_text }}
+                </button>
+              </div>
+            </div>
           </div>
           <div class="form-group my-2">
             <label for="exampleInputConfirmPassword1" class="py-1"
@@ -89,6 +102,8 @@ export default {
       email: "",
       password: "",
       passwordConfirm: "",
+      type: "password",
+      btn_text: "Show",
       errorMessage: "",
     };
   },
@@ -100,7 +115,7 @@ export default {
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(() => {
             console.log("Created an account!");
-            router.push("/SetupProfile");
+            router.push("/setupprofile");
           })
           .catch((error) => {
             var mes = error.message.slice(10);
@@ -109,10 +124,13 @@ export default {
             console.error(error);
           });
         console.log("Signing up...");
-        router.push("/setupprofile");
       } else {
         this.errorMessage = "Passwords do not match. Try again.";
       }
+    },
+    showPassword() {
+      this.type = this.type == "password" ? "text" : "password";
+      this.btn_text = this.btn_text == "Show" ? "Hide" : "Show";
     },
   },
 };
