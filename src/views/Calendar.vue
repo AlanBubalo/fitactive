@@ -15,6 +15,22 @@
       <div class="col-lg col-md"></div>
     </div>
   </div>
+
+  <h2><b>Today</b></h2>
+
+  <div class="container p-1">
+    <div class="row">
+      <div class="col-sm col-sm"></div>
+      <div class="col-lg col-md-6">
+        <router-link to="/setupprofile">
+          <button class="btn my-btn bg-primary box-shadow">
+            Legs-B
+          </button></router-link
+        >
+      </div>
+      <div class="col-lg col-md"></div>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">

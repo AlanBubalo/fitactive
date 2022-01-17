@@ -20,7 +20,7 @@
         <div id="collapse1" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              <img class="imgg" src="@/assets/full-body.jpg" />
+              <img class="img1" src="@/assets/full-body.jpg" />
               <div class="row">
                 <div class="col">
                   <h3 class="text-center">Beginner</h3>
@@ -102,6 +102,7 @@
         <div id="collapse2" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
+              <img class="img2" src="@/assets/abs.jpg" />
               <div class="row">
                 <div class="col">
                   <h3 class="text-center">Beginner</h3>
@@ -186,7 +187,7 @@
         <div id="collapse3" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
-              <img class="img" src="@/assets/arms.jpg" />
+              <img class="img3" src="@/assets/arms.jpg" />
               <div class="row">
                 <div class="col">
                   <h3 class="text-center">Beginner</h3>
@@ -271,6 +272,7 @@
         <div id="collapse4" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
+              <img class="img4" src="@/assets/chest.jpg" />
               <div class="row">
                 <div class="col">
                   <h3 class="text-center">Beginner</h3>
@@ -352,6 +354,7 @@
         <div id="collapse5" class="panel-collapse collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
+              <img class="img5" src="@/assets/legs.jpg" />
               <div class="row">
                 <div class="col">
                   <h3 class="text-center">Beginner</h3>
@@ -433,6 +436,7 @@
         <div id="collapse6" class="panel-collapse">
           <div class="panel-body">
             <div class="card card-body bg-gradient my-border-color">
+              <img class="img6" src="@/assets/back.jpg" />
               <div class="row">
                 <div class="col">
                   <h3 class="text-center">Beginner</h3>
@@ -511,7 +515,7 @@
 <style scoped lang="scss">
 @import "@/colors";
 
-.img {
+.img1 {
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -519,11 +523,43 @@
   border-radius: 1rem;
 }
 
-.imgg {
+.img2 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 1rem;
+}
+
+.img3 {
   width: 100%;
   height: 300px;
   object-fit: cover;
   object-position: 50% 80%;
+  border-radius: 1rem;
+}
+
+.img4 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 80%;
+  border-radius: 1rem;
+}
+
+.img5 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 100%;
+  border-radius: 1rem;
+}
+
+.img6 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 10%;
   border-radius: 1rem;
 }
 

@@ -48,13 +48,6 @@
             >CALENDAR</router-link
           >
         </li>
-        <li class="nav-item">
-          <router-link
-            to="/schedule"
-            class="nav-link p-2 px-3 text-center hover-left"
-            >SCHEDULE</router-link
-          >
-        </li>
       </ul>
       <div class="logout">
         <a
