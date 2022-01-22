@@ -7,6 +7,12 @@
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
+        <div v-if="isSent" class="alert alert-success" role="alert">
+          Password reset email sent! Check your email account.
+        </div>
+        <div v-if="errorMessage" class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
         <h2>Forgot Password?</h2>
         <p>Your password will be sent to your email account.</p>
         <form class="my-4">
@@ -24,14 +30,26 @@
               >We'll never share your email with anyone else.</small
             > -->
           </div>
-          <p class="text-primary">{{ errorMessage }}</p>
-          <button
-            type="button"
-            @click="sendPassword"
-            class="btn my-btn bg-primary box-shadow"
-          >
-            Send
-          </button>
+          <div v-if="!isLoading">
+            <button
+              type="button"
+              @click="sendPassword"
+              class="btn my-btn bg-primary box-shadow"
+            >
+              Send
+            </button>
+          </div>
+          <div v-else>
+            <button
+              type="submit"
+              class="btn my-btn bg-primary disabled box-shadow"
+            >
+              <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              Sending...
+            </button>
+          </div>
         </form>
       </div>
       <div class="col-lg col-md"></div>
@@ -59,6 +77,8 @@ export default {
     return {
       email: "",
       errorMessage: "",
+      isLoading: false,
+      isSent: false,
     };
   },
   components: {
@@ -66,14 +86,18 @@ export default {
   },
   methods: {
     sendPassword() {
+      this.isLoading = true;
+      this.isSent = false;
       firebase
         .auth()
         .sendPasswordResetEmail(this.email)
         .then(() => {
           // Password reset email sent!
-          alert("Password reset email sent! Check your email account.");
+          this.isLoading = false;
+          this.isSent = true;
         })
         .catch((error) => {
+          this.isLoading = false;
           var mes = error.message.slice(10);
           var mesa = mes.split(" (auth");
           this.errorMessage = mesa[0];

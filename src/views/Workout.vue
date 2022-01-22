@@ -1,519 +1,438 @@
 <template>
   <div
     v-if="!this.isMobileDevice()"
-    class="container p-4 bg-white mt-4 my-rounded"
+    class="container p-4 bg-white my-4 my-rounded"
   >
     <h2 class="text-shadow">Focus Area:</h2>
-    <div class="panel-group" id="accordion">
-      <div class="panel panel-default box-shadow my-3">
-        <div class="panel-heading">
-          <button
-            class="btn my-btn bg-primary m-0 panel-title"
-            type="button"
-            data-toggle="collapse"
-            data-parent="#accordion"
-            href="#collapse1"
-          >
-            <h4>Full Body</h4>
-          </button>
-        </div>
-        <div id="collapse1" class="panel-collapse collapse">
-          <div class="panel-body">
-            <div class="card card-body bg-gradient my-border-color">
-              <img class="img1" src="@/assets/full-body.jpg" />
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Beginner</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Intermediate</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Advanced</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+    <ul class="nav nav-pills nav-fill">
+      <li>
+        <a class="nav-link active" data-toggle="tab" href="#fullbody"
+          >Full body</a
+        >
+      </li>
+      <li><a class="nav-link" data-toggle="tab" href="#abs">Abs</a></li>
+      <li><a class="nav-link" data-toggle="tab" href="#arms">Arms</a></li>
+      <li><a class="nav-link" data-toggle="tab" href="#chest">Chest</a></li>
+      <li><a class="nav-link" data-toggle="tab" href="#legs">Legs</a></li>
+      <li><a class="nav-link" data-toggle="tab" href="#back">Back</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="fullbody" class="tab-pane fade in show active">
+        <img class="img1" src="@/assets/full-body.jpg" />
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Beginner</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Intermediate</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Advanced</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
           </div>
         </div>
       </div>
-      <div class="panel panel-default box-shadow my-3">
-        <div class="panel-heading">
-          <button
-            class="btn my-btn bg-primary m-0 panel-title"
-            type="button"
-            data-toggle="collapse"
-            data-parent="#accordion"
-            href="#collapse2"
-          >
-            <h4>Abs</h4>
-          </button>
-        </div>
-        <div id="collapse2" class="panel-collapse collapse">
-          <div class="panel-body">
-            <div class="card card-body bg-gradient my-border-color">
-              <img class="img2" src="@/assets/abs.jpg" />
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Beginner</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Abs</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Jumping Jacks</li>
-                    <li>Sit-Ups</li>
-                    <li>Leg Hold</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Intermediate</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Abs</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Jumping Jacks</li>
-                    <li>Sit-Ups</li>
-                    <li>Leg Hold</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Advanced</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Abs</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Jumping Jacks</li>
-                    <li>Sit-Ups</li>
-                    <li>Leg Hold</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+      <div id="abs" class="tab-pane fade">
+        <img class="img2" src="@/assets/abs.jpg" />
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Beginner</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Abs</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Jumping Jacks</li>
+              <li>Sit-Ups</li>
+              <li>Leg Hold</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Intermediate</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Abs</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Jumping Jacks</li>
+              <li>Sit-Ups</li>
+              <li>Leg Hold</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Advanced</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Abs</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Jumping Jacks</li>
+              <li>Sit-Ups</li>
+              <li>Leg Hold</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
           </div>
         </div>
       </div>
-      <div class="panel panel-default box-shadow my-3">
-        <div class="panel-heading">
-          <button
-            class="btn my-btn bg-primary m-0 panel-title"
-            type="button"
-            data-toggle="collapse"
-            data-parent="#accordion"
-            href="#collapse3"
-          >
-            <h4>Arms</h4>
-          </button>
-        </div>
-        <div id="collapse3" class="panel-collapse collapse">
-          <div class="panel-body">
-            <div class="card card-body bg-gradient my-border-color">
-              <img class="img3" src="@/assets/arms.jpg" />
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Beginner</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Arms</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Bench Press</li>
-                    <li>Pull-Ups</li>
-                    <li>Hammer Curls</li>
-                    <li>Standing Barbell Curl</li>
-                    <li>Push-Ups</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Intermediate</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Arms</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Bench Press</li>
-                    <li>Pull-Ups</li>
-                    <li>Hammer Curls</li>
-                    <li>Standing Barbell Curl</li>
-                    <li>Push-Ups</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Advanced</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Arms</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Bench Press</li>
-                    <li>Pull-Ups</li>
-                    <li>Hammer Curls</li>
-                    <li>Standing Barbell Curl</li>
-                    <li>Push-Ups</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+      <div id="arms" class="tab-pane fade">
+        <img class="img3" src="@/assets/arms.jpg" />
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Beginner</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Arms</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Bench Press</li>
+              <li>Pull-Ups</li>
+              <li>Hammer Curls</li>
+              <li>Standing Barbell Curl</li>
+              <li>Push-Ups</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Intermediate</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Arms</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Bench Press</li>
+              <li>Pull-Ups</li>
+              <li>Hammer Curls</li>
+              <li>Standing Barbell Curl</li>
+              <li>Push-Ups</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Advanced</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Arms</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Bench Press</li>
+              <li>Pull-Ups</li>
+              <li>Hammer Curls</li>
+              <li>Standing Barbell Curl</li>
+              <li>Push-Ups</li>
+            </ol>
           </div>
         </div>
       </div>
-      <div class="panel panel-default box-shadow my-3">
-        <div class="panel-heading">
-          <button
-            class="btn my-btn bg-primary m-0 panel-title"
-            type="button"
-            data-toggle="collapse"
-            data-parent="#accordion"
-            href="#collapse4"
-          >
-            <h4>Chest</h4>
-          </button>
-        </div>
-        <div id="collapse4" class="panel-collapse collapse">
-          <div class="panel-body">
-            <div class="card card-body bg-gradient my-border-color">
-              <img class="img4" src="@/assets/chest.jpg" />
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Beginner</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Intermediate</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Advanced</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+      <div id="chest" class="tab-pane fade">
+        <img class="img4" src="@/assets/chest.jpg" />
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Beginner</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Intermediate</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Advanced</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
           </div>
         </div>
       </div>
-      <div class="panel panel-default box-shadow my-3">
-        <div class="panel-heading">
-          <button
-            class="btn my-btn bg-primary m-0 panel-title"
-            type="button"
-            data-toggle="collapse"
-            data-parent="#accordion"
-            href="#collapse5"
-          >
-            <h4>Legs</h4>
-          </button>
-        </div>
-        <div id="collapse5" class="panel-collapse collapse">
-          <div class="panel-body">
-            <div class="card card-body bg-gradient my-border-color">
-              <img class="img5" src="@/assets/legs.jpg" />
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Beginner</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Intermediate</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Advanced</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+      <div id="legs" class="tab-pane fade">
+        <img class="img5" src="@/assets/legs.jpg" />
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Beginner</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Intermediate</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Advanced</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
           </div>
         </div>
       </div>
-      <div class="panel panel-default box-shadow m-0 my-3">
-        <div class="panel-heading">
-          <button
-            class="btn my-btn bg-primary m-0 panel-title"
-            type="button"
-            data-toggle="collapse"
-            data-parent="#accordion"
-            href="#collapse6"
-          >
-            <h4>Back</h4>
-          </button>
-        </div>
-        <div id="collapse6" class="panel-collapse">
-          <div class="panel-body">
-            <div class="card card-body bg-gradient my-border-color">
-              <img class="img6" src="@/assets/back.jpg" />
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Beginner</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Intermediate</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Advanced</h3>
-                  <h4 class="text-center pb-3">Warm up</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Squats</li>
-                    <li>Sit-Ups</li>
-                    <li>Push-Ups</li>
-                    <li>Pull-Ups</li>
-                    <li>Plank</li>
-                  </ol>
-                  <h4 class="text-center pb-3">Full Body</h4>
-                  <div>Exercises</div>
-                  <ol>
-                    <li>Leg stretch</li>
-                    <li>Jumping Jacks</li>
-                    <li>Mill</li>
-                    <li>Jogging</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+      <div id="back" class="tab-pane fade">
+        <img class="img6" src="@/assets/back.jpg" />
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Beginner</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Intermediate</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Advanced</h3>
+            <h4 class="text-center pb-3">Warm up</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Squats</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Pull-Ups</li>
+              <li>Plank</li>
+            </ol>
+            <h4 class="text-center pb-3">Full Body</h4>
+            <div>Exercises</div>
+            <ol>
+              <li>Leg stretch</li>
+              <li>Jumping Jacks</li>
+              <li>Mill</li>
+              <li>Jogging</li>
+            </ol>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-lg col-md"></div>
-      <div class="col-lg col-md-6"></div>
-      <div class="col-lg col-md"></div>
     </div>
   </div>
+  <div v-else>Mobile!!</div>
 </template>
 
 <style scoped lang="scss">
 @import "@/colors";
+
+.nav-pills {
+  & .nav-link {
+    color: $black;
+  }
+  & .nav-link.active {
+    color: $white;
+    background-color: $primary !important;
+  }
+  & > * {
+    padding: 0.25rem 0.5rem;
+  }
+}
 
 .img1 {
   width: 100%;

@@ -7,6 +7,9 @@
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
+        <div v-if="errorMessage" class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
         <form @submit.prevent="signup">
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">Email address</label>
@@ -54,10 +57,22 @@
               placeholder="Confirm Password"
             />
           </div>
-          <p class="text-primary">{{ errorMessage }}</p>
-          <button type="submit" class="btn my-btn bg-primary box-shadow">
-            Sign up
-          </button>
+          <div v-if="!isLoading">
+            <button type="submit" class="btn my-btn bg-primary box-shadow">
+              Sign in
+            </button>
+          </div>
+          <div v-else>
+            <button
+              type="submit"
+              class="btn my-btn bg-primary disabled box-shadow"
+            >
+              <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              Signing up...
+            </button>
+          </div>
         </form>
         <div class="d-flex justify-content-between bd-highlight">
           <p>
@@ -105,11 +120,13 @@ export default {
       type: "password",
       btn_text: "Show",
       errorMessage: "",
+      isLoading: false,
     };
   },
   methods: {
     signup() {
       if (this.password === this.passwordConfirm) {
+        this.isLoading = true;
         firebase
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
@@ -118,6 +135,7 @@ export default {
             router.push("/setupprofile");
           })
           .catch((error) => {
+            this.isLoading = false;
             var mes = error.message.slice(10);
             var mesa = mes.split(" (auth");
             this.errorMessage = mesa[0];

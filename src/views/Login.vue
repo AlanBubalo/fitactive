@@ -7,6 +7,9 @@
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
+        <div v-if="errorMessage" class="alert alert-danger" role="alert">
+          {{ errorMessage }}
+        </div>
         <form @submit.prevent="login">
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">Email address</label>
@@ -57,10 +60,22 @@
               >Forgot password?</router-link
             >
           </p>
-          <p class="text-primary">{{ errorMessage }}</p>
-          <button type="submit" class="btn my-btn bg-primary box-shadow">
-            Log in
-          </button>
+          <div v-if="!isLoading">
+            <button type="submit" class="btn my-btn bg-primary box-shadow">
+              Log in
+            </button>
+          </div>
+          <div v-else>
+            <button
+              type="submit"
+              class="btn my-btn bg-primary disabled box-shadow"
+            >
+              <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              Logging in...
+            </button>
+          </div>
         </form>
         <div class="d-flex justify-content-between bd-highlight">
           <p>
@@ -105,6 +120,7 @@ export default {
       type: "password",
       btn_text: "Show",
       errorMessage: "",
+      isLoading: false,
     };
   },
   components: {
@@ -117,6 +133,7 @@ export default {
         ? firebase.auth.Auth.Persistence.LOCAL
         : firebase.auth.Auth.Persistence.SESSION;
       */
+      this.isLoading = true;
       firebase
         .auth()
         .setPersistence(firebase.auth.Auth.Persistence.SESSION)
@@ -126,6 +143,7 @@ export default {
             .signInWithEmailAndPassword(this.email, this.password);
         })
         .catch((error) => {
+          this.isLoading = false;
           var mes = error.message.slice(10);
           var mesa = mes.split(" (auth");
           this.errorMessage = mesa[0];
