@@ -59,8 +59,12 @@
       </div>
     </div>
 
-    <div v-else class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
+    <div
+      v-else
+      class="collapse navbar-collapse d-flex justify-content-end"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav">
         <li class="nav-item">
           <router-link
             to="/login"
@@ -121,7 +125,7 @@
   }
 }
 
-.lougout {
+.logout {
   margin-left: auto;
 }
 
@@ -233,6 +237,11 @@
     content: "";
     z-index: -1;
   }
+}
+
+.my-rounded {
+  border: 1px solid lighten($black, 70%) !important;
+  border-radius: 0.5rem;
 }
 
 .my-link-primary {

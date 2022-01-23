@@ -482,11 +482,6 @@
   border-radius: 1rem;
 }
 
-.my-rounded {
-  border: 1px solid lighten($black, 70%) !important;
-  border-radius: 0.5rem;
-}
-
 .panel-default {
   //border-color: green !important;
   border-radius: 0.5rem 0.5rem 0rem 0rem !important;
