@@ -20,7 +20,7 @@
       <div id="fullbody" class="tab-pane fade in show active">
         <img class="img1" src="@/assets/full-body.jpg" />
         <div class="row">
-          <div class="col">
+          <div class="col p-1">
             <h3 class="text-center">Beginner</h3>
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
@@ -40,7 +40,7 @@
               <li>Jogging</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col p-1">
             <h3 class="text-center">Intermediate</h3>
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
@@ -60,7 +60,7 @@
               <li>Jogging</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col p-1">
             <h3 class="text-center">Advanced</h3>
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>

@@ -8,6 +8,14 @@
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6">
         <form @submit.prevent="save">
+          <div class="profile-pic">
+            <label class="-label" for="file">
+              <span class="glyphicon glyphicon-camera"></span>
+              <span>Change Profile Picture</span>
+            </label>
+            <input id="file" type="file" onchange="loadFile(event)" />
+            <img src="@/assets/male.png" id="output" />
+          </div>
           <div class="form-group my-2">
             <label for="exampleInputName" class="py-1">First Name</label>
             <input
@@ -91,6 +99,77 @@
 <style scoped lang="scss">
 @import "@/colors";
 
+@mixin object-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$circleSize: 165px;
+$radius: 100px;
+$shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+$fontColor: rgb(250, 250, 250);
+
+.profile-pic {
+  color: transparent;
+  transition: all 0.3s ease;
+  @include object-center;
+  position: relative;
+  transition: all 0.3s ease;
+
+  input {
+    display: none;
+  }
+
+  img {
+    position: absolute;
+    object-fit: cover;
+    width: $circleSize;
+    height: $circleSize;
+    box-shadow: $shadow;
+    border-radius: $radius;
+    z-index: 0;
+  }
+
+  .-label {
+    cursor: pointer;
+    height: $circleSize;
+    width: $circleSize;
+  }
+
+  &:hover {
+    .-label {
+      @include object-center;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      color: $fontColor;
+      transition: background-color 0.2s ease-in-out;
+      border-radius: $radius;
+      margin-bottom: 0;
+    }
+  }
+
+  span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+  }
+}
+
+/////////////////////////
+// Body styling 🐾
+/////////---------->
+
+body {
+  height: 100vh;
+  background-color: rgb(25, 24, 21);
+  @include object-center;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 .bg-gradient {
   background-color: $secondary !important;
 }
@@ -101,6 +180,10 @@
   object-fit: cover;
   object-position: 50% 70%;
   border-radius: 0 0 3rem 3rem;
+}
+
+.profile {
+  height: 75px;
 }
 
 .small-btn-primary {
@@ -120,6 +203,11 @@
 <script>
 import { firebase, db } from "@/firebase";
 import router from "@/router";
+
+var loadFile = function (event) {
+  var image = document.getElementById("output");
+  image.src = URL.createObjectURL(event.target.files[0]);
+};
 
 export default {
   name: "SetupProfile",
