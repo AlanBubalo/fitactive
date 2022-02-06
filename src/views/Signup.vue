@@ -104,7 +104,7 @@
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
-import { firebase } from "@/firebase";
+import { firebase, db } from "@/firebase";
 import router from "@/router";
 
 export default {
@@ -132,7 +132,18 @@ export default {
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(() => {
             console.log("Created an account!");
-            router.push("/setupprofile");
+            db.collection("waterIntake")
+              .doc(this.email)
+              .set({
+                glassesDrank: 0,
+                glassesTotal: 10,
+              })
+              .then((doc) => {
+                router.push("/setupprofile");
+              })
+              .catch((error) => {
+                console.error(error);
+              });
           })
           .catch((error) => {
             this.isLoading = false;

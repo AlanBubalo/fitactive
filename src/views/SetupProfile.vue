@@ -235,6 +235,11 @@ export default {
   },
   methods: {
     getProfile() {
+      this.oldName = this.newName;
+      this.oldWeight = this.newWeight;
+      this.oldHeight = this.newHeight;
+      this.oldAge = this.newAge;
+      this.oldGender = this.newGender;
       db.collection("profile")
         .doc(this.email)
         .get()
@@ -245,17 +250,7 @@ export default {
             this.newHeight = doc.data().height;
             this.newAge = doc.data().age;
             this.newGender = doc.data().gender;
-            this.oldName = this.newName;
-            this.oldWeight = this.newWeight;
-            this.oldHeight = this.newHeight;
-            this.oldAge = this.newAge;
-            this.oldGender = this.newGender;
           } else {
-            this.oldName = this.newName;
-            this.oldWeight = this.newWeight;
-            this.oldHeight = this.newHeight;
-            this.oldAge = this.newAge;
-            this.oldGender = this.newGender;
             // doc.data() will be undefined in this case
             console.log("No such document!");
           }

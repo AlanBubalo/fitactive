@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-
+console.log("index");
 const routes = [
   {
     path: "/",
@@ -38,6 +38,14 @@ const routes = [
     },
   },
   {
+    path: "/settings",
+    name: "Settings",
+    component: () => import("@/views/Settings.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
+  {
     path: "/calendar",
     name: "Calendar",
     component: () => import("@/views/Calendar.vue"),
@@ -53,7 +61,6 @@ const routes = [
       needsUser: true,
     },
   },
-
   {
     path: "/cardio",
     name: "Cardio",

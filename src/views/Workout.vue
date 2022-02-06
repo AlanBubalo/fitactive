@@ -3,20 +3,32 @@
     v-if="!this.isMobileDevice()"
     class="container p-4 bg-white my-4 my-rounded"
   >
-    <h2 class="text-shadow">Focus Area:</h2>
-    <ul class="nav nav-pills nav-fill">
-      <li>
-        <a class="nav-link active" data-toggle="tab" href="#fullbody"
+    <h4>Focus Area:</h4>
+    <ul
+      class="nav nav-pills nav-fill d-flex justify-content-between text-center mt-4"
+    >
+      <li class="col p-0">
+        <a class="nav-link active" data-bs-toggle="tab" href="#fullbody"
           >Full body</a
         >
       </li>
-      <li><a class="nav-link" data-toggle="tab" href="#abs">Abs</a></li>
-      <li><a class="nav-link" data-toggle="tab" href="#arms">Arms</a></li>
-      <li><a class="nav-link" data-toggle="tab" href="#chest">Chest</a></li>
-      <li><a class="nav-link" data-toggle="tab" href="#legs">Legs</a></li>
-      <li><a class="nav-link" data-toggle="tab" href="#back">Back</a></li>
+      <li class="col-4 col-md p-0">
+        <a class="nav-link" data-bs-toggle="tab" href="#abs">Abs</a>
+      </li>
+      <li class="col-4 col-md p-0">
+        <a class="nav-link" data-bs-toggle="tab" href="#arms">Arms</a>
+      </li>
+      <li class="col-4 col-md p-0">
+        <a class="nav-link" data-bs-toggle="tab" href="#chest">Chest</a>
+      </li>
+      <li class="col-4 col-md p-0">
+        <a class="nav-link" data-bs-toggle="tab" href="#legs">Legs</a>
+      </li>
+      <li class="col-4 col-md p-0">
+        <a class="nav-link" data-bs-toggle="tab" href="#back">Back</a>
+      </li>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content mt-1">
       <div id="fullbody" class="tab-pane fade in show active">
         <img class="img1" src="@/assets/full-body.jpg" />
         <div class="row">
@@ -425,6 +437,9 @@
   & .nav-link {
     color: $black;
   }
+  & .nav-link:hover {
+    background-color: #dadada !important;
+  }
   & .nav-link.active {
     color: $white;
     background-color: $primary !important;
@@ -434,12 +449,15 @@
   }
 }
 
+img {
+  border-radius: 0.5rem;
+}
+
 .img1 {
   width: 100%;
   height: 300px;
   object-fit: cover;
   object-position: 50% 70%;
-  border-radius: 1rem;
 }
 
 .img2 {
@@ -447,7 +465,6 @@
   height: 300px;
   object-fit: cover;
   object-position: 50% 50%;
-  border-radius: 1rem;
 }
 
 .img3 {
@@ -455,7 +472,6 @@
   height: 300px;
   object-fit: cover;
   object-position: 50% 80%;
-  border-radius: 1rem;
 }
 
 .img4 {
@@ -463,7 +479,6 @@
   height: 300px;
   object-fit: cover;
   object-position: 50% 80%;
-  border-radius: 1rem;
 }
 
 .img5 {
@@ -471,7 +486,6 @@
   height: 300px;
   object-fit: cover;
   object-position: 50% 100%;
-  border-radius: 1rem;
 }
 
 .img6 {
@@ -479,7 +493,6 @@
   height: 300px;
   object-fit: cover;
   object-position: 50% 10%;
-  border-radius: 1rem;
 }
 
 .panel-default {
