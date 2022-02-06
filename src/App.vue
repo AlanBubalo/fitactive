@@ -9,8 +9,8 @@
     <button
       class="btn navbar-toggler navbar-dark"
       type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
       aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
@@ -18,6 +18,7 @@
       <span class="navbar-toggler-icon navbar-dark"></span>
     </button>
 
+    <!-- Navbar if logged in -->
     <div v-if="currentUser" class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -49,22 +50,18 @@
           >
         </li>
       </ul>
-      <div class="logout">
-        <a
-          href="#"
-          @click.prevent="logout"
+      <div class="ms-auto me-3">
+        <router-link
+          to="/settings"
           class="nav-link p-2 px-3 text-center hover-left"
-          >LOGOUT</a
+          >SETTINGS</router-link
         >
       </div>
     </div>
 
-    <div
-      v-else
-      class="collapse navbar-collapse d-flex justify-content-end"
-      id="navbarNav"
-    >
-      <ul class="navbar-nav">
+    <!-- Navbar if not logged in -->
+    <div v-else class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <router-link
             to="/login"
@@ -98,6 +95,7 @@
 #nav {
   background-color: $black;
   min-height: 3rem;
+  box-shadow: 0px 1px 4px;
 
   a {
     color: $white;
@@ -123,10 +121,6 @@
     font-weight: bold;
     text-shadow: 0.4rem 0.3rem $primary;
   }
-}
-
-.logout {
-  margin-left: auto;
 }
 
 .advice {
@@ -351,6 +345,7 @@ export default {
       if (user) {
         // User is signed in.
         this.currentUser = user.email;
+        console.log(user.email);
         if (!needsUser) router.push("/home");
       } else {
         // User is not signed in.
@@ -375,17 +370,6 @@ export default {
           check = true;
       })(navigator.userAgent || navigator.vendor || window.opera);
       return check;
-    },
-    logout() {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          console.log("Logged out");
-        })
-        .catch((error) => {
-          alert(error.message);
-        });
     },
   },
 };
