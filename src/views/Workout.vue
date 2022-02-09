@@ -28,6 +28,7 @@
         <a class="nav-link" data-bs-toggle="tab" href="#back">Back</a>
       </li>
     </ul>
+    <!-- Full Body -->
     <div class="tab-content mt-1">
       <div id="fullbody" class="tab-pane fade in show active">
         <img class="img1" src="@/assets/full-body.jpg" />
@@ -66,10 +67,11 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Chest-to-floor burpee</li>
+              <li>Turkish get-up</li>
+              <li>Wall balls</li>
+              <li>Crocodile walk</li>
+              <li>Medicine ball slam</li>
             </ol>
           </div>
           <div class="col p-1">
@@ -86,14 +88,17 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Man maker</li>
+              <li>Deadlift</li>
+              <li>Medicine ball over the shoulder</li>
+              <li>Barbell thruster</li>
+              <li>Kettlebell snatch</li>
+              <li>Burpee pull-up</li>
             </ol>
           </div>
         </div>
       </div>
+      <!-- Abs -->
       <div id="abs" class="tab-pane fade">
         <img class="img2" src="@/assets/abs.jpg" />
         <div class="row">
@@ -132,11 +137,12 @@
             <h4 class="text-center pb-3">Abs</h4>
             <div>Exercises</div>
             <ol>
-              <li>Jumping Jacks</li>
-              <li>Sit-Ups</li>
-              <li>Leg Hold</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
+              <li>Leg raise</li>
+              <li>Abs roll-out</li>
+              <li>Bird-dog</li>
+              <li>Hanging knee raise</li>
+              <li>Flutter kicks</li>
+              <li>Walking plank</li>
             </ol>
           </div>
           <div class="col">
@@ -153,15 +159,18 @@
             <h4 class="text-center pb-3">Abs</h4>
             <div>Exercises</div>
             <ol>
-              <li>Jumping Jacks</li>
-              <li>Sit-Ups</li>
-              <li>Leg Hold</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
+              <li>Pallof press</li>
+              <li>Hollow body rock</li>
+              <li>Bicycle Crunch</li>
+              <li>V-sit</li>
+              <li>L-sit</li>
+              <li>Medicine ball crunch</li>
+              <li>Dragon flag</li>
             </ol>
           </div>
         </div>
       </div>
+      <!-- Arms -->
       <div id="arms" class="tab-pane fade">
         <img class="img3" src="@/assets/arms.jpg" />
         <div class="row">
@@ -200,11 +209,12 @@
             <h4 class="text-center pb-3">Arms</h4>
             <div>Exercises</div>
             <ol>
-              <li>Bench Press</li>
-              <li>Pull-Ups</li>
-              <li>Hammer Curls</li>
-              <li>Standing Barbell Curl</li>
-              <li>Push-Ups</li>
+              <li>Triceps dip</li>
+              <li>Press-up</li>
+              <li>Zottman curl</li>
+              <li>Chin-up</li>
+              <li>Concentration curl</li>
+              <li>Battle rope wave</li>
             </ol>
           </div>
           <div class="col">
@@ -221,15 +231,18 @@
             <h4 class="text-center pb-3">Arms</h4>
             <div>Exercises</div>
             <ol>
-              <li>Bench Press</li>
-              <li>Pull-Ups</li>
-              <li>Hammer Curls</li>
-              <li>Standing Barbell Curl</li>
-              <li>Push-Ups</li>
+              <li>Ring dip</li>
+              <li>Close-grip triceps press-up</li>
+              <li>Handstand press-up</li>
+              <li>Bench press</li>
+              <li>Spider curl</li>
+              <li>Zercher carry</li>
+              <li>Close-grip chin-up</li>
             </ol>
           </div>
         </div>
       </div>
+      <!-- Chest -->
       <div id="chest" class="tab-pane fade">
         <img class="img4" src="@/assets/chest.jpg" />
         <div class="row">
@@ -247,10 +260,10 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Hands-elevated press-up</li>
+              <li>Incline dumbbell press</li>
+              <li>Press-up</li>
+              <li>Shoulder tap</li>
             </ol>
           </div>
           <div class="col">
@@ -267,10 +280,11 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Barbell bench press</li>
+              <li>Cable cross-over</li>
+              <li>Gym ball press-up</li>
+              <li>Floor press</li>
+              <li>Dumbbell flyes</li>
             </ol>
           </div>
           <div class="col">
@@ -287,14 +301,17 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Guillotine press</li>
+              <li>Clap press-up</li>
+              <li>Divebomber press-up</li>
+              <li>Landmine press</li>
+              <li>Kettlebell incline flye</li>
+              <li>Weighted dip</li>
             </ol>
           </div>
         </div>
       </div>
+      <!-- Legs -->
       <div id="legs" class="tab-pane fade">
         <img class="img5" src="@/assets/legs.jpg" />
         <div class="row">
@@ -312,10 +329,10 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Goblet squat</li>
+              <li>Dumbbell step-up</li>
+              <li>Glute bridge</li>
+              <li>Calf raise</li>
             </ol>
           </div>
           <div class="col">
@@ -332,10 +349,11 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Hex bar deadlift</li>
+              <li>Walking lunge with dumbbells</li>
+              <li>Split squat</li>
+              <li>Kettlebell swing</li>
+              <li>Sumo deadlift</li>
             </ol>
           </div>
           <div class="col">
@@ -352,14 +370,17 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Overhead squat</li>
+              <li>Hang clean</li>
+              <li>Thruster</li>
+              <li>Deadlift</li>
+              <li>Box jump</li>
+              <li>Sled push</li>
             </ol>
           </div>
         </div>
       </div>
+      <!-- Back -->
       <div id="back" class="tab-pane fade">
         <img class="img6" src="@/assets/back.jpg" />
         <div class="row">
@@ -377,10 +398,10 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Pull-up</li>
+              <li>Bird-dog</li>
+              <li>Superman</li>
+              <li>Shrug</li>
             </ol>
           </div>
           <div class="col">
@@ -397,10 +418,11 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Deadlift</li>
+              <li>Bent over barbell rows</li>
+              <li>Pull Ups and Chin Ups</li>
+              <li>Face Pulls</li>
+              <li>Seated Cable Rows</li>
             </ol>
           </div>
           <div class="col">
@@ -417,10 +439,12 @@
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
             <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
+              <li>Barbell Deadlifts</li>
+              <li>Wide-Grip Seated Cable Rows</li>
+              <li>Single Arm Dumbbell Rows</li>
+              <li>Reverse Hyperextensions</li>
+              <li>Renegade row</li>
+              <li>Single-arm cable row</li>
             </ol>
           </div>
         </div>

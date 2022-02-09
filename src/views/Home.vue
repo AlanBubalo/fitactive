@@ -36,6 +36,11 @@
         aria-label="Close"
       ></button>
     </div>
+    <div class="m-3">
+      You still haven't completed your Water Intake Challenge!
+    </div>
+    <div class="m-3">It's late. You should go to sleep!</div>
+    <div class="m-3">Today is Legs day!</div>
     <div class="offcanvas-body">Don't forget to do cardio!</div>
   </div>
 
@@ -111,6 +116,29 @@
           <div>
             <h4>Ideal hours for sleep:</h4>
             <p>8 hours 30 minutes</p>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown button
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+              <router-link to="/cardio" class="ms-auto my-auto">
+                <button class="btn bg-primary box-shadow">
+                  Check your sleeping schedule!
+                </button></router-link
+              >
+            </div>
           </div>
           <img class="img" alt="Clock" src="@/assets/clock.png" />
         </div>
