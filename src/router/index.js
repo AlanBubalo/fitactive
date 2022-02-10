@@ -69,6 +69,30 @@ const routes = [
       needsUser: true,
     },
   },
+  {
+    path: "/water-intake",
+    name: "WaterIntake",
+    component: () => import("@/views/WaterIntake.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
+  {
+    path: "/sleep",
+    name: "Sleep",
+    component: () => import("@/views/Sleep.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
+  {
+    path: "/contact-us",
+    name: "ContactUs",
+    component: () => import("@/views/ContactUs.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
 ];
 
 const router = createRouter({

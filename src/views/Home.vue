@@ -54,11 +54,11 @@
               <h4>Cardio:</h4>
               <p><span class="fs-2">3000</span> /6000 meters</p>
             </div>
-            <router-link to="/cardio" class="ms-auto my-auto">
+            <!-- <router-link to="/cardio" class="ms-auto my-auto">
               <button class="btn bg-primary box-shadow">
                 Start
               </button></router-link
-            >
+            > -->
           </div>
           <div class="progress">
             <div
@@ -91,7 +91,8 @@
               :class="GlassesDrank >= GlassesTotal ? 'disabled' : ''"
               @click="AddGlass()"
             >
-              Add
+              <div v-if="GlassesDrank < GlassesTotal">Add</div>
+              <div v-else>Done</div>
             </button>
           </div>
           <div class="progress">
@@ -116,29 +117,12 @@
           <div>
             <h4>Ideal hours for sleep:</h4>
             <p>8 hours 30 minutes</p>
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown button
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-              <router-link to="/cardio" class="ms-auto my-auto">
-                <button class="btn bg-primary box-shadow">
-                  Check your sleeping schedule!
-                </button></router-link
-              >
-            </div>
+
+            <!-- <router-link to="/sleep" class="ms-auto my-auto">
+              <button class="btn bg-primary box-shadow">
+                Set your sleeping schedule!
+              </button></router-link
+            > -->
           </div>
           <img class="img" alt="Clock" src="@/assets/clock.png" />
         </div>

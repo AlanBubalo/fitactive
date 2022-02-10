@@ -49,6 +49,20 @@
             >CALENDAR</router-link
           >
         </li>
+        <li class="nav-item">
+          <router-link
+            to="/water-intake"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >WATER INTAKE</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
+            to="/sleep"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >SLEEP SCHEDULE</router-link
+          >
+        </li>
       </ul>
       <div class="ms-auto me-3">
         <router-link

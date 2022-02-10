@@ -28,9 +28,11 @@
         </div>
         <div>
           <p>
-            <button @click.prevent="logout" class="btn bg-primary box-shadow">
-              Contact Us
-            </button>
+            <router-link to="/contact-us">
+              <button class="btn bg-primary box-shadow">
+                Contact Us
+              </button></router-link
+            >
           </p>
           <p>
             <button @click.prevent="logout" class="btn bg-primary box-shadow">

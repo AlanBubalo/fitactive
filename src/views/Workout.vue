@@ -58,11 +58,11 @@
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
             <ol>
+              <li>Hip Circles</li>
+              <li>Arm Circles</li>
+              <li>Jump Rope</li>
+              <li>Walk-Outs</li>
               <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
             </ol>
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
@@ -128,11 +128,11 @@
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
+              <li>Mountain Climbers</li>
+              <li>Criss Cross Crunches</li>
+              <li>Scissor Skier</li>
+              <li>Hip Circles</li>
+              <li>Bent Over Twist</li>
             </ol>
             <h4 class="text-center pb-3">Abs</h4>
             <div>Exercises</div>
@@ -200,11 +200,11 @@
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
+              <li>Arm Circles</li>
+              <li>Overhead Shoulder Stretch</li>
+              <li>Arm Crossovers</li>
+              <li>Incline Push-Up</li>
+              <li>Thread the Needle</li>
             </ol>
             <h4 class="text-center pb-3">Arms</h4>
             <div>Exercises</div>
@@ -271,11 +271,11 @@
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
+              <li>Dips</li>
+              <li>Plyo Push Ups</li>
+              <li>Incline Dumbbell Flyes</li>
+              <li>Svend Press</li>
+              <li>Barbell Pushup</li>
             </ol>
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
@@ -340,11 +340,11 @@
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
+              <li>Jumping Jack</li>
+              <li>Glute Bridge</li>
+              <li>Hip Circle</li>
+              <li>Leg Stretches (calves, quadriceps, hamstrings)</li>
+              <li>Hip Switch</li>
             </ol>
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
@@ -409,11 +409,11 @@
             <h4 class="text-center pb-3">Warm up</h4>
             <div>Exercises</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
+              <li>Foam Roller Back Extension</li>
+              <li>Toe Touch</li>
+              <li>Rockback Rotation</li>
+              <li>Cat Stretch</li>
+              <li>Ladders</li>
             </ol>
             <h4 class="text-center pb-3">Full Body</h4>
             <div>Exercises</div>
