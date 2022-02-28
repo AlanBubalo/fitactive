@@ -35,65 +35,35 @@
         <div class="row">
           <div class="col p-1">
             <h3 class="text-center">Beginner</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
               <li>Sit-Ups</li>
               <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Leg stretch</li>
-              <li>Jumping Jacks</li>
-              <li>Mill</li>
-              <li>Jogging</li>
             </ol>
           </div>
           <div class="col p-1">
             <h3 class="text-center">Intermediate</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Hip Circles</li>
-              <li>Arm Circles</li>
-              <li>Jump Rope</li>
+              <li>Sphinx stretch</li>
+              <li>Sit-Ups</li>
+              <li>Push-Ups</li>
+              <li>Plank</li>
               <li>Walk-Outs</li>
-              <li>Squats</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Chest-to-floor burpee</li>
-              <li>Turkish get-up</li>
-              <li>Wall balls</li>
-              <li>Crocodile walk</li>
-              <li>Medicine ball slam</li>
             </ol>
           </div>
           <div class="col p-1">
             <h3 class="text-center">Advanced</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
+              <li>Sphinx stretch</li>
               <li>Sit-Ups</li>
               <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Man maker</li>
-              <li>Deadlift</li>
-              <li>Medicine ball over the shoulder</li>
-              <li>Barbell thruster</li>
-              <li>Kettlebell snatch</li>
-              <li>Burpee pull-up</li>
+              <li>Walk-Outs</li>
+              <li>Squat thrust</li>
+              <li>Chest-to-floor burpee</li>
             </ol>
           </div>
         </div>
@@ -104,68 +74,36 @@
         <div class="row">
           <div class="col">
             <h3 class="text-center">Beginner</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
               <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Abs</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Jumping Jacks</li>
-              <li>Sit-Ups</li>
-              <li>Leg Hold</li>
-              <li>Pull-Ups</li>
+              <li>Mountain Climbers</li>
               <li>Plank</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Intermediate</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
+              <li>Sit-Ups</li>
               <li>Mountain Climbers</li>
+              <li>Plank</li>
               <li>Criss Cross Crunches</li>
               <li>Scissor Skier</li>
-              <li>Hip Circles</li>
-              <li>Bent Over Twist</li>
-            </ol>
-            <h4 class="text-center pb-3">Abs</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Leg raise</li>
-              <li>Abs roll-out</li>
-              <li>Bird-dog</li>
-              <li>Hanging knee raise</li>
-              <li>Flutter kicks</li>
-              <li>Walking plank</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Advanced</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
               <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
+              <li>Mountain Climbers</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Abs</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Pallof press</li>
-              <li>Hollow body rock</li>
-              <li>Bicycle Crunch</li>
-              <li>V-sit</li>
-              <li>L-sit</li>
-              <li>Medicine ball crunch</li>
-              <li>Dragon flag</li>
+              <li>Criss Cross Crunches</li>
+              <li>Scissor Skier</li>
+              <li>Bird-dog</li>
+              <li>Flutter kicks</li>
+              <li>Walking plank</li>
             </ol>
           </div>
         </div>
@@ -176,68 +114,35 @@
         <div class="row">
           <div class="col">
             <h3 class="text-center">Beginner</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
               <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Arms</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Bench Press</li>
-              <li>Pull-Ups</li>
-              <li>Hammer Curls</li>
-              <li>Standing Barbell Curl</li>
-              <li>Push-Ups</li>
+              <li>Triceps dip</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Intermediate</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Arm Circles</li>
-              <li>Overhead Shoulder Stretch</li>
-              <li>Arm Crossovers</li>
-              <li>Incline Push-Up</li>
-              <li>Thread the Needle</li>
-            </ol>
-            <h4 class="text-center pb-3">Arms</h4>
-            <div>Exercises</div>
-            <ol>
+              <li>Push-Ups</li>
+              <li>Plank</li>
               <li>Triceps dip</li>
-              <li>Press-up</li>
-              <li>Zottman curl</li>
-              <li>Chin-up</li>
+              <li>Arm Circles</li>
               <li>Concentration curl</li>
-              <li>Battle rope wave</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Advanced</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
               <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Arms</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Ring dip</li>
-              <li>Close-grip triceps press-up</li>
+              <li>Triceps dip</li>
+              <li>Arm Circles</li>
+              <li>Concentration curl</li>
               <li>Handstand press-up</li>
-              <li>Bench press</li>
-              <li>Spider curl</li>
-              <li>Zercher carry</li>
-              <li>Close-grip chin-up</li>
+              <li>Biceps Curls</li>
             </ol>
           </div>
         </div>
@@ -248,65 +153,35 @@
         <div class="row">
           <div class="col">
             <h3 class="text-center">Beginner</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
+              <li>Press-Ups</li>
               <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Hands-elevated press-up</li>
-              <li>Incline dumbbell press</li>
-              <li>Press-up</li>
-              <li>Shoulder tap</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Intermediate</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Dips</li>
-              <li>Plyo Push Ups</li>
-              <li>Incline Dumbbell Flyes</li>
+              <li>Press-Ups</li>
+              <li>Push-Ups</li>
+              <li>Plank</li>
+              <li>Diamond Push-Ups</li>
               <li>Svend Press</li>
-              <li>Barbell Pushup</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Barbell bench press</li>
-              <li>Cable cross-over</li>
-              <li>Gym ball press-up</li>
-              <li>Floor press</li>
-              <li>Dumbbell flyes</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Advanced</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
+              <li>Press-Ups</li>
               <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Guillotine press</li>
+              <li>Diamond Push-Ups</li>
+              <li>Svend Press</li>
+              <li>Push-Ups in a Circle</li>
               <li>Clap press-up</li>
-              <li>Divebomber press-up</li>
-              <li>Landmine press</li>
-              <li>Kettlebell incline flye</li>
-              <li>Weighted dip</li>
             </ol>
           </div>
         </div>
@@ -317,65 +192,35 @@
         <div class="row">
           <div class="col">
             <h3 class="text-center">Beginner</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
               <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Goblet squat</li>
-              <li>Dumbbell step-up</li>
               <li>Glute bridge</li>
               <li>Calf raise</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Intermediate</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
+              <li>Squats</li>
+              <li>Glute bridge</li>
+              <li>Calf raise</li>
               <li>Jumping Jack</li>
-              <li>Glute Bridge</li>
-              <li>Hip Circle</li>
-              <li>Leg Stretches (calves, quadriceps, hamstrings)</li>
-              <li>Hip Switch</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Hex bar deadlift</li>
-              <li>Walking lunge with dumbbells</li>
               <li>Split squat</li>
-              <li>Kettlebell swing</li>
-              <li>Sumo deadlift</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Advanced</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
               <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
-              <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Overhead squat</li>
-              <li>Hang clean</li>
-              <li>Thruster</li>
-              <li>Deadlift</li>
+              <li>Glute bridge</li>
+              <li>Calf raise</li>
+              <li>Jumping Jack</li>
+              <li>Split squat</li>
+              <li>Romanian deadlift</li>
               <li>Box jump</li>
-              <li>Sled push</li>
             </ol>
           </div>
         </div>
@@ -386,65 +231,35 @@
         <div class="row">
           <div class="col">
             <h3 class="text-center">Beginner</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Pull-up</li>
               <li>Bird-dog</li>
               <li>Superman</li>
-              <li>Shrug</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Intermediate</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Foam Roller Back Extension</li>
+              <li>Plank</li>
+              <li>Bird-dog</li>
+              <li>Superman</li>
               <li>Toe Touch</li>
-              <li>Rockback Rotation</li>
-              <li>Cat Stretch</li>
-              <li>Ladders</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Deadlift</li>
-              <li>Bent over barbell rows</li>
-              <li>Pull Ups and Chin Ups</li>
-              <li>Face Pulls</li>
-              <li>Seated Cable Rows</li>
+              <li>Dolphin Kick</li>
             </ol>
           </div>
           <div class="col">
             <h3 class="text-center">Advanced</h3>
-            <h4 class="text-center pb-3">Warm up</h4>
-            <div>Exercises</div>
+            <div>Exercises:</div>
             <ol>
-              <li>Squats</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Pull-Ups</li>
               <li>Plank</li>
-            </ol>
-            <h4 class="text-center pb-3">Full Body</h4>
-            <div>Exercises</div>
-            <ol>
-              <li>Barbell Deadlifts</li>
-              <li>Wide-Grip Seated Cable Rows</li>
+              <li>Bird-dog</li>
+              <li>Superman</li>
+              <li>Toe Touch</li>
+              <li>Dolphin Kick</li>
               <li>Single Arm Dumbbell Rows</li>
-              <li>Reverse Hyperextensions</li>
               <li>Renegade row</li>
-              <li>Single-arm cable row</li>
             </ol>
           </div>
         </div>
