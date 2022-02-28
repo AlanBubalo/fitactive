@@ -17,4 +17,52 @@ firebase.initializeApp(firebaseConfig);
 
 let db = firebase.firestore();
 
+db.collection("workout")
+  .doc("Full Body")
+  .set({
+    beginner: {
+      warm_up: ["Squats", "Sit-Ups", "Push-Ups", "Pull-Ups", "Plank"],
+      exercises: {
+        legStretch: {
+          name: "Leg Stretch",
+          duration: 30,
+        },
+        jumpingJacks: {
+          name: "Jumping Jacks",
+          duration: 30,
+        },
+        JumpingJacks: 30,
+        Mill: 30,
+        Jogging: 30,
+      },
+    },
+    intermediate: {
+      warm_up: ["HipCircles", "ArmCircles", "JumpRope", "Walk-Outs", "Squats"],
+      exercises: {
+        legStretch: {
+          name: "Leg Stretch",
+          duration: 30,
+        },
+        jumping_jacks: 30,
+        mill: 30,
+        jogging: 30,
+      },
+    },
+    advanced: {
+      warm_up: ["Squats", "Sit-Ups", "Push-Ups", "Pull-Ups", "Plank"],
+      exercises: {
+        leg_stretch: 30,
+        jumping_jacks: 30,
+        mill: 30,
+        jogging: 30,
+      },
+    },
+  })
+  .then((doc) => {
+    console.log("Full workout done.");
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
 export { firebase, db };

@@ -7,56 +7,78 @@
       risk of cardiovascular disease.
     </p>
   </div>
-  <div class="container">
-    <div class="row g-3 my-3">
-      <!-- Cardio -->
-      <div class="col-12 col-md-5 mt-0">
-        <div class="p-4 bg-white my-rounded h-100 me-0">
-          <div class="d-flex justify-content-between">
-            <div>
-              <h4>Select what you want to track:</h4>
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Target Distance
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Target Duration</a></li>
-                  <li><a class="dropdown-item" href="#">Target Calories</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Open target</a>
-                  </li>
-                </ul>
+  <div v-if="!this.isMobileDevice()">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg col-md"></div>
+        <div class="col-lg col-md-6">
+          <form @submit.prevent="cardio">
+            <div class="form-group my-4">
+              <h4 class="py-1">Select what you want to track:</h4>
+              <div class="d-flex justify-content-between bd-highlight">
+                <div class="flex-grow-1 bd-highlight">
+                  <select
+                    v-model="target"
+                    class="form-select form-control box-shadow"
+                    id="exampleInputTarget"
+                    placeholder=""
+                    name="target"
+                  >
+                    <option value="target_distance">Target Distance</option>
+                    <option value="target_duration">Target Duration</option>
+                    <option value="open_target">Open Target</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <router-link to="/cardio" class="ms-auto my-auto">
-              <button class="btn bg-primary box-shadow">
+            <div v-if="target == 'target_distance'" class="form-group my-4">
+              <h4 class="py-1">Select cardio distance: (in kilometers)</h4>
+              <div class="d-flex justify-content-between bd-highlight">
+                <div class="flex-grow-1 bd-highlight">
+                  <input
+                    type="number"
+                    v-model="distance"
+                    class="form-control box-shadow"
+                    id="exampleInputDistance"
+                    min="0"
+                  />
+                </div>
+              </div>
+            </div>
+            <div v-if="target == 'target_duration'" class="form-group my-4">
+              <h4 class="py-1">Select cardio timeout:</h4>
+              <div class="d-flex justify-content-between bd-highlight">
+                <div class="flex-grow-1 bd-highlight">
+                  <input
+                    type="time"
+                    v-model="timeout"
+                    class="form-control box-shadow"
+                    id="exampleInputTimeout"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group d-flex justify-content-between my-4">
+              <h5>GPS Tracker</h5>
+              <!-- Rectangular switch -->
+              <label class="switch">
+                <input type="checkbox" v-model="gps" />
+                <span class="slider rounded-pill"></span>
+              </label>
+            </div>
+
+            <router-link to="/cardio" class="">
+              <button class="btn my-btn bg-primary box-shadow">
                 Start
               </button></router-link
             >
-          </div>
+          </form>
         </div>
-        <div class="d-flex justify-content-between">
-          <h4>GPS Tracker</h4>
-          <router-link to="/setupprofile">
-            <button class="btn bg-primary box-shadow">
-              ON/OFF
-            </button></router-link
-          >
-          <!-- Rectangular switch -->
-          <label class="switch">
-            <input type="checkbox" />
-            <span class="slider"></span>
-          </label>
-        </div>
+        <div class="col-lg col-md"></div>
       </div>
     </div>
   </div>
+  <div v-else>Mobile</div>
 </template>
 
 <style scoped lang="scss">
@@ -90,64 +112,56 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
-}
+  width: 54px;
+  height: 28px;
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  & input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
 }
 
 /* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
+  inset: 0;
+  background-color: #cccccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 999px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+input:checked {
+  & + .slider {
+    background-color: $primary;
+
+    &:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+  }
 }
 
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
+/*
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 10px $primary;
 }
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
+*/
 </style>
 
 <script>
@@ -157,7 +171,7 @@ import { firebase, db } from "@/firebase";
 import router from "@/router";
 
 export default {
-  name: "Workout",
+  name: "Cardio",
   data() {
     return {
       email: window.sessionStorage
@@ -165,6 +179,10 @@ export default {
         .slice(47)
         .split('"')[0],
       userName: "",
+      target: "target_distance",
+      distance: 2,
+      timeout: null,
+      gps: false,
     };
   },
   components: {
@@ -175,7 +193,7 @@ export default {
   },
   methods: {
     getName() {
-      db.collection("workout")
+      db.collection("profile")
         .doc(this.email)
         .get()
         .then((doc) => {
