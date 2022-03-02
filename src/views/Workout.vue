@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="!this.isMobileDevice()"
-    class="container p-4 bg-white my-4 my-rounded"
-  >
+  <div class="container p-4 bg-white my-4 my-rounded">
     <h4>Focus Area:</h4>
     <ul
       class="nav nav-pills nav-fill d-flex justify-content-between text-center mt-4"
@@ -33,18 +30,18 @@
       <div id="fullbody" class="tab-pane fade in show active">
         <img class="img1" src="@/assets/full-body.jpg" />
         <div class="row">
-          <div class="col p-1">
+          <div class="col-sm-4 col-12 p-1">
             <h3 class="text-center">Beginner</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Sit-Ups</li>
               <li>Push-Ups</li>
               <li>Plank</li>
             </ol>
           </div>
-          <div class="col p-1">
+          <div class="col-sm-4 col-12 p-1">
             <h3 class="text-center">Intermediate</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Sphinx stretch</li>
               <li>Sit-Ups</li>
@@ -53,9 +50,9 @@
               <li>Walk-Outs</li>
             </ol>
           </div>
-          <div class="col p-1">
+          <div class="col-sm-4 col-12 p-1">
             <h3 class="text-center">Advanced</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Sphinx stretch</li>
               <li>Sit-Ups</li>
@@ -67,23 +64,34 @@
             </ol>
           </div>
         </div>
+        <router-link to="/timer">
+          <button class="btn my-btn bg-primary box-shadow">
+            Start beginner workout
+          </button></router-link
+        >
+        <button class="btn my-btn bg-primary box-shadow">
+          Start intermediate workout
+        </button>
+        <button class="btn my-btn bg-primary box-shadow">
+          Start advanced workout
+        </button>
       </div>
       <!-- Abs -->
       <div id="abs" class="tab-pane fade">
         <img class="img2" src="@/assets/abs.jpg" />
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Beginner</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Sit-Ups</li>
               <li>Mountain Climbers</li>
               <li>Plank</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Intermediate</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Sit-Ups</li>
               <li>Mountain Climbers</li>
@@ -92,9 +100,9 @@
               <li>Scissor Skier</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Advanced</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Sit-Ups</li>
               <li>Mountain Climbers</li>
@@ -112,18 +120,18 @@
       <div id="arms" class="tab-pane fade">
         <img class="img3" src="@/assets/arms.jpg" />
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Beginner</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Push-Ups</li>
               <li>Plank</li>
               <li>Triceps dip</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Intermediate</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Push-Ups</li>
               <li>Plank</li>
@@ -132,9 +140,9 @@
               <li>Concentration curl</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Advanced</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Push-Ups</li>
               <li>Plank</li>
@@ -151,18 +159,18 @@
       <div id="chest" class="tab-pane fade">
         <img class="img4" src="@/assets/chest.jpg" />
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Beginner</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Press-Ups</li>
               <li>Push-Ups</li>
               <li>Plank</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Intermediate</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Press-Ups</li>
               <li>Push-Ups</li>
@@ -171,9 +179,9 @@
               <li>Svend Press</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Advanced</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Press-Ups</li>
               <li>Push-Ups</li>
@@ -190,18 +198,18 @@
       <div id="legs" class="tab-pane fade">
         <img class="img5" src="@/assets/legs.jpg" />
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Beginner</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Squats</li>
               <li>Glute bridge</li>
               <li>Calf raise</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Intermediate</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Squats</li>
               <li>Glute bridge</li>
@@ -210,9 +218,9 @@
               <li>Split squat</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Advanced</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Squats</li>
               <li>Glute bridge</li>
@@ -229,18 +237,18 @@
       <div id="back" class="tab-pane fade">
         <img class="img6" src="@/assets/back.jpg" />
         <div class="row">
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Beginner</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Plank</li>
               <li>Bird-dog</li>
               <li>Superman</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Intermediate</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Plank</li>
               <li>Bird-dog</li>
@@ -249,9 +257,9 @@
               <li>Dolphin Kick</li>
             </ol>
           </div>
-          <div class="col">
+          <div class="col-sm-4 col-12">
             <h3 class="text-center">Advanced</h3>
-            <div>Exercises:</div>
+            <h5>Exercises:</h5>
             <ol>
               <li>Plank</li>
               <li>Bird-dog</li>
@@ -266,7 +274,10 @@
       </div>
     </div>
   </div>
-  <div v-else>Mobile!!</div>
+  <!-- 
+  <div v-else>
+    
+  </div> -->
 </template>
 
 <style scoped lang="scss">
@@ -379,7 +390,7 @@ export default {
   },
   methods: {
     getName() {
-      db.collection("workout")
+      db.collection("profile")
         .doc(this.email)
         .get()
         .then((doc) => {

@@ -346,7 +346,7 @@ import { firebase } from "@/firebase";
 import router from "@/router";
 
 export default {
-  name: "app",
+  name: "App",
   data() {
     return {
       currentUser: null,

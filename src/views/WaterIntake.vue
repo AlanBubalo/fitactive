@@ -163,20 +163,25 @@ export default {
         });
     },
     reset() {
-      db.collection("waterIntake")
-        .doc(this.email)
-        .set({
-          glassesTotal: this.newGlassesTotal,
-          glassesDrank: 0,
-        })
-        .then((doc) => {
-          console.log("Saved.");
-          this.saved = true;
-          router.push("/home");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      const answer = window.confirm(
+        "Are you sure you want to reset your progress?"
+      );
+      if (answer) {
+        db.collection("waterIntake")
+          .doc(this.email)
+          .set({
+            glassesTotal: this.newGlassesTotal,
+            glassesDrank: 0,
+          })
+          .then((doc) => {
+            console.log("Saved.");
+            this.saved = true;
+            router.push("/home");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
     },
   },
   beforeRouteLeave(to, from, next) {

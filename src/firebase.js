@@ -16,7 +16,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 let db = firebase.firestore();
-
+/*
 // FULL BODY
 db.collection("workout")
   .doc("Full Body")
@@ -191,5 +191,5 @@ db.collection("workout")
   .catch((error) => {
     console.error(error);
   });
-
+*/
 export { firebase, db };

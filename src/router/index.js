@@ -93,6 +93,14 @@ const routes = [
       needsUser: true,
     },
   },
+  {
+    path: "/timer",
+    name: "Timer",
+    component: () => import("@/views/Timer.vue"),
+    meta: {
+      needsUser: true,
+    },
+  },
 ];
 
 const router = createRouter({

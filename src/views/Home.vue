@@ -95,7 +95,10 @@
               <div v-else>Done</div>
             </button>
           </div>
-          <div class="progress">
+          <div
+            class="progress"
+            :class="this.GlassesDrank >= this.GlassesTotal ? 'hide' : ''"
+          >
             <div
               class="progress-bar bg-primary"
               role="progressbar"
