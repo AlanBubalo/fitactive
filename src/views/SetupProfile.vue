@@ -14,8 +14,9 @@
               <span>Change Profile Picture</span>
             </label>
             <input id="file" type="file" onchange="loadFile(event)" />
-            <img src="@/assets/male.png" id="output" />
+            <img src="@/assets/male.png" id="output" width="200" />
           </div>
+
           <div class="form-group my-2">
             <label for="exampleInputName" class="py-1">First Name</label>
             <input
@@ -204,10 +205,10 @@ body {
 import { firebase, db } from "@/firebase";
 import router from "@/router";
 
-var loadFile = function (event) {
-  var image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
+// var loadFile = function (event) {
+//   var image = document.getElementById("output");
+//   image.src = URL.createObjectURL(event.target.files[0]);
+// };
 
 export default {
   name: "SetupProfile",

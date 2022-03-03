@@ -12,30 +12,35 @@
       <div class="col"></div>
       <div class="col-12 col-md-5 mt-0">
         <div class="p-4 bg-white my-rounded h-100 me-0">
-          <div class="d-flex">
-            <form @submit.prevent="save">
-              <h4>Total Glasses:</h4>
-              <input
-                v-model="newGlassesTotal"
-                id="demoInput"
-                type="number"
-                min="0"
-                max="15"
-              />
-              <div>
-                <button type="submit" class="btn my-btn bg-primary box-shadow">
-                  Save
-                </button>
-              </div>
-            </form>
+          <div class="d-flex justify-content-center">
+            <div class="row">
+              <form @submit.prevent="save">
+                <h4>Total Glasses:</h4>
+                <input
+                  v-model="newGlassesTotal"
+                  id="demoInput"
+                  type="number"
+                  min="0"
+                  max="15"
+                />
+                <div class="justify-content-center d-grid gap-2">
+                  <button
+                    type="submit"
+                    class="btn btn-sm bg-primary box-shadow"
+                  >
+                    Save
+                  </button>
+                  <button
+                    type="button"
+                    @click="reset()"
+                    class="btn btn-sm bg-primary box-shadow"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-          <button
-            type="button"
-            @click="reset()"
-            class="btn bg-primary box-shadow"
-          >
-            Reset
-          </button>
         </div>
       </div>
       <div class="col"></div>

@@ -25,8 +25,6 @@
                     name="target"
                   >
                     <option value="target_distance">Target Distance</option>
-                    <option value="target_duration">Target Duration</option>
-                    <option value="open_target">Open Target</option>
                   </select>
                 </div>
               </div>
