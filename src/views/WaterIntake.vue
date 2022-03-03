@@ -1,3 +1,4 @@
+d
 <template>
   <div class="advice text-center text-white">
     <p>
@@ -10,38 +11,37 @@
     <div class="row g-3 my-3">
       <!-- Water Intake -->
       <div class="col"></div>
-      <div class="col-12 col-md-5 mt-0">
-        <div class="p-4 bg-white my-rounded h-100 me-0">
-          <div class="d-flex justify-content-center">
-            <div class="row">
-              <form @submit.prevent="save">
-                <h4>Total Glasses:</h4>
-                <input
-                  v-model="newGlassesTotal"
-                  id="demoInput"
-                  type="number"
-                  min="0"
-                  max="15"
-                />
-                <div class="justify-content-center d-grid gap-2">
-                  <button
-                    type="submit"
-                    class="btn btn-sm bg-primary box-shadow"
-                  >
-                    Save
-                  </button>
-                  <button
-                    type="button"
-                    @click="reset()"
-                    class="btn btn-sm bg-primary box-shadow"
-                  >
-                    Reset
-                  </button>
-                </div>
-              </form>
+      <div class="col-12 col-md-3 col-sm-8 mt-3">
+        <form @submit.prevent="save" class="">
+          <h4>Total Glasses:</h4>
+          <input
+            v-model="newGlassesTotal"
+            id="demoInput"
+            type="number"
+            min="0"
+            max="15"
+            class="form-control box-shadow my-3"
+          />
+          <div class="row">
+            <div class="col mx-auto">
+              <button
+                type="button"
+                @click="reset()"
+                class="btn my-btn border box-shadow p-2"
+              >
+                Reset
+              </button>
+            </div>
+            <div class="col">
+              <button
+                type="submit"
+                class="btn my-btn bg-primary box-shadow p-2"
+              >
+                Save
+              </button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
       <div class="col"></div>
     </div>

@@ -19,20 +19,17 @@
     </button>
 
     <!-- Navbar if logged in -->
-    <div v-if="currentUser" class="collapse navbar-collapse" id="navbarNav">
+    <div
+      v-if="currentUser"
+      class="collapse navbar-collapse mx-4"
+      id="navbarNav"
+    >
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link
             to="/home"
             class="nav-link p-2 px-3 text-center hover-left"
             >HOME</router-link
-          >
-        </li>
-        <li class="nav-item">
-          <router-link
-            to="/cardio"
-            class="nav-link p-2 px-3 text-center hover-left"
-            >CARDIO</router-link
           >
         </li>
         <li class="nav-item">
@@ -64,7 +61,7 @@
           >
         </li>
       </ul>
-      <div class="ms-auto me-3">
+      <div class="ms-auto">
         <router-link
           to="/settings"
           class="nav-link p-2 px-3 text-center hover-left"

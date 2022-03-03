@@ -1,66 +1,79 @@
 <template>
-  <div class="text-center">Counter:</div>
-  <div class="text-center">{{ displayMinutes }} : {{ displaySeconds }}</div>
+  <div class="exercises">
+    <div
+      class="exercise text-center text-white"
+      v-for="workoutData in workoutData"
+      :key="workoutData"
+    >
+      <p>{{ workoutData }}</p>
+    </div>
+  </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@import "@/colors";
+
+.exercises {
+  background: lighten($primary, 15%);
+  border-radius: 0 0 2rem 2rem;
+}
+
+.exercise {
+  background: $primary;
+  * {
+    padding: 2rem;
+    margin: 0rem;
+  }
+}
+
+.current {
+  border-radius: 0 0 2rem 2rem;
+}
+
+.unfinished {
+  background: lighten($primary, 15%);
+  border-radius: 0 0 2rem 2rem;
+}
+</style>
 
 <script>
-import router from "@/router";
-
+import { firebase, db } from "@/firebase";
 export default {
-  props: ["seconds"],
+  props: ["key", "c"],
   data() {
     return {
-      displayMinutes: 0,
-      displaySeconds: 0,
-      isDone: false,
+      workoutData: [],
     };
   },
-  beforeMount() {
-    window.addEventListener("beforeunload", this.preventNav);
-  },
   mounted() {
-    this.showRemaining();
-  },
-  beforeDestroy() {
-    window.removeEventListener("beforeunload", this.preventNav);
-  },
-  beforeRouteUpdate(to, from, next) {
-    if (!this.isDone && !window.confirm("Leave without finishing workout?"))
-      return;
-    next();
+    this.getWorkoutData();
+    this.updateExercises();
   },
   methods: {
-    preventNav(event) {
-      if (this.isDone) return;
-      event.preventDefault();
-      // Chrome requires returnValue to be set.
-      event.returnValue = "";
+    updateExercises() {
+      setTimeout(() => {
+        console.log(this.c);
+        $(".exercise:nth-child(" + this.c + ")").addClass("current");
+        $(".exercise:nth-child(" + this.c + ") ~ .exercise").addClass(
+          "unfinished"
+        );
+      }, 1200);
     },
-    showRemaining() {
-      const MINUTE = 60; // Seconds in a minute
-      const SECOND = 1000; // Milliseconds in a second
-      const end = Date.now() + this.seconds * SECOND; // Exact time when counter will expire.
-
-      // Start timer
-      const timer = setInterval(() => {
-        const duration = Math.floor((end - Date.now()) / SECOND);
-
-        // Check if the timer has expired
-        if (duration <= 0) {
-          clearInterval(timer);
-          this.isDone = true;
-          router.replace("/home");
-          return;
-        }
-
-        // Display the remaining time
-        const minutes = Math.floor(duration / MINUTE);
-        const seconds = Math.floor(duration % MINUTE);
-        this.displayMinutes = minutes < 10 ? "0" + minutes : minutes;
-        this.displaySeconds = seconds < 10 ? "0" + seconds : seconds;
-      }, 500);
+    getWorkoutData() {
+      db.collection("workout")
+        .doc("Full Body")
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            this.workoutData = doc.data().beginner;
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
   },
 };
