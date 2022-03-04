@@ -1,7 +1,7 @@
 <template>
   <div class="exercises">
     <div
-      class="exercise text-center text-white"
+      class="exercise text-center"
       v-for="workoutData in workoutData"
       :key="workoutData"
     >
@@ -20,6 +20,8 @@
 
 .exercise {
   background: $primary;
+  color: $white;
+  font-weight: thin;
   * {
     padding: 2rem;
     margin: 0rem;
@@ -28,11 +30,17 @@
 
 .current {
   border-radius: 0 0 2rem 2rem;
+  font-weight: bold;
+  color: $white;
+  position: relative;
+  border-bottom: 6px solid $black;
 }
 
 .unfinished {
   background: lighten($primary, 15%);
   border-radius: 0 0 2rem 2rem;
+  color: $white;
+  font-weight: 300;
 }
 </style>
 
@@ -52,7 +60,6 @@ export default {
   methods: {
     updateExercises() {
       setTimeout(() => {
-        console.log(this.c);
         $(".exercise:nth-child(" + this.c + ")").addClass("current");
         $(".exercise:nth-child(" + this.c + ") ~ .exercise").addClass(
           "unfinished"

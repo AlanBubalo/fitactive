@@ -38,6 +38,13 @@
               <li>Push-Ups</li>
               <li>Plank</li>
             </ol>
+            <div class="mt-auto">
+              <router-link to="/timer">
+                <button class="btn my-btn bg-primary box-shadow">
+                  Start beginner workout
+                </button></router-link
+              >
+            </div>
           </div>
           <div class="col-sm-4 col-12 p-1">
             <h3 class="text-center">Intermediate</h3>
@@ -62,13 +69,14 @@
               <li>Squat thrust</li>
               <li>Chest-to-floor burpee</li>
             </ol>
+            <router-link to="/timer">
+              <button class="btn my-btn bg-primary box-shadow">
+                Start beginner workout
+              </button></router-link
+            >
           </div>
         </div>
-        <router-link to="/timer">
-          <button class="btn my-btn bg-primary box-shadow">
-            Start beginner workout
-          </button></router-link
-        >
+
         <button class="btn my-btn bg-primary box-shadow">
           Start intermediate workout
         </button>
