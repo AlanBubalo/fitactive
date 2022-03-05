@@ -19,7 +19,7 @@ let db = firebase.firestore();
 /*
 // FULL BODY
 db.collection("workout")
-  .doc("Full Body")
+  .doc("FullBody")
   .set({
     beginner: ["Sit-Ups", "Push-Ups", "Plank"],
     intermediate: [

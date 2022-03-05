@@ -2,10 +2,10 @@
   <div class="exercises">
     <div
       class="exercise text-center"
-      v-for="workoutData in workoutData"
-      :key="workoutData"
+      v-for="exercises in exercises"
+      :key="exercises"
     >
-      <p>{{ workoutData }}</p>
+      <p>{{ exercises }}</p>
     </div>
   </div>
 </template>
@@ -47,14 +47,13 @@
 <script>
 import { firebase, db } from "@/firebase";
 export default {
-  props: ["key", "c"],
+  props: ["key", "c", "exercises"],
   data() {
     return {
       workoutData: [],
     };
   },
   mounted() {
-    this.getWorkoutData();
     this.updateExercises();
   },
   methods: {
@@ -65,22 +64,6 @@ export default {
           "unfinished"
         );
       }, 1200);
-    },
-    getWorkoutData() {
-      db.collection("workout")
-        .doc("Full Body")
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            this.workoutData = doc.data().beginner;
-          } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
     },
   },
 };

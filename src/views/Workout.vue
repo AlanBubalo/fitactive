@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-4 bg-white my-4 my-rounded">
+  <div v-if="clicked" class="container p-4 bg-white my-4 my-rounded">
     <h4>Focus Area:</h4>
     <ul
       class="nav nav-pills nav-fill d-flex justify-content-between text-center mt-4"
@@ -27,265 +27,33 @@
     </ul>
     <!-- Full Body -->
     <div class="tab-content mt-1">
+      <!-- Full Body -->
       <div id="fullbody" class="tab-pane fade in show active">
-        <img class="img1" src="@/assets/full-body.jpg" />
-        <div class="row">
-          <div class="col-sm-4 col-12 p-1">
-            <h3 class="text-center">Beginner</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-            </ol>
-            <div class="mt-auto">
-              <router-link to="/timer">
-                <button class="btn my-btn bg-primary box-shadow">
-                  Start beginner workout
-                </button></router-link
-              >
-            </div>
-          </div>
-          <div class="col-sm-4 col-12 p-1">
-            <h3 class="text-center">Intermediate</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Sphinx stretch</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-              <li>Walk-Outs</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12 p-1">
-            <h3 class="text-center">Advanced</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Sphinx stretch</li>
-              <li>Sit-Ups</li>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-              <li>Walk-Outs</li>
-              <li>Squat thrust</li>
-              <li>Chest-to-floor burpee</li>
-            </ol>
-            <router-link to="/timer">
-              <button class="btn my-btn bg-primary box-shadow">
-                Start beginner workout
-              </button></router-link
-            >
-          </div>
-        </div>
-
-        <button class="btn my-btn bg-primary box-shadow">
-          Start intermediate workout
-        </button>
-        <button class="btn my-btn bg-primary box-shadow">
-          Start advanced workout
-        </button>
+        <WorkoutExercises bodyPartName="FullBody" @sendWorkout="yes" />
       </div>
       <!-- Abs -->
-      <div id="abs" class="tab-pane fade">
-        <img class="img2" src="@/assets/abs.jpg" />
-        <div class="row">
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Beginner</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Sit-Ups</li>
-              <li>Mountain Climbers</li>
-              <li>Plank</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Intermediate</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Sit-Ups</li>
-              <li>Mountain Climbers</li>
-              <li>Plank</li>
-              <li>Criss Cross Crunches</li>
-              <li>Scissor Skier</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Advanced</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Sit-Ups</li>
-              <li>Mountain Climbers</li>
-              <li>Plank</li>
-              <li>Criss Cross Crunches</li>
-              <li>Scissor Skier</li>
-              <li>Bird-dog</li>
-              <li>Flutter kicks</li>
-              <li>Walking plank</li>
-            </ol>
-          </div>
-        </div>
+      <div id="abs" class="tab-pane fade in">
+        <WorkoutExercises bodyPartName="Abs" @sendWorkout="yes" />
       </div>
       <!-- Arms -->
-      <div id="arms" class="tab-pane fade">
-        <img class="img3" src="@/assets/arms.jpg" />
-        <div class="row">
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Beginner</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-              <li>Triceps dip</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Intermediate</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-              <li>Triceps dip</li>
-              <li>Arm Circles</li>
-              <li>Concentration curl</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Advanced</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-              <li>Triceps dip</li>
-              <li>Arm Circles</li>
-              <li>Concentration curl</li>
-              <li>Handstand press-up</li>
-              <li>Biceps Curls</li>
-            </ol>
-          </div>
-        </div>
+      <div id="arms" class="tab-pane fade in">
+        <WorkoutExercises bodyPartName="Arms" @sendWorkout="yes" />
       </div>
       <!-- Chest -->
-      <div id="chest" class="tab-pane fade">
-        <img class="img4" src="@/assets/chest.jpg" />
-        <div class="row">
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Beginner</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Press-Ups</li>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Intermediate</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Press-Ups</li>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-              <li>Diamond Push-Ups</li>
-              <li>Svend Press</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Advanced</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Press-Ups</li>
-              <li>Push-Ups</li>
-              <li>Plank</li>
-              <li>Diamond Push-Ups</li>
-              <li>Svend Press</li>
-              <li>Push-Ups in a Circle</li>
-              <li>Clap press-up</li>
-            </ol>
-          </div>
-        </div>
+      <div id="chest" class="tab-pane fade in">
+        <WorkoutExercises bodyPartName="Chest" @sendWorkout="yes" />
       </div>
       <!-- Legs -->
-      <div id="legs" class="tab-pane fade">
-        <img class="img5" src="@/assets/legs.jpg" />
-        <div class="row">
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Beginner</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Squats</li>
-              <li>Glute bridge</li>
-              <li>Calf raise</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Intermediate</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Squats</li>
-              <li>Glute bridge</li>
-              <li>Calf raise</li>
-              <li>Jumping Jack</li>
-              <li>Split squat</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Advanced</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Squats</li>
-              <li>Glute bridge</li>
-              <li>Calf raise</li>
-              <li>Jumping Jack</li>
-              <li>Split squat</li>
-              <li>Romanian deadlift</li>
-              <li>Box jump</li>
-            </ol>
-          </div>
-        </div>
+      <div id="legs" class="tab-pane fade in">
+        <WorkoutExercises bodyPartName="Legs" @sendWorkout="yes" />
       </div>
       <!-- Back -->
-      <div id="back" class="tab-pane fade">
-        <img class="img6" src="@/assets/back.jpg" />
-        <div class="row">
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Beginner</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Plank</li>
-              <li>Bird-dog</li>
-              <li>Superman</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Intermediate</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Plank</li>
-              <li>Bird-dog</li>
-              <li>Superman</li>
-              <li>Toe Touch</li>
-              <li>Dolphin Kick</li>
-            </ol>
-          </div>
-          <div class="col-sm-4 col-12">
-            <h3 class="text-center">Advanced</h3>
-            <h5>Exercises:</h5>
-            <ol>
-              <li>Plank</li>
-              <li>Bird-dog</li>
-              <li>Superman</li>
-              <li>Toe Touch</li>
-              <li>Dolphin Kick</li>
-              <li>Single Arm Dumbbell Rows</li>
-              <li>Renegade row</li>
-            </ol>
-          </div>
-        </div>
+      <div id="back" class="tab-pane fade in">
+        <WorkoutExercises bodyPartName="Back" @sendWorkout="yes" />
       </div>
     </div>
   </div>
-  <!-- 
-  <div v-else>
-    
-  </div> -->
+  <Timer :bp="this.aaaa" :key="this.aaaa" />
 </template>
 
 <style scoped lang="scss">
@@ -306,71 +74,6 @@
     padding: 0.25rem 0.5rem;
   }
 }
-
-img {
-  border-radius: 0.5rem;
-}
-
-.img1 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 70%;
-}
-
-.img2 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
-.img3 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 80%;
-}
-
-.img4 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 80%;
-}
-
-.img5 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 100%;
-}
-
-.img6 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 10%;
-}
-
-.panel-default {
-  //border-color: green !important;
-  border-radius: 0.5rem 0.5rem 0rem 0rem !important;
-  border-color: lighten($black, 70%);
-
-  .my-btn {
-    border-radius: 0.5rem 0.5rem 0 0;
-  }
-
-  .card {
-    border-top: 1px solid lighten($black, 10%);
-    border-radius: 0;
-  }
-}
-
-.text-shadow {
-  font-weight: bold;
-}
 </style>
 
 <script>
@@ -378,6 +81,8 @@ img {
 import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase, db } from "@/firebase";
 import router from "@/router";
+import WorkoutExercises from "@/components/WorkoutExercises";
+import Timer from "@/components/Timer";
 
 export default {
   name: "Workout",
@@ -388,15 +93,38 @@ export default {
         .slice(47)
         .split('"')[0],
       userName: "",
+      clicked: true,
+      aaaa: null,
     };
   },
   components: {
     HeaderImage,
+    WorkoutExercises,
+    Timer,
   },
   mounted() {
     this.getName();
   },
   methods: {
+    yes(value_from_child) {
+      this.clicked = value_from_child.a;
+      this.aaaa = value_from_child.bp;
+      this.eeee = value_from_child.diff;
+      switch (this.eeee) {
+        case "beginner":
+          this.aaaa = this.aaaa.beginner;
+          break;
+        case "intermediate":
+          this.aaaa = this.aaaa.intermediate;
+          break;
+        case "advanced":
+          this.aaaa = this.aaaa.advanced;
+          break;
+        default:
+          break;
+      }
+      console.log(this.aaaa);
+    },
     getName() {
       db.collection("profile")
         .doc(this.email)

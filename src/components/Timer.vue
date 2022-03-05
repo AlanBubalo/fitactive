@@ -45,7 +45,12 @@
         </div>
       </div>
     </div>
-    <CurrentExercises :key="currentExercise" :c="currentExercise" />
+    {{ this.bodyWorkout }}
+    <CurrentExercises
+      :key="currentExercise"
+      :c="currentExercise"
+      :exercises="bodyWorkout"
+    />
     <!-- Key is needed for the component so the page can rerender it when each exercise is finished -->
   </div>
 </template>
@@ -57,8 +62,11 @@
 <script>
 import CurrentExercises from "@/components/CurrentExercises.vue";
 import router from "@/router";
+import emitter from "@/services/emitter";
+
 export default {
   name: "Timer",
+  prop: ["bp", "key"],
   data() {
     return {
       currentExercise: 1,
@@ -74,6 +82,7 @@ export default {
       MINUTE: 60, // Seconds in a minute
       SECOND: 1000, // Milliseconds in a second
       paused: false,
+      bodyWorkout: this.bp,
     };
   },
   components: {
@@ -83,6 +92,7 @@ export default {
     window.addEventListener("beforeunload", this.preventNav);
   },
   mounted() {
+    console.log("this.bp:", this.bp);
     this.resume();
   },
   beforeDestroy() {
