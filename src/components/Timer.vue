@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="bg-primary p-4">
+      <p>{{ difficulty }}</p>
       <div class="p-4 my-rounded" :class="timer_bg">
         <h5 class="text-center">
           {{ timer_bg == "bg-primary" ? "Paused:" : "Remaining:" }}
@@ -45,7 +46,6 @@
         </div>
       </div>
     </div>
-    {{ this.bodyWorkout }}
     <CurrentExercises
       :key="currentExercise"
       :c="currentExercise"
@@ -60,13 +60,12 @@
 </style>
 
 <script>
+import { getCurrentInstance } from "vue";
 import CurrentExercises from "@/components/CurrentExercises.vue";
-import router from "@/router";
-import emitter from "@/services/emitter";
 
 export default {
   name: "Timer",
-  prop: ["bp", "key"],
+  prop: ["key", "diffi"],
   data() {
     return {
       currentExercise: 1,
@@ -76,13 +75,15 @@ export default {
       next: "disabled",
       timer_bg: "bg-white",
       isDone: false,
-      seconds: 90,
+      seconds: 0,
       timer: null,
       end: null,
       MINUTE: 60, // Seconds in a minute
       SECOND: 1000, // Milliseconds in a second
       paused: false,
-      bodyWorkout: this.bp,
+      bodyWorkout: null,
+      exerciseDuration: 30,
+      difficulty: "",
     };
   },
   components: {
@@ -92,7 +93,10 @@ export default {
     window.addEventListener("beforeunload", this.preventNav);
   },
   mounted() {
-    console.log("this.bp:", this.bp);
+    this.difficulty = this.diffi;
+    console.log("diffi:", this.diffi);
+    this.bodyWorkout = getCurrentInstance().vnode.key;
+    this.seconds = this.bodyWorkout.length * this.exerciseDuration;
     this.resume();
   },
   beforeDestroy() {
@@ -134,7 +138,7 @@ export default {
         this.displayMinutes = minutes < 10 ? "0" + minutes : minutes;
         this.displaySeconds = seconds < 10 ? "0" + seconds : seconds;
 
-        if (this.duration % 30 == 0 && this.duration != 0) {
+        if (this.duration % this.exerciseDuration == 0 && this.duration != 0) {
           this.currentExercise++;
         }
         // Check if the timer has expired

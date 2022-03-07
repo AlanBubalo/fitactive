@@ -56,14 +56,13 @@
 
 <script>
 import { firebase, db } from "@/firebase";
-import emitter from "@/services/emitter";
 
 export default {
   name: "WorkoutExercises",
   props: ["bodyPartName"],
   data() {
     return {
-      a: false,
+      selected: true,
       bodyPart: {},
       num: null,
     };
@@ -111,7 +110,11 @@ export default {
         });
     },
     sendWorkoutData(diff) {
-      this.$emit("sendWorkout", { a: this.a, bp: this.bodyPart, diff });
+      this.$emit("sendWorkout", {
+        selected: this.selected,
+        bodyPart: this.bodyPart,
+        diff,
+      });
       console.log("sending workout data...");
     },
   },

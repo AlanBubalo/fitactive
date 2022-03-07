@@ -1,5 +1,5 @@
 <template>
-  <div v-if="clicked" class="container p-4 bg-white my-4 my-rounded">
+  <div v-if="!clicked" class="container p-4 bg-white my-4 my-rounded">
     <h4>Focus Area:</h4>
     <ul
       class="nav nav-pills nav-fill d-flex justify-content-between text-center mt-4"
@@ -53,7 +53,9 @@
       </div>
     </div>
   </div>
-  <Timer :bp="this.aaaa" :key="this.aaaa" />
+  <div v-else>
+    <Timer :key="this.selectedWorkout" :diffi="this.difficulty" />
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -78,9 +80,7 @@
 
 <script>
 // @ is an alias to /src
-import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase, db } from "@/firebase";
-import router from "@/router";
 import WorkoutExercises from "@/components/WorkoutExercises";
 import Timer from "@/components/Timer";
 
@@ -93,12 +93,12 @@ export default {
         .slice(47)
         .split('"')[0],
       userName: "",
-      clicked: true,
-      aaaa: null,
+      clicked: false,
+      selectedWorkout: null,
+      difficulty: "",
     };
   },
   components: {
-    HeaderImage,
     WorkoutExercises,
     Timer,
   },
@@ -107,23 +107,23 @@ export default {
   },
   methods: {
     yes(value_from_child) {
-      this.clicked = value_from_child.a;
-      this.aaaa = value_from_child.bp;
-      this.eeee = value_from_child.diff;
-      switch (this.eeee) {
+      this.clicked = value_from_child.selected;
+      this.selectedWorkout = value_from_child.bodyPart;
+      this.difficulty = value_from_child.diff;
+      switch (this.difficulty) {
         case "beginner":
-          this.aaaa = this.aaaa.beginner;
+          this.selectedWorkout = this.selectedWorkout.beginner;
           break;
         case "intermediate":
-          this.aaaa = this.aaaa.intermediate;
+          this.selectedWorkout = this.selectedWorkout.intermediate;
           break;
         case "advanced":
-          this.aaaa = this.aaaa.advanced;
+          this.selectedWorkout = this.selectedWorkout.advanced;
           break;
         default:
           break;
       }
-      console.log(this.aaaa);
+      console.log(this.selectedWorkout);
     },
     getName() {
       db.collection("profile")

@@ -45,13 +45,10 @@
 </style>
 
 <script>
-import { firebase, db } from "@/firebase";
 export default {
   props: ["key", "c", "exercises"],
   data() {
-    return {
-      workoutData: [],
-    };
+    return {};
   },
   mounted() {
     this.updateExercises();
