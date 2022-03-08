@@ -1,10 +1,20 @@
 <template>
   <div class="container">
     <div class="bg-primary p-4">
-      <p>{{ difficulty }}</p>
-      <div class="p-4 my-rounded" :class="timer_bg">
+      <div class="text-center fw-bold p-4">
+        <h2 class="text-uppercase">
+          {{ bodyPartName }}
+        </h2>
+        <h4 class="text-capitalize">
+          {{ difficulty }}
+        </h4>
+      </div>
+      <div
+        class="p-4 my-rounded"
+        :class="this.paused ? 'bg-primary' : 'bg-white'"
+      >
         <h5 class="text-center">
-          {{ timer_bg == "bg-primary" ? "Paused:" : "Remaining:" }}
+          {{ this.paused ? "Paused:" : "Remaining:" }}
         </h5>
         <h1 class="text-center display-2">
           {{ displayMinutes }} : {{ displaySeconds }}
@@ -17,7 +27,7 @@
               type="button"
               @click="pause()"
               class="btn my-btn bg-primary box-shadow p-2"
-              :class="this.next != 'disabled' ? 'disabled' : ''"
+              :class="this.isDone ? 'disabled' : ''"
             >
               Pause
             </button>
@@ -27,22 +37,21 @@
               type="button"
               @click="resume()"
               class="btn my-btn bg-primary box-shadow p-2"
-              :class="this.next != 'disabled' ? 'disabled' : ''"
+              :class="this.isDone ? 'disabled' : ''"
             >
               Resume
             </button>
           </div>
         </div>
         <div class="col">
-          <router-link to="/home">
-            <button
-              type="button"
-              class="btn my-btn bg-white border box-shadow p-2"
-              :class="this.next"
-            >
-              Next
-            </button></router-link
+          <button
+            type="button"
+            class="btn my-btn bg-white border box-shadow p-2"
+            @click="goToHome()"
+            :class="!this.isDone ? 'disabled' : ''"
           >
+            Done
+          </button>
         </div>
       </div>
     </div>
@@ -55,25 +64,22 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-@import "@/colors";
-</style>
+<style scoped lang="scss"></style>
 
 <script>
 import { getCurrentInstance } from "vue";
+import router from "@/router";
 import CurrentExercises from "@/components/CurrentExercises.vue";
 
 export default {
   name: "Timer",
-  prop: ["key", "diffi"],
+  prop: ["key"],
   data() {
     return {
       currentExercise: 1,
-      displayMinutes: 0,
-      displaySeconds: 0,
+      displayMinutes: "00",
+      displaySeconds: "00",
       duration: 0,
-      next: "disabled",
-      timer_bg: "bg-white",
       isDone: false,
       seconds: 0,
       timer: null,
@@ -82,8 +88,11 @@ export default {
       SECOND: 1000, // Milliseconds in a second
       paused: false,
       bodyWorkout: null,
+      bodyPartName: "",
       exerciseDuration: 30,
       difficulty: "",
+      workoutData: null,
+      finished: null,
     };
   },
   components: {
@@ -93,19 +102,16 @@ export default {
     window.addEventListener("beforeunload", this.preventNav);
   },
   mounted() {
-    this.difficulty = this.diffi;
-    console.log("diffi:", this.diffi);
-    this.bodyWorkout = getCurrentInstance().vnode.key;
+    this.workoutData = getCurrentInstance().vnode.key;
+    this.bodyWorkout = this.workoutData.bodyPart;
+    this.difficulty = this.workoutData.diff;
+    this.bodyPartName = this.workoutData.bodyPartName;
+    if (this.bodyPartName == "FullBody") this.bodyPartName = "Full Body"; // Checking if a body part has 2 words
     this.seconds = this.bodyWorkout.length * this.exerciseDuration;
     this.resume();
   },
   beforeDestroy() {
     window.removeEventListener("beforeunload", this.preventNav);
-  },
-  beforeRouteUpdate(to, from, next) {
-    if (!this.isDone && !window.confirm("Leave without finishing workout?"))
-      return;
-    next();
   },
   methods: {
     preventNav(event) {
@@ -117,13 +123,11 @@ export default {
     pause() {
       clearInterval(this.timer);
       this.paused = true;
-      this.timer_bg = "bg-primary";
       console.log("paused");
     },
     resume() {
       console.log("started");
       this.paused = false;
-      this.timer_bg = "bg-white";
       if (this.duration == 0) {
         this.end = Date.now() + this.seconds * this.SECOND; // Exact time when counter will expire.
       } else {
@@ -145,10 +149,17 @@ export default {
         if (this.duration <= 0) {
           clearInterval(this.timer);
           this.isDone = true;
-          this.next = "";
           return;
         }
       }, 1000);
+    },
+    goToHome() {
+      this.sendWorkoutIsFinished();
+      router.push("/home");
+    },
+    sendWorkoutIsFinished() {
+      console.log("sending finished...");
+      this.$emit("sendFinished", (this.finished = true));
     },
   },
 };

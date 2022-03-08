@@ -54,6 +54,54 @@
   </div>
 </template>
 
+<style scoped lang="scss">
+img {
+  border-radius: 0.5rem;
+}
+
+.img1 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 70%;
+}
+
+.img2 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.img3 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 80%;
+}
+
+.img4 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 80%;
+}
+
+.img5 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+.img6 {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 10%;
+}
+</style>
+
 <script>
 import { firebase, db } from "@/firebase";
 
@@ -113,6 +161,7 @@ export default {
       this.$emit("sendWorkout", {
         selected: this.selected,
         bodyPart: this.bodyPart,
+        bodyPartName: this.bodyPartName,
         diff,
       });
       console.log("sending workout data...");
@@ -120,51 +169,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-img {
-  border-radius: 0.5rem;
-}
-
-.img1 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 70%;
-}
-
-.img2 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
-.img3 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 80%;
-}
-
-.img4 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 80%;
-}
-
-.img5 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 100%;
-}
-
-.img6 {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: 50% 10%;
-}
-</style>
