@@ -46,34 +46,23 @@
 
   <div class="container">
     <div class="row g-3 my-3">
-      <!-- Cardio -->
-      <div class="col-12 col-md-4 mt-0">
-        <div class="p-4 bg-white my-rounded h-100 me-0">
-          <div class="d-flex justify-content-between">
-            <div>
-              <h4>Cardio:</h4>
-              <p><span class="fs-2">3000</span> /6000 meters</p>
-            </div>
-            <!-- <router-link to="/cardio" class="ms-auto my-auto">
-              <button class="btn bg-primary box-shadow">
-                Start
-              </button></router-link
-            > -->
-          </div>
-          <div class="progress">
-            <div
-              class="progress-bar bg-primary"
-              role="progressbar"
-              style="width: 50%"
-              aria-valuenow="3000"
-              aria-valuemin="0"
-              aria-valuemax="6000"
-            ></div>
-          </div>
+      <!-- Workout Schedule -->
+      <div class="col-12 col-md-6 mt-md-0 mt-3">
+        <div
+          class="d-flex p-4 bg-white my-rounded d-flex justify-content-between h-100 ms-0"
+        >
+          <h4>Workout Schedule:</h4>
+
+          <router-link to="/workoutschedule" class="my-auto">
+            <button class="btn bg-primary box-shadow">
+              Check Schedule
+            </button></router-link
+          >
         </div>
       </div>
+
       <!-- Water Intake -->
-      <div class="col-12 col-md-4 mt-md-0 mt-3">
+      <div class="col-12 col-md-6 mt-md-0 mt-3">
         <div
           class="p-4 my-rounded h-100 m-0"
           :class="GlassesDrank >= GlassesTotal ? 'bg-primary' : 'bg-white'"
@@ -112,28 +101,10 @@
           </div>
         </div>
       </div>
-      <!-- Ideal Hours of Sleep -->
-      <div class="col-12 col-md-4 mt-md-0 mt-3">
-        <div
-          class="p-4 bg-white my-rounded d-flex justify-content-between h-100 ms-0"
-        >
-          <div>
-            <h4>Ideal hours for sleep:</h4>
-            <p>8 hours 30 minutes</p>
-
-            <!-- <router-link to="/sleep" class="ms-auto my-auto">
-              <button class="btn bg-primary box-shadow">
-                Set your sleeping schedule!
-              </button></router-link
-            > -->
-          </div>
-          <img class="img" alt="Clock" src="@/assets/clock.png" />
-        </div>
-      </div>
     </div>
 
     <!-- Profile -->
-    <div class="row my-3">
+    <div class="row my-3 justify-content-center">
       <div class="col-12 col-md-5 mt-md-0">
         <div class="p-4 bg-white my-rounded">
           <div class="d-flex justify-content-between">
@@ -161,15 +132,6 @@
               <h6>Gender:</h6>
               <p>{{ Gender }}</p>
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- Activity -->
-      <div class="col-12 col-md-7 mt-md-0 mt-3">
-        <div class="p-4 bg-white my-rounded">
-          <div class="d-flex justify-content-between">
-            <h4>Activity Progress:</h4>
-            <p>40 minutes</p>
           </div>
         </div>
       </div>

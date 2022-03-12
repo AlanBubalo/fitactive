@@ -41,9 +41,9 @@
         </li>
         <li class="nav-item">
           <router-link
-            to="/calendar"
+            to="/workoutschedule"
             class="nav-link p-2 px-3 text-center hover-left"
-            >CALENDAR</router-link
+            >WORKOUT SCHEDULE</router-link
           >
         </li>
         <li class="nav-item">
@@ -51,13 +51,6 @@
             to="/water-intake"
             class="nav-link p-2 px-3 text-center hover-left"
             >WATER INTAKE</router-link
-          >
-        </li>
-        <li class="nav-item">
-          <router-link
-            to="/sleep"
-            class="nav-link p-2 px-3 text-center hover-left"
-            >SLEEP SCHEDULE</router-link
           >
         </li>
       </ul>
@@ -91,6 +84,12 @@
     </div>
   </nav>
   <router-view />
+
+  <div class="app">
+    <todo-list>
+      <todo-item></todo-item>
+    </todo-list>
+  </div>
 </template>
 
 <style lang="scss">
@@ -341,6 +340,8 @@
 <script>
 import { firebase } from "@/firebase";
 import router from "@/router";
+import ToDoList from "./components/ToDoList";
+import ToDoItem from "./components/ToDoItem";
 
 export default {
   name: "App",
@@ -349,6 +350,7 @@ export default {
       currentUser: null,
     };
   },
+
   mounted() {
     //this.$root.$refs.App = this;
     firebase.auth().onAuthStateChanged(async (user) => {
@@ -382,6 +384,11 @@ export default {
       })(navigator.userAgent || navigator.vendor || window.opera);
       return check;
     },
+  },
+
+  components: {
+    ToDoList,
+    ToDoItem,
   },
 };
 </script>
