@@ -84,12 +84,6 @@
     </div>
   </nav>
   <router-view />
-
-  <div class="app">
-    <todo-list>
-      <todo-item></todo-item>
-    </todo-list>
-  </div>
 </template>
 
 <style lang="scss">
@@ -340,8 +334,6 @@
 <script>
 import { firebase } from "@/firebase";
 import router from "@/router";
-import ToDoList from "./components/ToDoList";
-import ToDoItem from "./components/ToDoItem";
 
 export default {
   name: "App",
@@ -350,7 +342,6 @@ export default {
       currentUser: null,
     };
   },
-
   mounted() {
     //this.$root.$refs.App = this;
     firebase.auth().onAuthStateChanged(async (user) => {
@@ -384,11 +375,6 @@ export default {
       })(navigator.userAgent || navigator.vendor || window.opera);
       return check;
     },
-  },
-
-  components: {
-    ToDoList,
-    ToDoItem,
   },
 };
 </script>

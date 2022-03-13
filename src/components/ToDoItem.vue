@@ -1,11 +1,12 @@
 <template>
-  <div class="todo-item">
-    {{ item.todo }}
+  <div class="todo-item list-group-item">
+    {{ item }}
   </div>
 </template>
 
 <script>
 export default {
+  name: "ToDoItem",
   props: ["item"],
   data() {
     return {};
@@ -13,4 +14,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.todo-item {
+  &:hover {
+    cursor: move;
+  }
+}
+</style>
