@@ -10,30 +10,63 @@
         <div class="row my-3">
           <div class="col-12 col-md-5 mt-md-0">
             <div class="p-4 bg-white my-rounded">
-              <div class="d-flex justify-content-between">
-                <h4>Location</h4>
-                <router-link to="/setupprofile">
+              <div class="justify-content-between">
+                <h4>Notifications:</h4>
+                <p>Daily reminders</p>
+                <label class="switch">
+                  <input class="switch-input" type="checkbox" />
+                  <span class="switch-label" data-on="On" data-off="Off"></span>
+                  <span class="switch-handle"></span>
+                </label>
+              </div>
+            </div>
+            <div class="p-4 bg-white my-rounded mt-1">
+              <h4>Contact Us:</h4>
+              <p>
+                If you are having any trouble with the app just click the button
+                and send us an email!
+              </p>
+              <p>
+                <router-link to="/contact-us">
                   <button class="btn bg-primary box-shadow">
-                    ON/OFF
+                    Contact Us
                   </button></router-link
                 >
-                <!-- Rectangular switch -->
-                <label class="switch">
-                  <input type="checkbox" />
-                  <span class="slider"></span>
-                </label>
+              </p>
+            </div>
+            <div class="p-4 bg-white my-rounded mt-1">
+              <div class="justify-content-between">
+                <h4>Version:</h4>
+                <p>
+                  The current version of FitActive is 1.0. We will keep updating
+                  the app.
+                </p>
+              </div>
+            </div>
+            <div class="p-4 bg-white my-rounded mt-1">
+              <div class="justify-content-between">
+                <h4>Privacy Policy:</h4>
+                <div>
+                  <p>
+                    In order to use the FitActive app you must agree to our
+                    privacy policies.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white my-rounded mt-1">
+              <div class="justify-content-between">
+                <h4>About:</h4>
+                <p>
+                  FitActive is a project. This website is made for people who
+                  want to stay fit. The website is made in 2022 and will keep
+                  expanding further into the fitness world.
+                </p>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <p>
-            <router-link to="/contact-us">
-              <button class="btn bg-primary box-shadow">
-                Contact Us
-              </button></router-link
-            >
-          </p>
           <p>
             <button @click.prevent="logout" class="btn bg-primary box-shadow">
               Logout
@@ -51,6 +84,113 @@
   height: 350px;
   object-fit: cover;
   object-position: 50% 45%;
+}
+
+.switch {
+  position: relative;
+  display: block;
+  vertical-align: top;
+  width: 100px;
+  height: 30px;
+  padding: 3px;
+  margin: 0 10px 10px 0;
+  background: linear-gradient(to bottom, #eeeeee, #ffffff 25px);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff 25px);
+  border-radius: 18px;
+  box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  box-sizing: content-box;
+}
+.switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  box-sizing: content-box;
+}
+.switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #eceeef;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12),
+    inset 0 0 2px rgba(0, 0, 0, 0.15);
+  box-sizing: content-box;
+}
+.switch-label:before,
+.switch-label:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+  box-sizing: content-box;
+}
+.switch-label:before {
+  content: attr(data-off);
+  right: 11px;
+  color: #aaaaaa;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.switch-label:after {
+  content: attr(data-on);
+  left: 11px;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+}
+.switch-input:checked ~ .switch-label {
+  background: #e1b42b;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.switch-input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+  opacity: 1;
+}
+.switch-handle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(to bottom, #ffffff 40%, #f0f0f0);
+  background-image: -webkit-linear-gradient(top, #ffffff 40%, #f0f0f0);
+  border-radius: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.switch-handle:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(to bottom, #eeeeee, #ffffff);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff);
+  border-radius: 6px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+}
+.switch-input:checked ~ .switch-handle {
+  left: 74px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-label,
+.switch-handle {
+  transition: All 0.3s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
 }
 
 /* The switch - the box around the slider */
