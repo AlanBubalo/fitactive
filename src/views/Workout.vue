@@ -1,4 +1,5 @@
 <template>
+  <!-- Workout -->
   <div v-if="!clicked" class="container p-4 bg-white my-4 my-rounded">
     <h4>Focus Area:</h4>
     <ul

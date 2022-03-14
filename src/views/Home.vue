@@ -1,4 +1,5 @@
 <template>
+  <!-- Welcome User -->
   <div class="advice text-center text-white d-flex justify-content-between">
     <p class="m-auto">Welcome, {{ Name }}</p>
     <div class="pe-5">
@@ -46,12 +47,12 @@
 
   <div class="container">
     <div class="row g-3 my-3">
-      <!-- Workout Schedule -->
+      <!-- Schedule -->
       <div class="col-12 col-md-6 mt-md-0 mt-3">
         <div
           class="d-flex p-4 bg-white my-rounded d-flex justify-content-between h-100 ms-0"
         >
-          <h4>Workout Schedule:</h4>
+          <h4>Schedule:</h4>
 
           <router-link to="/schedule" class="my-auto">
             <button class="btn bg-primary box-shadow">

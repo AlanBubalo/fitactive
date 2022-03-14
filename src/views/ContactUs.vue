@@ -1,4 +1,5 @@
 <template>
+  <!-- Contact Us -->
   <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
     <div class="title"></div>

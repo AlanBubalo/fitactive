@@ -1,4 +1,5 @@
 <template>
+  <!-- Login -->
   <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Log in</div>

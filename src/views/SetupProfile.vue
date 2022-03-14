@@ -1,4 +1,5 @@
 <template>
+  <!-- Setup Profile -->
   <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Set up Your Profile</div>

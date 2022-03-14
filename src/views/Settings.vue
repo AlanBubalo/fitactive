@@ -1,4 +1,5 @@
 <template>
+  <!-- Settings -->
   <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
     <div class="title">Settings</div>
@@ -6,11 +7,12 @@
   <div class="container p-4 mb-3">
     <div class="row">
       <div class="col-12 col-md-6 mt-md-0 mt-3 px-2">
+        <!-- Contact Us -->
         <div class="p-4 bg-white my-rounded">
           <h4>Contact Us:</h4>
           <p>
-            If you are having any trouble with the app just click the button and
-            send us an email!
+            If you are having any trouble with the website just click the button
+            and send us an email.
           </p>
           <p>
             <router-link to="/contact-us">
@@ -23,6 +25,7 @@
       </div>
       <div class="col-12 col-md-6 mt-md-0 mt-3 px-2">
         <div class="p-4 bg-white my-rounded">
+          <!-- Notifications -->
           <h4>Notifications:</h4>
           <div class="d-flex justify-content-between">
             <p>Daily reminders</p>
@@ -33,19 +36,9 @@
           </div>
         </div>
       </div>
-      <!--
-            <div class="p-4 bg-white my-rounded mt-1">
-              <div class="justify-content-between">
-                <h4>Version:</h4>
-                <p>
-                  The current version of FitActive is 1.0. We will keep updating
-                  the app.
-                </p>
-              </div>
-            </div>
-            -->
       <div class="col-12 col-md-6 mt-md-3 mt-3 px-2">
         <div class="p-4 bg-white my-rounded">
+          <!-- About Us -->
           <div class="">
             <h4>About:</h4>
             <p>
@@ -56,6 +49,7 @@
           </div>
         </div>
       </div>
+      <!-- Logout from the website -->
       <div class="d-flex justify-content-end">
         <button
           @click.prevent="logout"

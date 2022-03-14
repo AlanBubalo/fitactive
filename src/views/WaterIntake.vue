@@ -1,4 +1,3 @@
-d
 <template>
   <div class="advice text-center text-white">
     <p>
@@ -22,6 +21,7 @@ d
             max="15"
             class="form-control box-shadow my-3"
           />
+          <!-- Reset Button -->
           <div class="row">
             <div class="col mx-auto">
               <button
@@ -32,6 +32,7 @@ d
                 Reset
               </button>
             </div>
+            <!-- Save Button -->
             <div class="col">
               <button
                 type="submit"

@@ -1,4 +1,5 @@
 <template>
+  <!-- Welcome -->
   <div class="text-white">
     <div class="header-image">
       <img class="img" alt="FitActive Logo" src="@/assets/welcome.jpg" />

@@ -1,4 +1,5 @@
 <template>
+  <!-- App -->
   <nav id="nav" class="navbar navbar-expand-lg">
     <router-link
       to="/"
