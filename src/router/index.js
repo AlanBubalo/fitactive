@@ -46,9 +46,9 @@ const routes = [
     },
   },
   {
-    path: "/workoutschedule",
-    name: "WorkoutSchedule",
-    component: () => import("@/views/Workout Schedule.vue"),
+    path: "/schedule",
+    name: "Schedule",
+    component: () => import("@/views/Schedule.vue"),
     meta: {
       needsUser: true,
     },

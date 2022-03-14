@@ -1,6 +1,7 @@
 <template>
-  <div class="container text-center p-3 bg-white my-rounded mt-5">
-    <div class="row m-0">
+  <!-- Workouts to choose from -->
+  <div class="container text-center p-3 bg-white my-rounded mt-4">
+    <div class="row g-3">
       <div class="col-4">
         <to-do-list title="Beginner">
           <draggable
@@ -46,10 +47,35 @@
     </div>
   </div>
 
+  <!-- Reset and Save buttons -->
   <div class="container">
-    <div class="row m-0 g-3 mt-5">
-      <div class="col-lg col-6">
-        <div id="Monday" class="p-4 bg-white my-rounded">
+    <div class="row">
+      <div class="col mx-md-5">
+        <button
+          type="button"
+          @click="reset()"
+          class="btn my-btn border box-shadow p-2"
+        >
+          Reset
+        </button>
+      </div>
+      <div class="col mx-md-5">
+        <button
+          type="submit"
+          class="btn my-btn bg-primary box-shadow p-2"
+          @click="save()"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule -->
+  <div class="container">
+    <div class="row g-2">
+      <div class="col-lg col-6 mb-lg-3 mb-0">
+        <div id="Monday" class="p-3 bg-white my-rounded">
           <to-do-list title="Monday">
             <draggable
               class="list-group mt-3 min-h"
@@ -57,11 +83,6 @@
               group="tasks"
               item-key="id"
             >
-              <template #header>
-                <button class="btn my-btn bg-primary" @click="clear(mon)">
-                  Clear
-                </button>
-              </template>
               <template #item="{ element, index }">
                 <div class="list-group-item d-flex justify-content-between">
                   <span class="text">{{ element.name }} </span>
@@ -75,8 +96,8 @@
           </to-do-list>
         </div>
       </div>
-      <div class="col-lg col-6">
-        <div id="Tuesday" class="p-4 bg-white my-rounded">
+      <div class="col-lg col-6 mb-lg-3 mb-0">
+        <div id="Tuesday" class="p-3 bg-white my-rounded">
           <to-do-list title="Tuesday">
             <draggable
               class="list-group mt-3 min-h"
@@ -97,8 +118,8 @@
           </to-do-list>
         </div>
       </div>
-      <div class="col-lg col-6">
-        <div id="Wednesday" class="p-4 bg-white my-rounded">
+      <div class="col-lg col-6 mb-lg-3 mb-0">
+        <div id="Wednesday" class="p-3 bg-white my-rounded">
           <to-do-list title="Wednesday">
             <draggable
               class="list-group mt-3 min-h"
@@ -119,8 +140,8 @@
           </to-do-list>
         </div>
       </div>
-      <div class="col-lg col-6">
-        <div id="Thursday" class="p-4 bg-white my-rounded">
+      <div class="col-lg col-6 mb-lg-3 mb-0">
+        <div id="Thursday" class="p-3 bg-white my-rounded">
           <to-do-list title="Thursday">
             <draggable
               class="list-group mt-3 min-h"
@@ -141,8 +162,8 @@
           </to-do-list>
         </div>
       </div>
-      <div class="col-lg col-6">
-        <div id="Friday" class="p-4 bg-white my-rounded">
+      <div class="col-lg col-6 mb-lg-3 mb-0">
+        <div id="Friday" class="p-3 bg-white my-rounded">
           <to-do-list title="Friday">
             <draggable
               class="list-group mt-3 min-h"
@@ -163,8 +184,8 @@
           </to-do-list>
         </div>
       </div>
-      <div class="col-lg col-6">
-        <div id="Saturday" class="p-4 bg-white my-rounded">
+      <div class="col-lg col-6 mb-lg-3 mb-0">
+        <div id="Saturday" class="p-3 bg-white my-rounded">
           <to-do-list title="Saturday">
             <draggable
               class="list-group mt-3 min-h"
@@ -185,8 +206,8 @@
           </to-do-list>
         </div>
       </div>
-      <div class="col-lg col-12">
-        <div id="Sunday" class="p-4 bg-white my-rounded">
+      <div class="col-lg col-12 mb-3">
+        <div id="Sunday" class="p-3 bg-white my-rounded">
           <to-do-list title="Sunday">
             <draggable
               class="list-group mt-3 min-h"
@@ -206,28 +227,6 @@
             </draggable>
           </to-do-list>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col mx-auto">
-        <button
-          type="button"
-          @click="reset()"
-          class="btn my-btn border box-shadow p-2"
-        >
-          Reset
-        </button>
-      </div>
-      <div class="col">
-        <button
-          type="submit"
-          class="btn my-btn bg-primary box-shadow p-2"
-          @click="save()"
-        >
-          Save
-        </button>
       </div>
     </div>
   </div>
@@ -259,15 +258,21 @@
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
-import ToDoItem from "@/components/ToDoItem.vue";
 import ToDoList from "@/components/ToDoList.vue";
 import draggable from "vuedraggable";
+import { firebase, db } from "@/firebase";
+import router from "@/router";
 
 export default {
-  name: "WorkoutSchedule",
+  name: "Schedule",
   data() {
     return {
+      email: window.sessionStorage
+        .getItem(Object.keys(window.sessionStorage))
+        .slice(47)
+        .split('"')[0],
       drag: false,
+      saved: false,
       beginner: [
         {
           id: 1,
@@ -353,18 +358,55 @@ export default {
       fri: [],
       sat: [],
       sun: [],
+      oldMon: [],
+      oldTue: [],
+      oldWen: [],
+      oldThu: [],
+      oldFri: [],
+      oldSat: [],
+      oldSun: [],
     };
   },
   components: {
     HeaderImage,
     ToDoList,
-    ToDoItem,
     draggable,
   },
   mounted() {
     this.getDay();
+    this.getSchedule();
   },
   methods: {
+    getSchedule() {
+      db.collection("schedule")
+        .doc(this.email)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            console.log("ay");
+            this.mon = doc.data().mon;
+            this.tue = doc.data().tue;
+            this.wen = doc.data().wen;
+            this.thu = doc.data().thu;
+            this.fri = doc.data().fri;
+            this.sat = doc.data().sat;
+            this.sun = doc.data().sun;
+            this.oldMon = this.mon.slice();
+            this.oldTue = this.tue.slice();
+            this.oldWen = this.wen.slice();
+            this.oldThu = this.thu.slice();
+            this.oldFri = this.fri.slice();
+            this.oldSat = this.sat.slice();
+            this.oldSun = this.sun.slice();
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
     removeAt(id, list) {
       list.splice(id, 1);
     },
@@ -382,11 +424,60 @@ export default {
       let day = weekday[d.getDay()];
       $("#" + day).addClass("currentDay");
     },
-    clear(list) {
-      console.log("list", list);
-      list = [];
-      console.log("list", list);
+    reset() {
+      this.mon = [];
+      this.tue = [];
+      this.wen = [];
+      this.thu = [];
+      this.fri = [];
+      this.sat = [];
+      this.sun = [];
     },
+    save() {
+      db.collection("schedule")
+        .doc(this.email)
+        .set({
+          mon: this.mon,
+          tue: this.tue,
+          wen: this.wen,
+          thu: this.thu,
+          fri: this.fri,
+          sat: this.sat,
+          sun: this.sun,
+        })
+        .then((doc) => {
+          console.log("Schedule saved!");
+          this.saved = true;
+          router.push("/home");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  },
+  beforeRouteLeave(to, from, next) {
+    if (this.saved) next();
+    else if (
+      JSON.stringify(this.oldMon) !== JSON.stringify(this.mon) ||
+      JSON.stringify(this.oldTue) !== JSON.stringify(this.tue) ||
+      JSON.stringify(this.oldWen) !== JSON.stringify(this.wen) ||
+      JSON.stringify(this.oldThu) !== JSON.stringify(this.thu) ||
+      JSON.stringify(this.oldFri) !== JSON.stringify(this.fri) ||
+      JSON.stringify(this.oldSat) !== JSON.stringify(this.sat) ||
+      JSON.stringify(this.oldSun) !== JSON.stringify(this.sun)
+    ) {
+      const answer = window.confirm(
+        "Do you really want to leave? Progress won't be saved!"
+      );
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
+    } else {
+      console.log("Unchanged");
+      next();
+    }
   },
 };
 </script>

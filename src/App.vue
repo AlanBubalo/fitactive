@@ -41,9 +41,9 @@
         </li>
         <li class="nav-item">
           <router-link
-            to="/workoutschedule"
+            to="/schedule"
             class="nav-link p-2 px-3 text-center hover-left"
-            >WORKOUT SCHEDULE</router-link
+            >SCHEDULE</router-link
           >
         </li>
         <li class="nav-item">

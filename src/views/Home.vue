@@ -53,7 +53,7 @@
         >
           <h4>Workout Schedule:</h4>
 
-          <router-link to="/workoutschedule" class="my-auto">
+          <router-link to="/schedule" class="my-auto">
             <button class="btn bg-primary box-shadow">
               Check Schedule
             </button></router-link
