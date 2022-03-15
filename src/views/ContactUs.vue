@@ -2,7 +2,7 @@
   <!-- Contact Us -->
   <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
-    <div class="title"></div>
+    <div class="title">Contact Us</div>
   </div>
   <div class="container p-4">
     <div class="row">
@@ -11,14 +11,23 @@
         <h2>Contact Us</h2>
         <form class="my-4">
           <div class="form-group my-2">
-            <label for="exampleInputEmail1" class="py-1">Email address</label>
+            <label for="exampleInputFullName1" class="py-1">Full Name</label>
+            <input
+              type="name"
+              v-model="name"
+              class="form-control box-shadow"
+              id="exampleInputFullName1"
+              aria-describedby="nameHelp"
+            />
+          </div>
+          <div class="form-group my-2">
+            <label for="exampleInputEmail1" class="py-1">E-mail</label>
             <input
               type="email"
               v-model="email"
               class="form-control box-shadow"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
             />
           </div>
           <div class="form-group my-2">
