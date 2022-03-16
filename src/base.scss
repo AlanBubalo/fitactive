@@ -1,0 +1,220 @@
+.header-image {
+  position: relative;
+  text-align: center;
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 0.4rem 0.3rem $primary;
+  }
+}
+
+.container {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.advice {
+  background: $primary;
+  border-radius: 0 0 2rem 2rem;
+  color: $white;
+  text-align: center;
+  padding: 1.5rem 3rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.btn:focus,
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control {
+  border: none;
+  background-color: $white !important;
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.text-white {
+  color: $white !important;
+}
+
+.text-black {
+  color: $black !important;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+  color: $white !important;
+}
+
+.bg-secondary {
+  background-color: $secondary !important;
+  color: $white !important;
+}
+
+.bg-black {
+  background-color: $black !important;
+  color: $white !important;
+}
+
+.bg-gradient {
+  background: $gradient-primary-secondary !important;
+  color: $white !important;
+}
+
+.bg-white {
+  background-color: $white !important;
+  color: $black !important;
+}
+
+.my-btn {
+  width: 100%;
+  border: none;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.small-btn-primary {
+  padding: 0.5rem 0;
+  width: 70px;
+  border-radius: 0.3rem;
+}
+
+.text-shadow-hover {
+  position: relative;
+  transition: 0.3s ease-in-out;
+  z-index: 1;
+
+  &:hover,
+  &:focus {
+    text-shadow: 4px 3px 0px $primary;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+  }
+}
+
+.box-shadow {
+  position: relative;
+  transition: 0.3s ease-in-out;
+  z-index: 1;
+
+  &:hover {
+    box-shadow: 5px 5px 0px $black;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+  }
+}
+
+.my-rounded {
+  border: 1px solid lighten($black, 70%) !important;
+  border-radius: 0.5rem;
+}
+
+.my-link-primary {
+  color: $primary !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hover-left {
+  padding: 3px;
+  position: relative;
+  text-decoration: none;
+  color: $white;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $primary;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+  }
+  &:hover {
+    &:after {
+      transform-origin: bottom left;
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* Checkbox Container */
+.my-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    // Background of unchecked checkbox
+    background-color: $white;
+    border-radius: 5px;
+    transition: 0.3s background-color;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+
+      // Icon for checked checkbox
+      left: 8px;
+      top: 3px;
+      width: 4px;
+      height: 12px;
+      border: solid $white;
+      border-width: 0 2px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover span {
+    // Background of unchecked checkbox when hovered
+    background-color: darken($white, 5%);
+  }
+
+  input:checked {
+    ~ span {
+      // Background of checked checkbox
+      background-color: $primary;
+
+      &::after {
+        display: block;
+      }
+    }
+  }
+}

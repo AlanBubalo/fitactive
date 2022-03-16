@@ -1,12 +1,12 @@
 <template>
-  <div class="advice text-center text-white">
+  <div class="advice">
     <p>
       The amount of drinking water required to maintain good health varies, and
       depends on physical activity level, age, health-related issues, and
       environmental conditions.
     </p>
   </div>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row g-3 my-3">
       <!-- Water Intake -->
       <div class="col"></div>

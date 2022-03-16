@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container p-0">
     <div class="bg-primary p-4">
       <div class="text-center fw-bold p-4">
         <h2 class="text-uppercase">
@@ -64,7 +64,11 @@
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.container {
+  border-radius: 0 0 2rem 2rem;
+}
+</style>
 
 <script>
 import { getCurrentInstance } from "vue";

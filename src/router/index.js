@@ -60,7 +60,7 @@ const routes = [
     meta: {
       needsUser: true,
     },
-  },
+  } /*
   {
     path: "/cardio",
     name: "Cardio",
@@ -68,7 +68,7 @@ const routes = [
     meta: {
       needsUser: true,
     },
-  },
+  },*/,
   {
     path: "/water-intake",
     name: "WaterIntake",

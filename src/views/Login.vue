@@ -4,10 +4,10 @@
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Log in</div>
   </div>
-  <div class="container p-4">
+  <div class="container-fluid p-4">
     <div class="row">
       <div class="col-lg col-md"></div>
-      <div class="col-lg col-md-6">
+      <div class="col-lg-3 col-md-6">
         <div v-if="errorMessage" class="alert alert-danger" role="alert">
           {{ errorMessage }}
         </div>
@@ -26,7 +26,7 @@
           <div class="form-group my-2">
             <label for="exampleInputPassword1" class="py-1">Password</label>
             <div class="d-flex justify-content-between bd-highlight">
-              <div class="flex-grow-1 bd-highlight">
+              <div class="flex-grow-1 bd-highlight me-3">
                 <input
                   :type="type"
                   v-model="password"
@@ -36,11 +36,12 @@
                   required
                 />
               </div>
-              <div class="bd-highlight ms-3">
+              <div class="flex-1 bd-highlight">
                 <button
-                  class="btn small-btn-primary bg-secondary box-shadow"
+                  class="btn small-btn-primary box-shadow py-1"
                   @click.prevent="showPassword"
                   type="button"
+                  :class="btn_text == 'Show' ? 'bg-white' : 'bg-primary'"
                 >
                   {{ btn_text }}
                 </button>

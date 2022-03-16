@@ -17,7 +17,7 @@
           class="btn my-btn bg-primary box-shadow mt-4"
           @click="sendWorkoutData('beginner')"
         >
-          Start beginner workout
+          Start Beginner Workout
         </button>
       </div>
       <div class="col-sm-4 col-12 p-1 pt-4 d-flex flex-column">
@@ -32,7 +32,7 @@
           class="btn my-btn bg-primary box-shadow mt-4"
           @click="sendWorkoutData('intermediate')"
         >
-          Start intermediate workout
+          Start Intermediate Workout
         </button>
       </div>
       <div class="col-sm-4 col-12 p-1 pt-4 d-flex flex-column">
@@ -47,7 +47,7 @@
           class="btn my-btn bg-primary box-shadow mt-4"
           @click="sendWorkoutData('advanced')"
         >
-          Start advanced workout
+          Start Advanced Workout
         </button>
       </div>
     </div>

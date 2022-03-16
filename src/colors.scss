@@ -1,10 +1,10 @@
 // ----- Colors ----- //
-$primary: #e63959;
+$primary: #e63369;
 $primary_hover: lighten($primary, 5%);
 $middle: #e44b84;
-$secondary: #a346a0;
-$gradient-primary-secondary: linear-gradient($primary, $secondary);
+$secondary: #e63e92;
+$gradient-primary-secondary: linear-gradient($primary, $middle);
 $white: #f8f8f8;
 $white-hover: lighten($white, 5%);
-$black: #262626;
+$black: #202020;
 $black-hover: lighten($black, 5%);

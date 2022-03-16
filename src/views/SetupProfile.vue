@@ -4,10 +4,10 @@
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
     <div class="title">Set up Your Profile</div>
   </div>
-  <div class="container p-4">
+  <div class="container-fluid p-4">
     <div class="row">
       <div class="col-lg col-md"></div>
-      <div class="col-lg col-md-6">
+      <div class="col-lg-3 col-md-6">
         <form @submit.prevent="save">
           <!-- <div class="container">
             <h1>Profil Image Upload</h1>

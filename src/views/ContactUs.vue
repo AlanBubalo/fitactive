@@ -4,35 +4,24 @@
     <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
     <div class="title">Contact Us</div>
   </div>
-  <div class="container p-4">
+  <div class="container-fluid p-4">
     <div class="row">
       <div class="col-lg col-md"></div>
-      <div class="col-lg col-md-6">
+      <div class="col-lg-3 col-md-6">
         <h2>Contact Us</h2>
         <form class="my-4">
           <div class="form-group my-2">
-            <label for="exampleInputFullName1" class="py-1">Full Name</label>
-            <input
-              type="name"
-              v-model="name"
-              class="form-control box-shadow"
-              id="exampleInputFullName1"
-              aria-describedby="nameHelp"
-            />
-          </div>
-          <div class="form-group my-2">
-            <label for="exampleInputEmail1" class="py-1">E-mail</label>
-            <input
-              type="email"
-              v-model="email"
-              class="form-control box-shadow"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
+            <label for="exampleInputEmail1" class="py-1">E-mail: </label>
+            <p>{{ email }}</p>
           </div>
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">Message:</label>
-            <textarea rows="6" cols="50" id="TITLE"></textarea>
+            <textarea
+              class="form-control box-shadow"
+              rows="6"
+              cols="50"
+              id="TITLE"
+            ></textarea>
           </div>
           <div v-if="!isLoading">
             <button
@@ -79,7 +68,10 @@ export default {
   name: "SendPassword",
   data() {
     return {
-      email: "",
+      email: window.sessionStorage
+        .getItem(Object.keys(window.sessionStorage))
+        .slice(47)
+        .split('"')[0],
       errorMessage: "",
       isLoading: false,
       isSent: false,

@@ -55,7 +55,7 @@
     </div>
   </div>
   <div v-else>
-    <Timer :key="this.descWorkout" @sendFinished="setFinished" />
+    <Timer :key="descWorkout" @sendFinished="setFinished" />
   </div>
 </template>
 
@@ -67,7 +67,7 @@
     color: $black;
   }
   & .nav-link:hover {
-    background-color: #dadada !important;
+    background-color: darken($white, 8%) !important;
   }
   & .nav-link.active {
     color: $white;

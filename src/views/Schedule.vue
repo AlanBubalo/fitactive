@@ -45,10 +45,8 @@
         </to-do-list>
       </div>
     </div>
-  </div>
 
-  <!-- Reset and Save buttons -->
-  <div class="container">
+    <!-- Reset and Save buttons -->
     <div class="row">
       <div class="col mx-md-5">
         <button
@@ -72,10 +70,10 @@
   </div>
 
   <!-- Schedule -->
-  <div class="container">
+  <div class="container-fluid mt-3">
     <div class="row g-2">
       <div class="col-lg col-6 mb-lg-3 mb-0">
-        <div id="Monday" class="p-3 bg-white my-rounded">
+        <div id="Monday" class="container p-3 bg-white my-rounded">
           <to-do-list title="Monday">
             <draggable
               class="list-group mt-3 min-h"
@@ -97,7 +95,7 @@
         </div>
       </div>
       <div class="col-lg col-6 mb-lg-3 mb-0">
-        <div id="Tuesday" class="p-3 bg-white my-rounded">
+        <div id="Tuesday" class="container p-3 bg-white my-rounded">
           <to-do-list title="Tuesday">
             <draggable
               class="list-group mt-3 min-h"
@@ -119,7 +117,7 @@
         </div>
       </div>
       <div class="col-lg col-6 mb-lg-3 mb-0">
-        <div id="Wednesday" class="p-3 bg-white my-rounded">
+        <div id="Wednesday" class="container p-3 bg-white my-rounded">
           <to-do-list title="Wednesday">
             <draggable
               class="list-group mt-3 min-h"
@@ -141,7 +139,7 @@
         </div>
       </div>
       <div class="col-lg col-6 mb-lg-3 mb-0">
-        <div id="Thursday" class="p-3 bg-white my-rounded">
+        <div id="Thursday" class="container p-3 bg-white my-rounded">
           <to-do-list title="Thursday">
             <draggable
               class="list-group mt-3 min-h"
@@ -163,7 +161,7 @@
         </div>
       </div>
       <div class="col-lg col-6 mb-lg-3 mb-0">
-        <div id="Friday" class="p-3 bg-white my-rounded">
+        <div id="Friday" class="container p-3 bg-white my-rounded">
           <to-do-list title="Friday">
             <draggable
               class="list-group mt-3 min-h"
@@ -185,7 +183,7 @@
         </div>
       </div>
       <div class="col-lg col-6 mb-lg-3 mb-0">
-        <div id="Saturday" class="p-3 bg-white my-rounded">
+        <div id="Saturday" class="container p-3 bg-white my-rounded">
           <to-do-list title="Saturday">
             <draggable
               class="list-group mt-3 min-h"
@@ -207,7 +205,7 @@
         </div>
       </div>
       <div class="col-lg col-12 mb-3">
-        <div id="Sunday" class="p-3 bg-white my-rounded">
+        <div id="Sunday" class="container p-3 bg-white my-rounded">
           <to-do-list title="Sunday">
             <draggable
               class="list-group mt-3 min-h"
@@ -383,7 +381,6 @@ export default {
         .get()
         .then((doc) => {
           if (doc.exists) {
-            console.log("ay");
             this.mon = doc.data().mon;
             this.tue = doc.data().tue;
             this.wen = doc.data().wen;

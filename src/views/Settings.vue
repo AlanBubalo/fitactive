@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-12 col-md-6 mt-md-0 mt-3 px-2">
         <!-- Contact Us -->
-        <div class="p-4 bg-white my-rounded">
+        <div class="container p-4 bg-white my-rounded">
           <h4>Contact Us:</h4>
           <p>
             If you are having any trouble with the website just click the button
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="col-12 col-md-6 mt-md-0 mt-3 px-2">
-        <div class="p-4 bg-white my-rounded">
+        <div class="container p-4 bg-white my-rounded">
           <!-- Notifications -->
           <h4>Notifications:</h4>
           <div class="d-flex justify-content-between">
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="col-12 col-md-6 mt-md-3 mt-3 px-2">
-        <div class="p-4 bg-white my-rounded">
+        <div class="container p-4 bg-white my-rounded">
           <!-- About Us -->
           <div class="">
             <h4>About:</h4>
@@ -64,6 +64,15 @@
 
 <style scoped lang="scss">
 @import "@/colors";
+
+.container {
+  box-shadow: none;
+}
+
+.row .container {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
 .img {
   width: 100%;
   height: 350px;

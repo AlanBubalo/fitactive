@@ -33,11 +33,17 @@
 </template>
 
 <style scoped lang="scss">
+@import "@/colors";
+.container {
+  box-shadow: none;
+}
+
 .img {
   width: 100%;
   height: 600px;
   object-fit: cover;
   object-position: 50% 23%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 15px;
 }
 </style>
 
