@@ -1,4 +1,10 @@
 <template>
+  <div class="advice">
+    <p>
+      The key is not to prioritize what's on your schedule, but to schedule your
+      priorities.
+    </p>
+  </div>
   <!-- Workouts to choose from -->
   <div class="container text-center p-3 bg-white my-rounded mt-4">
     <div class="row g-3">

@@ -2,7 +2,7 @@
   <!-- Setup Profile -->
   <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
-    <div class="title">Set up Your Profile</div>
+    <div class="title">Setup Your Profile</div>
   </div>
   <div class="container-fluid p-4">
     <div class="row">

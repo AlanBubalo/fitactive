@@ -35,6 +35,13 @@
         </li>
         <li class="nav-item">
           <router-link
+            to="/setupprofile"
+            class="nav-link p-2 px-3 text-center hover-left"
+            >PROFILE</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
             to="/workout"
             class="nav-link p-2 px-3 text-center hover-left"
             >WORKOUT</router-link

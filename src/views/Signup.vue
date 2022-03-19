@@ -1,7 +1,7 @@
 <template>
   <!-- Signup -->
   <div class="header-image text-white">
-    <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
+    <img class="img" alt="FitActive Logo" src="@/assets/deadlift.jpg" />
     <div class="title">Sign Up</div>
   </div>
   <div class="container-fluid p-4">
@@ -98,7 +98,7 @@
   width: 100%;
   height: 350px;
   object-fit: cover;
-  object-position: 50% 70%;
+  object-position: 50% 30%;
   border-radius: 0 0 3rem 3rem;
 }
 </style>

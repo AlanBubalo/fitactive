@@ -2,7 +2,8 @@
   <!-- Welcome User -->
   <div class="advice">
     <div class="d-flex justify-content-between">
-      <h3 class="m-0 py-2">Welcome, {{ Name }}</h3>
+      <img class="pfpimage" src="@/assets/male.png" alt="pfpimage" />
+      <h3 class="m-0 py-2" im>Welcome, {{ Name }}</h3>
       <button
         class="btn bg-transparent btn-sm p-0 position-relative"
         data-bs-toggle="offcanvas"
@@ -179,6 +180,11 @@
 
 .row .container {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.pfpimage {
+  height: 50px;
+  border-radius: 50%;
 }
 
 .img {

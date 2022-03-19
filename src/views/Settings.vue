@@ -25,19 +25,6 @@
       </div>
       <div class="col-12 col-md-6 mt-md-0 mt-3 px-2">
         <div class="container p-4 bg-white my-rounded">
-          <!-- Notifications -->
-          <h4>Notifications:</h4>
-          <div class="d-flex justify-content-between">
-            <p>Daily reminders</p>
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider rounded-pill"></span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 mt-md-3 mt-3 px-2">
-        <div class="container p-4 bg-white my-rounded">
           <!-- About Us -->
           <div class="">
             <h4>About:</h4>

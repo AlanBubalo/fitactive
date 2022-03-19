@@ -2,7 +2,7 @@
   <!-- Send Password -->
   <div class="header-image text-white">
     <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
-    <div class="title"></div>
+    <div class="title">Forgot Password</div>
   </div>
   <div class="container-fluid p-4">
     <div class="row">
