@@ -44,10 +44,12 @@
           </div>
         </form>
         <!-- Picture -->
-        <div class="container mt-4">
-          <img src="@/assets/water.jpg" alt="Water" class="image" />
-          <div class="overlay">
-            <div class="text">Stay hydrated throughout the entire day!</div>
+        <div class="container p-0 mt-4">
+          <img src="@/assets/water.jpg" alt="Water" class="image rounded-3" />
+          <div class="overlay rounded-3">
+            <div class="text text-wrap">
+              Stay hydrated throughout the entire day!
+            </div>
           </div>
         </div>
       </div>
@@ -62,6 +64,7 @@
 .container {
   position: relative;
   width: 100%;
+  box-shadow: none;
 }
 
 .image {
@@ -89,7 +92,7 @@
 .text {
   white-space: nowrap;
   color: white;
-  font-size: 20px;
+  font-size: clamp(0.5rem, 4vh - 1rem, 2rem);
   position: absolute;
   overflow: hidden;
   top: 50%;

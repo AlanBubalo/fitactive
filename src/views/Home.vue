@@ -2,8 +2,11 @@
   <!-- Welcome User -->
   <div class="advice">
     <div class="d-flex justify-content-between">
-      <img class="pfpimage" src="@/assets/male.png" alt="pfpimage" />
-      <h3 class="m-0 py-2" im>Welcome, {{ Name }}</h3>
+      <div class="d-flex flex-row">
+        <img class="pfpimage" src="@/assets/male.png" alt="Profile image" />
+        <h3 class="m-0 py-2 ms-3" im>Welcome, {{ Name }}</h3>
+      </div>
+
       <button
         class="btn bg-transparent btn-sm p-0 position-relative"
         data-bs-toggle="offcanvas"
@@ -49,7 +52,7 @@
     <ul v-else class="offcanvas-body overflow-auto m-0 p-0">
       <li class="list-group-item" v-for="notif in notifs" :key="notif">
         <p>{{ notif.desc }}</p>
-        <div class="text-muted">{{ notif.time }}</div>
+        <div class="text-muted">{{ getRelativeTime(notif.time) }}</div>
       </li>
     </ul>
 
@@ -110,7 +113,7 @@
             <button
               class="btn bg-primary box-shadow ms-auto mt-0 my-auto"
               :class="GlassesDrank >= GlassesTotal ? 'disabled' : ''"
-              @click="AddGlass()"
+              @click="addGlass()"
             >
               <div v-if="GlassesDrank < GlassesTotal">Add</div>
               <div v-else>Done</div>
@@ -213,6 +216,8 @@
 import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase, db } from "@/firebase";
 import router from "@/router";
+var moment = require("moment");
+moment().format();
 
 export default {
   name: "Home",
@@ -232,19 +237,7 @@ export default {
       showMenu: false,
       today: [],
       currentDay: "",
-      notifs: [
-        {
-          id: 1,
-          desc: "You got today's exercises to get done!",
-          time: "Yesterday",
-        },
-        { id: 2, desc: "Don't forget to drink water!", time: "2 days ago" },
-        {
-          id: 3,
-          desc: "You got today's exercises to get done!",
-          time: "3 days ago",
-        },
-      ],
+      notifs: [],
     };
   },
   components: {
@@ -259,9 +252,25 @@ export default {
     this.getSchedule();
     this.getWaterIntake();
     this.getProfile();
-    //this.getNotifications();
+    this.getNotifs();
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    this.addNotifAtDate(2022, 2, 20, 3, 14);
   },
   methods: {
+    addNotifAtDate(y, m, d, h, M = 0, s = 0) {
+      const end = new Date(y, m, d, h, M, s);
+      const duration = end - Date.now();
+      /*
+      setInterval(() => {
+        if (duration > 0) this.tryToAddNotif();
+        else clearInterval();
+      }, end);*/
+    },
+    showOffcanvasMenu() {
+      this.showMenu = !this.showMenu;
+    },
     getProfile() {
       db.collection("profile")
         .doc(this.email)
@@ -294,6 +303,21 @@ export default {
             // doc.data() will be undefined in this case
             console.log("No such document of water intake!");
           }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    addGlass() {
+      db.collection("waterIntake")
+        .doc(this.email)
+        .set({
+          glassesDrank: this.GlassesDrank + 1,
+          glassesTotal: this.GlassesTotal,
+        })
+        .then((doc) => {
+          console.log("Added a glass of water.");
+          this.getWaterIntake();
         })
         .catch((error) => {
           console.error(error);
@@ -344,23 +368,37 @@ export default {
             }
           } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            console.log("No such document of schedule!");
           }
         })
         .catch((error) => {
           console.error(error);
         });
     },
-    getNotifications() {
+    getNotifs() {
+      db.collection("notifications")
+        .doc(this.email)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            this.notifs = doc.data().notifs;
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document of notifications!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    setNotifs() {
       db.collection("notifications")
         .doc(this.email)
         .set({
-          glassesDrank: this.GlassesDrank + 1,
-          glassesTotal: this.GlassesTotal,
+          notifs: this.notifs,
         })
         .then((doc) => {
-          console.log("Added a glass of water.");
-          this.getWaterIntake();
+          console.log("Notification set.");
         })
         .catch((error) => {
           console.error(error);
@@ -368,24 +406,29 @@ export default {
     },
     clearNotifs() {
       this.notifs = [];
+      this.setNotifs();
     },
-    showOffcanvasMenu() {
-      this.showMenu = !this.showMenu;
+    addNotif(desc) {
+      const count = this.notifs.length + 1;
+      let notif = {
+        id: count,
+        desc: desc,
+        time: Date.now(),
+      };
+      this.notifs.push(notif);
+      this.setNotifs();
     },
-    AddGlass() {
-      db.collection("waterIntake")
-        .doc(this.email)
-        .set({
-          glassesDrank: this.GlassesDrank + 1,
-          glassesTotal: this.GlassesTotal,
-        })
-        .then((doc) => {
-          console.log("Added a glass of water.");
-          this.getWaterIntake();
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    tryToAddNotif() {
+      const currentDate = new Date();
+      const currentHour = currentDate.getHours();
+      if (currentHour >= 0 && this.GlassesDrank < this.GlassesTotal) {
+        this.addNotif("Don't forget to drink water before sleeping!");
+      } else if (currentHour >= 12) {
+        this.addNotif("You got today's exercises to get done!");
+      }
+    },
+    getRelativeTime(time) {
+      return moment(time).fromNow();
     },
   },
 };

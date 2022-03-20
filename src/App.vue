@@ -141,7 +141,6 @@ export default {
         // User is signed in.
         this.currentUser = user.email;
         console.log(user.email);
-        this.pushNotifs();
         if (!needsUser) router.push("/home");
       } else {
         // User is not signed in.
@@ -151,16 +150,6 @@ export default {
       }
     });
   },
-  methods: {
-    pushNotifs() {
-      const d = new Date();
-      const currentDay = d.getHours();
-      console.log(currentDay);
-      setInterval(() => {
-        /*
-        if (getTime(Date.now()) ==)*/
-      }, 2000);
-    },
-  },
+  methods: {},
 };
 </script>

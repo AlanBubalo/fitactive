@@ -21,7 +21,11 @@
   border-radius: 0 0 2rem 2rem;
   color: $white;
   text-align: center;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+img {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
