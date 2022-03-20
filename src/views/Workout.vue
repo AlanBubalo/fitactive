@@ -103,8 +103,8 @@ export default {
         .slice(47)
         .split('"')[0],
       userName: "",
-      finished: false,
-      clicked: false,
+      finished: false, // True if the user has finished the workout, otherwise false
+      clicked: false, // True if workout has started, otherwise false
       selectedWorkout: null,
       descWorkout: null,
     };

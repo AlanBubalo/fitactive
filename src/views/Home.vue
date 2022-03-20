@@ -217,6 +217,7 @@ import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase, db } from "@/firebase";
 import router from "@/router";
 var moment = require("moment");
+
 moment().format();
 
 export default {
@@ -238,12 +239,14 @@ export default {
       today: [],
       currentDay: "",
       notifs: [],
+      notifCheck: null,
     };
   },
   components: {
     HeaderImage,
   },
   computed: {
+    // Return the amount to notification to display, or display 99+ if there are more than 99 notifications
     AmountOfNotifs() {
       return this.notifs.length > 99 ? "99+" : this.notifs.length;
     },
@@ -253,24 +256,18 @@ export default {
     this.getWaterIntake();
     this.getProfile();
     this.getNotifs();
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    this.addNotifAtDate(2022, 2, 20, 3, 14);
+    setTimeout(() => {
+      this.tryToAddLateNotif();
+    }, 1000);
+    setTimeout(() => {
+      this.notifObserver();
+    }, 1200);
+    setInterval(() => {
+      this.tryToAddNotif();
+    }, 59900);
   },
   methods: {
-    addNotifAtDate(y, m, d, h, M = 0, s = 0) {
-      const end = new Date(y, m, d, h, M, s);
-      const duration = end - Date.now();
-      /*
-      setInterval(() => {
-        if (duration > 0) this.tryToAddNotif();
-        else clearInterval();
-      }, end);*/
-    },
-    showOffcanvasMenu() {
-      this.showMenu = !this.showMenu;
-    },
+    // Get profile data from firebase
     getProfile() {
       db.collection("profile")
         .doc(this.email)
@@ -282,15 +279,18 @@ export default {
             this.Height = doc.data().height;
             this.Age = doc.data().age;
             this.Gender = doc.data().gender;
+            this.notifCheck = doc.data().notifCheck;
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document of profile!");
+            router.push("/setupprofile");
           }
         })
         .catch((error) => {
           console.error(error);
         });
     },
+    // Get water intake data from firebase
     getWaterIntake() {
       db.collection("waterIntake")
         .doc(this.email)
@@ -308,6 +308,7 @@ export default {
           console.error(error);
         });
     },
+    // Add a glass and set data to firebase
     addGlass() {
       db.collection("waterIntake")
         .doc(this.email)
@@ -323,6 +324,7 @@ export default {
           console.error(error);
         });
     },
+    // Get current day of week as a string
     getDay() {
       const weekday = [
         "Sunday",
@@ -333,9 +335,10 @@ export default {
         "Friday",
         "Saturday",
       ];
-      const d = new Date();
-      this.currentDay = weekday[d.getDay()];
+      const today = new Date();
+      this.currentDay = weekday[today.getDay()];
     },
+    // Get schedule from firebase
     getSchedule() {
       this.getDay();
       db.collection("schedule")
@@ -343,6 +346,7 @@ export default {
         .get()
         .then((doc) => {
           if (doc.exists) {
+            // Get data based on today's day
             switch (this.currentDay) {
               case "Sunday":
                 this.today = doc.data().sun;
@@ -375,6 +379,7 @@ export default {
           console.error(error);
         });
     },
+    // Get notifications from firebase
     getNotifs() {
       db.collection("notifications")
         .doc(this.email)
@@ -391,6 +396,7 @@ export default {
           console.error(error);
         });
     },
+    // Set notifications to firebase
     setNotifs() {
       db.collection("notifications")
         .doc(this.email)
@@ -404,10 +410,12 @@ export default {
           console.error(error);
         });
     },
+    // Clear all notifications
     clearNotifs() {
       this.notifs = [];
       this.setNotifs();
     },
+    // Add a notification
     addNotif(desc) {
       const count = this.notifs.length + 1;
       let notif = {
@@ -418,17 +426,59 @@ export default {
       this.notifs.push(notif);
       this.setNotifs();
     },
-    tryToAddNotif() {
-      const currentDate = new Date();
-      const currentHour = currentDate.getHours();
-      if (currentHour >= 0 && this.GlassesDrank < this.GlassesTotal) {
+    // Try to add a late notification
+    tryToAddLateNotif() {
+      const today = new Date();
+      // Late reminder to drink water
+      if (
+        today.getHours() > 20 &&
+        today.getMinutes() > 0 &&
+        this.GlassesDrank < this.GlassesTotal
+      ) {
         this.addNotif("Don't forget to drink water before sleeping!");
-      } else if (currentHour >= 12) {
+        this.notifCheck = 1;
+      } else this.notifCheck = 0;
+      // Set profile data to the firebase
+      db.collection("profile")
+        .doc(this.email)
+        .set({
+          name: this.Name,
+          weight: this.Weight,
+          height: this.Height,
+          age: this.Age,
+          gender: this.Gender,
+          notifCheck: this.notifCheck,
+        })
+        .then(() => {
+          console.log("NotifCheck set!");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    // Try to add notification
+    tryToAddNotif() {
+      const today = new Date();
+      // Reminder to drink water
+      if (
+        today.getMinutes() == 0 &&
+        today.getHours() == 20 &&
+        this.GlassesDrank < this.GlassesTotal
+      ) {
+        this.addNotif("Don't forget to drink water before sleeping!");
+      }
+      // Reminder to do workout
+      else if (today.getMinutes() == 0 && today.getHours() == 12) {
         this.addNotif("You got today's exercises to get done!");
       }
     },
+    // Get relative time as string to show how much time passed since a notification was received
     getRelativeTime(time) {
       return moment(time).fromNow();
+    },
+    // Observe when to clear or not an already sent late notification from tryToAddLateNotif function
+    notifObserver() {
+      if (this.notifCheck == 1) this.clearNotifs();
     },
   },
 };

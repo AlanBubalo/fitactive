@@ -107,7 +107,6 @@
 }
 
 .panel-default {
-  //border-color: green !important;
   border-radius: 0.5rem 0.5rem 0rem 0rem !important;
   border-color: lighten($black, 70%);
 
@@ -119,34 +118,6 @@
     border-top: 1px solid lighten($black, 10%);
     border-radius: 0;
   }
-}
-
-.text-shadow {
-  font-weight: bold;
-}
-
-.plus-minus-input {
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.plus-minus-input .input-group-field {
-  text-align: center;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  padding: 1rem;
-}
-
-.plus-minus-input .input-group-field::-webkit-inner-spin-button,
-.plus-minus-input .input-group-field ::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.plus-minus-input .input-group-button .circle {
-  border-radius: 50%;
-  padding: 0.25em 0.8em;
 }
 </style>
 
@@ -174,6 +145,7 @@ export default {
     this.getGlassesTotal();
   },
   methods: {
+    // Get total of glasses to drink
     getGlassesTotal() {
       db.collection("waterIntake")
         .doc(this.email)
@@ -198,6 +170,7 @@ export default {
           console.error(error);
         });
     },
+    // Save changed total of glasses to drink
     save() {
       if (this.newGlassesTotal < this.oldGlassesTotal) {
         this.newGlassesDrank = this.newGlassesTotal;
@@ -217,6 +190,7 @@ export default {
           console.error(error);
         });
     },
+    // Reset all progress and start drinking again from zero
     reset() {
       const answer = window.confirm(
         "Are you sure you want to reset your progress?"
@@ -239,6 +213,7 @@ export default {
       }
     },
   },
+  // Before leaving page check if the progress is saved and if there were any changes with input data
   beforeRouteLeave(to, from, next) {
     if (this.saved) next();
     else if (this.oldGlassesTotal != this.newGlassesTotal) {

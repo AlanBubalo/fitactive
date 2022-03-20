@@ -61,7 +61,7 @@
           </div>
           <div v-if="!isLoading">
             <button type="submit" class="btn my-btn bg-primary box-shadow">
-              Sign in
+              Sign up
             </button>
           </div>
           <div v-else>
@@ -126,38 +126,42 @@ export default {
     };
   },
   methods: {
-    signup() {
-      if (this.password === this.passwordConfirm) {
-        this.isLoading = true;
-        firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password)
-          .then(() => {
-            console.log("Created an account!");
-            db.collection("waterIntake")
-              .doc(this.email)
-              .set({
-                glassesDrank: 0,
-                glassesTotal: 10,
-              })
-              .then((doc) => {
-                router.push("/setupprofile");
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-          })
-          .catch((error) => {
-            this.isLoading = false;
-            var mes = error.message.slice(10);
-            var mesa = mes.split(" (auth");
-            this.errorMessage = mesa[0];
-            console.error(error);
-          });
-        console.log("Signing up...");
-      } else {
+    async signup() {
+      if (this.password !== this.passwordConfirm) {
         this.errorMessage = "Passwords do not match. Try again.";
+        return;
       }
+      this.isLoading = true;
+      firebase
+        .auth()
+        .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+        .then(() => {
+          firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.email, this.password)
+            .then(() => {
+              console.log("Created an account!");
+              db.collection("waterIntake")
+                .doc(this.email)
+                .set({
+                  glassesDrank: 0,
+                  glassesTotal: 10,
+                })
+                .then((doc) => {})
+                .catch((error) => {
+                  console.error(error);
+                });
+            })
+            .catch((error) => {
+              this.isLoading = false;
+              var mes = error.message.slice(10);
+              var mesa = mes.split(" (auth");
+              this.errorMessage = mesa[0];
+              console.error(error);
+            });
+        });
+
+      console.log("Signing up...");
     },
     showPassword() {
       this.type = this.type == "password" ? "text" : "password";

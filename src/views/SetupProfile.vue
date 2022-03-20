@@ -378,6 +378,23 @@ export default {
     },
   },
   beforeRouteLeave(to, from, next) {
+    console.log(
+      !this.newName ||
+        !this.newWeight ||
+        !this.newHeight ||
+        !this.newAge ||
+        !this.newGender
+    );
+    if (
+      !this.newName ||
+      !this.newWeight ||
+      !this.newHeight ||
+      !this.newAge ||
+      !this.newGender
+    ) {
+      next(false);
+      return;
+    }
     if (this.saved) next();
     else if (
       this.oldName != this.newName ||
