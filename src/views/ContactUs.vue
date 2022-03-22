@@ -9,7 +9,7 @@
       <div class="col-lg col-md"></div>
       <div class="col-lg-3 col-md-6">
         <h2>Contact Us</h2>
-        <form class="my-4">
+        <form class="my-4" id="contact">
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">E-mail: </label>
             <p>{{ email }}</p>
@@ -18,9 +18,10 @@
             <label for="exampleInputEmail1" class="py-1">Message:</label>
             <textarea
               class="form-control box-shadow"
-              rows="6"
+              rows="7"
               cols="50"
               id="message"
+              v-model="message"
             ></textarea>
           </div>
           <div v-if="!isLoading">
@@ -28,6 +29,7 @@
               type="button"
               @click="sendEmail"
               class="btn my-btn bg-primary box-shadow"
+              :class="!message ? 'disabled' : ''"
             >
               Submit
             </button>
@@ -57,14 +59,20 @@
   object-fit: cover;
   object-position: 50% 45%;
 }
+
+textarea {
+  resize: none;
+}
 </style>
 
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase } from "@/firebase";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import router from "@/router";
+import { init } from "@emailjs/browser";
+init("CbMaUg6-2gXJvhs_d");
 
 export default {
   name: "SendPassword",
@@ -77,6 +85,7 @@ export default {
       errorMessage: "",
       isLoading: false,
       isSent: false,
+      message: null,
     };
   },
   components: {
@@ -85,21 +94,24 @@ export default {
   methods: {
     sendEmail(e) {
       try {
-        emailjs.sendForm(
-          "YOUR_SERVICE_ID",
-          "YOUR_TEMPLATE_ID",
-          e.target,
-          "YOUR_USER_ID",
-          {
-            name: this.name,
-            email: this.email,
-            message: this.message,
+        this.isLoading = true;
+        var contact = {
+          from_name: this.email,
+          message: this.message,
+        };
+        console.log(e);
+        emailjs.send("service_i1nu3os", "template_vzhdmc8", contact).then(
+          (response) => {
+            alert("SUCCESS!", response.status, response.text);
+            router.push("/settings");
+          },
+          (err) => {
+            alert("FAILED...", err);
           }
         );
       } catch (error) {
         console.log({ error });
       }
-      router.push("/settings");
     },
   },
 };
