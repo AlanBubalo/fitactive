@@ -9,25 +9,29 @@
       <p>"All progress takes place outside the comfort zone."</p>
     </div>
   </div>
-  <!-- <div class="section-container">
-    <div class="columns image" src="@/assets/fitness.jpg">&nbsp;</div>
-    <div class="columns content">
-      <div class="content-container">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-6">
+        <img class="img1 rounded-2" src="@/assets/fitness.jpg" />
+      </div>
+      <div class="col-6 p-4 d-flex flex-column justify-content-center">
         <h5>Why do we use it?</h5>
         <p>london</p>
       </div>
     </div>
-  </div>
-  <div class="section-container">
-    <div class="columns content">
-      <div class="content-container">
+    <div class="row mt-4">
+      <div
+        class="col-6 p-4 d-flex flex-column justify-content-center align-items-end"
+      >
         <h5>Why do we use it?</h5>
-        <p>London.</p>
+        <p>london</p>
+      </div>
+      <div class="col-6">
+        <img class="img2 rounded-2" src="@/assets/work.jpg" />
       </div>
     </div>
-    <div class="columns image">&nbsp;</div>
-  </div> -->
-  <div class="container">
+  </div>
+  <div class="container mt-5">
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg col-md-6 text-center">
@@ -56,73 +60,26 @@
   box-shadow: none;
 }
 
-// * {
-//   padding: 0;
-//   margin: 0;
-// }
-// body {
-//   overflow-x: hidden;
-//   font-family: "PT Sans", sans-serif;
-// }
-// .section-container {
-//   --bs-gutter-x: 1.5rem;
-//   --bs-gutter-y: 0;
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-// .section-container .columns {
-//   flex: 0 0 auto;
-//   width: 50%;
-// }
-// .section-container .columns.image {
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
-// .section-container .columns.content .content-container {
-//   padding: 40px 50px;
-// }
-// .section-container .columns.content .content-container h5 {
-//   font-weight: 700;
-//   font-size: 25px;
-//   margin-bottom: 20px;
-// }
-// .section-container .columns.content .content-container p {
-//   font-weight: 400;
-//   font-size: 16px;
-//   margin-bottom: 20px;
-//   margin-bottom: 15px;
-//   text-align: justify;
-// }
-// @media screen and (max-width: 767px) {
-//   .section-container {
-//     flex-flow: row wrap;
-//   }
-//   .section-container .columns.image {
-//     display: block;
-//     order: 1;
-//     width: 100%;
-//     height: 250px;
-//   }
-//   .section-container .columns.content {
-//     display: block;
-//     order: 2;
-//     width: 100%;
-//   }
-//   .section-container .columns.content .content-container {
-//     padding: 20px 35px;
-//   }
-//   .section-container .columns.content .content-container h5 {
-//     margin-bottom: 5px;
-//   }
-// }
-
 .img {
   width: 100%;
   height: 600px;
   object-fit: cover;
   object-position: 50% 23%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 15px;
+}
+
+.img1 {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 100% 70%;
+}
+
+.img2 {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 50% 40%;
 }
 </style>
 

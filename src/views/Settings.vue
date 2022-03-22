@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-12 col-md-6 mt-md-0 mt-3 px-2">
         <!-- Contact Us -->
-        <div class="container p-4 bg-white my-rounded">
+        <div class="container p-4 bg-white my-rounded h-100">
           <h4>Contact Us:</h4>
           <p>
             If you are having any trouble with the website just click the button
@@ -24,23 +24,21 @@
         </div>
       </div>
       <div class="col-12 col-md-6 mt-md-0 mt-3 px-2">
-        <div class="container p-4 bg-white my-rounded">
+        <div class="container p-4 bg-white my-rounded h-100">
           <!-- About Us -->
-          <div class="">
-            <h4>About:</h4>
-            <p>
-              FitActive is a project. This website is made for people who want
-              to stay fit. The website is made in 2022 and will keep expanding
-              further into the fitness world.
-            </p>
-          </div>
+          <h4>About:</h4>
+          <p>
+            FitActive is a project. This website is made for people who want to
+            stay fit. The website is made in 2022 and will keep expanding
+            further into the fitness world.
+          </p>
         </div>
       </div>
       <!-- Logout from the website -->
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-center">
         <button
           @click.prevent="logout"
-          class="btn btn-lg bg-primary box-shadow mt-3"
+          class="btn btn-lg bg-primary box-shadow mt-3 px-3 py-2"
         >
           Logout
         </button>

@@ -8,14 +8,13 @@
     <div class="row">
       <div class="col-lg col-md"></div>
       <div class="col-lg-3 col-md-6">
-        <h2>Contact Us</h2>
         <form class="my-4" id="contact">
           <div class="form-group my-2">
-            <label for="exampleInputEmail1" class="py-1">E-mail: </label>
+            <label for="exampleInputEmail1" class="py-1 fs-5">E-mail: </label>
             <p>{{ email }}</p>
           </div>
           <div class="form-group my-2">
-            <label for="exampleInputEmail1" class="py-1">Message:</label>
+            <label for="exampleInputEmail1" class="py-1 fs-5">Message:</label>
             <textarea
               class="form-control box-shadow"
               rows="7"
