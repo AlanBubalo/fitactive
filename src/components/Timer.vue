@@ -105,7 +105,7 @@ export default {
   beforeMount() {
     window.addEventListener("beforeunload", this.preventNav);
   },
-  mounted() {
+  created() {
     this.workoutData = getCurrentInstance().vnode.key;
     this.bodyWorkout = this.workoutData.bodyPart;
     this.difficulty = this.workoutData.diff;

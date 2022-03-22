@@ -376,7 +376,7 @@ export default {
     ToDoList,
     draggable,
   },
-  mounted() {
+  created() {
     this.getDay();
     this.getSchedule();
   },

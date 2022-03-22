@@ -9,36 +9,29 @@
       <div class="col-lg col-md"></div>
       <div class="col-lg-3 col-md-6">
         <form @submit.prevent="save">
-          <!-- <div class="container">
-            <h1>Profil Image Upload</h1>
-            <div class="avatar-upload">
-              <div class="avatar-edit">
-                <input
-                  type="file"
-                  id="imageUpload"
-                  accept=".png, .jpg, .jpeg"
-                />
-                <label for="imageUpload"></label>
-              </div>
-              <div class="avatar-preview">
-                <div class="avatar-preview">
-                  <div
-                    id="imagePreview"
-                    style="
-                      background-image: url('http://i.pravatar.cc/500?img=7');
-                    "
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div> -->
           <div class="profile-pic">
             <label class="-label" for="file">
               <span class="glyphicon glyphicon-camera"></span>
               <span>Change Image</span>
             </label>
-            <input id="file" type="file" onchange="loadFile(event)" />
-            <img src="@/assets/male.png" id="output" width="200" />
+            <input
+              id="file"
+              type="file"
+              @change="loadFile"
+              accept=".png, .jpg, .jpeg"
+            />
+            <img
+              v-if="newImageUrl"
+              :src="newImageUrl"
+              width="200"
+              alt="Profile image"
+            />
+            <img
+              v-else
+              src="@/assets/male.png"
+              width="200"
+              alt="Profile image"
+            />
           </div>
           <div class="form-group my-2">
             <label for="exampleInputName" class="py-1">First Name</label>
@@ -132,7 +125,6 @@
 $circleSize: 165px;
 $radius: 100px;
 $shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
-$fontColor: rgb(250, 250, 250);
 
 .profile-pic {
   color: transparent;
@@ -164,9 +156,9 @@ $fontColor: rgb(250, 250, 250);
   &:hover {
     .-label {
       @include object-center;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: 10000;
-      color: $fontColor;
+      color: $white;
       transition: background-color 0.2s ease-in-out;
       border-radius: $radius;
       margin-bottom: 0;
@@ -180,103 +172,6 @@ $fontColor: rgb(250, 250, 250);
   }
 }
 
-/////////////////////////
-// Body styling 🐾
-/////////---------->
-
-body {
-  height: 100vh;
-  background-color: rgb(25, 24, 21);
-  @include object-center;
-
-  a:hover {
-    text-decoration: none;
-  }
-}
-
-// body {
-//   background: whitesmoke;
-//   font-family: "Open Sans", sans-serif;
-// }
-// .container {
-//   max-width: 960px;
-//   margin: 30px auto;
-//   padding: 20px;
-// }
-// h1 {
-//   font-size: 20px;
-//   text-align: center;
-//   margin: 20px 0 20px;
-// }
-// h1 small {
-//   display: block;
-//   font-size: 15px;
-//   padding-top: 8px;
-//   color: gray;
-// }
-// .avatar-upload {
-//   position: relative;
-//   max-width: 205px;
-//   margin: 50px auto;
-// }
-// .avatar-upload .avatar-edit {
-//   position: absolute;
-//   right: 12px;
-//   z-index: 1;
-//   top: 10px;
-// }
-// .avatar-upload .avatar-edit input {
-//   display: none;
-// }
-// .avatar-upload .avatar-edit input + label {
-//   display: inline-block;
-//   width: 34px;
-//   height: 34px;
-//   margin-bottom: 0;
-//   border-radius: 100%;
-//   background: #ffffff;
-//   border: 1px solid transparent;
-//   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-//   cursor: pointer;
-//   font-weight: normal;
-//   transition: all 0.2s ease-in-out;
-// }
-// .avatar-upload .avatar-edit input + label:hover {
-//   background: #f1f1f1;
-//   border-color: #d6d6d6;
-// }
-// .avatar-upload .avatar-edit input + label:after {
-//   content: "\f040";
-//   font-family: "FontAwesome";
-//   color: #757575;
-//   position: absolute;
-//   top: 10px;
-//   left: 0;
-//   right: 0;
-//   text-align: center;
-//   margin: auto;
-// }
-// .avatar-upload .avatar-preview {
-//   width: 192px;
-//   height: 192px;
-//   position: relative;
-//   border-radius: 100%;
-//   border: 6px solid #f8f8f8;
-//   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-// }
-// .avatar-upload .avatar-preview > div {
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 100%;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   background-position: center;
-// }
-
-.bg-gradient {
-  background-color: $secondary !important;
-}
-
 .img {
   width: 100%;
   height: 350px;
@@ -284,28 +179,13 @@ body {
   object-position: 50% 70%;
   border-radius: 0 0 3rem 3rem;
 }
-
-.profile {
-  height: 75px;
-}
-
-.small-btn-primary {
-  background-color: $black;
-  border: none;
-  color: $white !important;
-  padding: 0.5rem 0;
-  width: 70px;
-  border-radius: 1rem;
-
-  &:hover {
-    background-color: $black-hover;
-  }
-}
 </style>
 
 <script>
 import { firebase, db } from "@/firebase";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import router from "@/router";
+const storage = getStorage();
 
 export default {
   name: "SetupProfile",
@@ -326,9 +206,13 @@ export default {
       oldAge: null,
       oldGender: null,
       saved: false,
+      oldImageUrl: null,
+      newImageUrl: null,
+      imageName: null,
+      selectedFile: null,
     };
   },
-  mounted() {
+  created() {
     this.getProfile();
   },
   methods: {
@@ -343,11 +227,14 @@ export default {
             this.newHeight = doc.data().height;
             this.newAge = doc.data().age;
             this.newGender = doc.data().gender;
+            this.newImageUrl = doc.data().imageUrl;
             this.oldName = this.newName;
             this.oldWeight = this.newWeight;
             this.oldHeight = this.newHeight;
             this.oldAge = this.newAge;
             this.oldGender = this.newGender;
+            this.oldImageUrl = this.newImageUrl;
+            console.log(this.newImageUrl);
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -358,6 +245,21 @@ export default {
         });
     },
     save() {
+      const ImageRef = ref(storage, this.imageName);
+      console.log(this.selectedFile);
+      if (this.selectedFile) {
+        uploadBytes(ImageRef, this.selectedFile)
+          .then((data) => {
+            getDownloadURL(ImageRef).then((url) => {
+              this.setProfile();
+            });
+          })
+          .catch((error) => {});
+      } else {
+        this.setProfile();
+      }
+    },
+    setProfile() {
       db.collection("profile")
         .doc(this.email)
         .set({
@@ -366,6 +268,7 @@ export default {
           height: this.newHeight,
           age: this.newAge,
           gender: this.newGender,
+          imageUrl: this.newImageUrl,
         })
         .then((doc) => {
           console.log("Saved.");
@@ -376,21 +279,21 @@ export default {
           console.error(error);
         });
     },
+    loadFile(event) {
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
+      this.newImageUrl = URL.createObjectURL(this.selectedFile);
+      this.imageName = this.email + "/profile_picture";
+    },
   },
   beforeRouteLeave(to, from, next) {
-    console.log(
-      !this.newName ||
-        !this.newWeight ||
-        !this.newHeight ||
-        !this.newAge ||
-        !this.newGender
-    );
     if (
       !this.newName ||
       !this.newWeight ||
       !this.newHeight ||
       !this.newAge ||
-      !this.newGender
+      !this.newGender ||
+      !this.newImageUrl
     ) {
       next(false);
       return;
@@ -401,7 +304,8 @@ export default {
       this.oldWeight != this.newWeight ||
       this.oldHeight != this.newHeight ||
       this.oldAge != this.newAge ||
-      this.oldGender != this.newGender
+      this.oldGender != this.newGender ||
+      this.oldImageUrl != this.newImageUrl
     ) {
       const answer = window.confirm(
         "Do you really want to leave? You have unsaved changes!"
@@ -417,26 +321,4 @@ export default {
     }
   },
 };
-
-var loadFile = function (event) {
-  var image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
-// function readURL(input) {
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-//     reader.onload = function (e) {
-//       $("#imagePreview").css(
-//         "background-image",
-//         "url(" + e.target.result + ")"
-//       );
-//       $("#imagePreview").hide();
-//       $("#imagePreview").fadeIn(650);
-//     };
-//     reader.readAsDataURL(input.files[0]);
-//   }
-// }
-// $("#imageUpload").change(function () {
-//   readURL(this);
-// });
 </script>

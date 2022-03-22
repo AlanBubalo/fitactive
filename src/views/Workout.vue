@@ -113,7 +113,7 @@ export default {
     WorkoutExercises,
     Timer,
   },
-  mounted() {
+  created() {
     this.getName();
   },
   methods: {

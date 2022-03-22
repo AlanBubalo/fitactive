@@ -2,8 +2,22 @@
   <!-- Welcome User -->
   <div class="advice">
     <div class="d-flex justify-content-between">
-      <div class="d-flex flex-row">
-        <img class="pfpimage" src="@/assets/male.png" alt="Profile image" />
+      <div class="d-flex flex-row align-items-center">
+        <router-link to="/setupprofile">
+          <img
+            v-if="imageUrl"
+            :src="imageUrl"
+            class="pfpimage"
+            alt="Profile image"
+          />
+          <img
+            v-else
+            src="@/assets/male.png"
+            class="pfpimage"
+            alt="Profile image"
+          />
+        </router-link>
+
         <h3 class="m-0 py-2 ms-3" im>Welcome, {{ Name }}</h3>
       </div>
 
@@ -177,6 +191,10 @@
 <style scoped lang="scss">
 @import "@/colors";
 
+$circleSize: 70px;
+$shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$fontColor: rgb(250, 250, 250);
+
 .container {
   box-shadow: none;
 }
@@ -186,28 +204,11 @@
 }
 
 .pfpimage {
-  height: 50px;
-  border-radius: 50%;
-}
-
-.img {
-  width: auto;
-  height: 35px;
   object-fit: cover;
-  margin: right;
-}
-
-.gif {
-  width: auto;
-  height: 35px;
-  object-fit: cover;
-  margin: right;
-}
-
-.title {
-  font-size: 4rem;
-  font-weight: bold;
-  text-shadow: 0.4rem 0.2rem $primary;
+  width: $circleSize;
+  height: $circleSize;
+  box-shadow: $shadow;
+  border-radius: calc($circleSize / 2);
 }
 </style>
 
@@ -240,6 +241,7 @@ export default {
       currentDay: "",
       notifs: [],
       notifCheck: null,
+      imageUrl: null,
     };
   },
   components: {
@@ -251,17 +253,11 @@ export default {
       return this.notifs.length > 99 ? "99+" : this.notifs.length;
     },
   },
-  mounted() {
+  created() {
+    this.getProfile();
     this.getSchedule();
     this.getWaterIntake();
-    this.getProfile();
     this.getNotifs();
-    setTimeout(() => {
-      this.tryToAddLateNotif();
-    }, 1000);
-    setTimeout(() => {
-      this.notifObserver();
-    }, 1200);
     setInterval(() => {
       this.tryToAddNotif();
     }, 59900);
@@ -280,6 +276,7 @@ export default {
             this.Age = doc.data().age;
             this.Gender = doc.data().gender;
             this.notifCheck = doc.data().notifCheck;
+            this.imageUrl = doc.data().imageUrl;
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document of profile!");
@@ -387,6 +384,8 @@ export default {
         .then((doc) => {
           if (doc.exists) {
             this.notifs = doc.data().notifs;
+            this.tryToAddLateNotif();
+            this.notifObserver();
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document of notifications!");
@@ -448,6 +447,7 @@ export default {
           age: this.Age,
           gender: this.Gender,
           notifCheck: this.notifCheck,
+          imageUrl: this.imageUrl,
         })
         .then(() => {
           console.log("NotifCheck set!");

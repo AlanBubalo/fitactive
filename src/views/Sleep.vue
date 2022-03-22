@@ -139,7 +139,7 @@ export default {
   components: {
     HeaderImage,
   },
-  mounted() {
+  created() {
     this.getName();
   },
   methods: {

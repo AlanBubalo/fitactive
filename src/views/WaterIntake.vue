@@ -141,7 +141,7 @@ export default {
       saved: false,
     };
   },
-  mounted() {
+  created() {
     this.getGlassesTotal();
   },
   methods: {

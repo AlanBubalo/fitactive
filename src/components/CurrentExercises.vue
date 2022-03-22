@@ -50,7 +50,7 @@ export default {
   data() {
     return {};
   },
-  mounted() {
+  created() {
     this.updateExercises();
   },
   methods: {

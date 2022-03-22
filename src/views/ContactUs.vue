@@ -20,13 +20,13 @@
               class="form-control box-shadow"
               rows="6"
               cols="50"
-              id="TITLE"
+              id="message"
             ></textarea>
           </div>
           <div v-if="!isLoading">
             <button
               type="button"
-              @click="sendPassword"
+              @click="sendEmail"
               class="btn my-btn bg-primary box-shadow"
             >
               Submit
@@ -63,6 +63,8 @@
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase } from "@/firebase";
+import emailjs from "emailjs-com";
+import router from "@/router";
 
 export default {
   name: "SendPassword",
@@ -81,24 +83,23 @@ export default {
     HeaderImage,
   },
   methods: {
-    sendPassword() {
-      this.isLoading = true;
-      this.isSent = false;
-      firebase
-        .auth()
-        .sendPasswordResetEmail(this.email)
-        .then(() => {
-          // Password reset email sent!
-          this.isLoading = false;
-          this.isSent = true;
-        })
-        .catch((error) => {
-          this.isLoading = false;
-          var mes = error.message.slice(10);
-          var mesa = mes.split(" (auth");
-          this.errorMessage = mesa[0];
-          console.error(error);
-        });
+    sendEmail(e) {
+      try {
+        emailjs.sendForm(
+          "YOUR_SERVICE_ID",
+          "YOUR_TEMPLATE_ID",
+          e.target,
+          "YOUR_USER_ID",
+          {
+            name: this.name,
+            email: this.email,
+            message: this.message,
+          }
+        );
+      } catch (error) {
+        console.log({ error });
+      }
+      router.push("/settings");
     },
   },
 };
