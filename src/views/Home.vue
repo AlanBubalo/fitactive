@@ -468,7 +468,7 @@ export default {
         this.addNotif("Don't forget to drink water before sleeping!");
       }
       // Reminder to do workout
-      else if (today.getMinutes() == 0 && today.getHours() == 12) {
+      else if (today.getMinutes() == 38 && today.getHours() == 12) {
         this.addNotif("You got today's exercises to get done!");
       }
     },

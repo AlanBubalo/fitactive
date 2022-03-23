@@ -147,7 +147,17 @@ export default {
                   glassesDrank: 0,
                   glassesTotal: 10,
                 })
-                .then((doc) => {})
+                .then((doc) => {
+                  db.collection("notifications")
+                    .doc(this.email)
+                    .set({
+                      notifs: [],
+                    })
+                    .then((doc) => {})
+                    .catch((error) => {
+                      console.error(error);
+                    });
+                })
                 .catch((error) => {
                   console.error(error);
                 });
