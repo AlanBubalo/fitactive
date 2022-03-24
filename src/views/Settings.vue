@@ -63,57 +63,7 @@
   height: 350px;
   object-fit: cover;
   object-position: 50% 45%;
-}
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 54px;
-  height: 28px;
-
-  /* Hide default HTML checkbox */
-  & input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  background-color: #cccccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-
-  &:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    border-radius: 999px;
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-}
-
-input:checked {
-  // Slider background color when the switch is turned on
-  & + .slider {
-    background-color: $primary;
-    // Animation for slider's movement
-    &:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-  }
+  border-radius: 0 0 3rem 3rem;
 }
 </style>
 

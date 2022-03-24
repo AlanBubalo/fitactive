@@ -11,10 +11,12 @@
   </div>
   <div class="container">
     <div class="row mt-5">
-      <div class="col-6">
+      <div class="col-sm-6 col-12">
         <img class="img1 rounded-2" src="@/assets/fitness.jpg" />
       </div>
-      <div class="col-6 p-4 d-flex flex-column justify-content-center">
+      <div
+        class="col-sm-6 col-12 p-4 d-flex flex-column justify-content-center"
+      >
         <h3 class="pb-2">About Us</h3>
         <p class="text-justify">
           Here you can read what our project is really about. Our mission is for
@@ -31,7 +33,7 @@
     </div>
     <div class="row mt-4">
       <div
-        class="col-6 p-4 d-flex flex-column justify-content-center align-items-end"
+        class="col-sm-6 col-12 order-sm-first order-last p-4 d-flex flex-column justify-content-center"
       >
         <h3 class="pb-2">Benefits of Physical Activity</h3>
         <p class="text-justify">
@@ -45,7 +47,7 @@
           entire day.
         </p>
       </div>
-      <div class="col-6">
+      <div class="col-sm-6 col-12">
         <img class="img2 rounded-2" src="@/assets/work.jpg" />
       </div>
     </div>

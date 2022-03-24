@@ -64,6 +64,7 @@
   height: 350px;
   object-fit: cover;
   object-position: 50% 45%;
+  border-radius: 0 0 3rem 3rem;
 }
 </style>
 

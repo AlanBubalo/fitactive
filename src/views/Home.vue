@@ -18,7 +18,7 @@
           />
         </router-link>
 
-        <h3 class="m-0 py-2 ms-3" im>Welcome, {{ Name }}</h3>
+        <h3 class="m-0 py-2 ms-3 text-start">Welcome, {{ Name }}</h3>
       </div>
 
       <button
@@ -191,7 +191,7 @@
 <style scoped lang="scss">
 @import "@/colors";
 
-$circleSize: 70px;
+$circleSize: 50px;
 $shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 $fontColor: rgb(250, 250, 250);
 

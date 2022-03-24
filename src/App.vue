@@ -134,7 +134,6 @@ export default {
     };
   },
   created() {
-    //this.$root.$refs.App = this;
     firebase.auth().onAuthStateChanged(async (user) => {
       const needsUser = router.currentRoute.value.meta.needsUser;
       if (user) {

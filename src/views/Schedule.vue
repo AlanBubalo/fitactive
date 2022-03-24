@@ -265,6 +265,7 @@ import HeaderImage from "@/components/HeaderImage.vue";
 import draggable from "vuedraggable";
 import { firebase, db } from "@/firebase";
 import router from "@/router";
+import ToDoList from "@/components/ToDoList.vue";
 
 export default {
   name: "Schedule",
@@ -372,6 +373,7 @@ export default {
   components: {
     HeaderImage,
     draggable,
+    ToDoList,
   },
   created() {
     this.getSchedule();

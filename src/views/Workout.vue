@@ -1,41 +1,31 @@
 <template>
-  <div class="advice">
-    <p>You may not be there yet, but you are closer than you were yesterday.</p>
-  </div>
   <!-- Workout -->
-  <div v-if="!clicked" class="container p-4 bg-white my-4 my-rounded">
+  <div v-if="!clicked" class="container p-4 bg-white my-4 my-rounded mb-5">
     <h4>Focus Area:</h4>
     <ul
       class="nav nav-pills nav-fill d-flex justify-content-between text-center mt-4"
     >
-      <!-- Full body -->
       <li class="col p-0">
         <a class="nav-link active" data-bs-toggle="tab" href="#fullbody"
           >Full body</a
         >
       </li>
-      <!-- Abs -->
       <li class="col-4 col-md p-0">
         <a class="nav-link" data-bs-toggle="tab" href="#abs">Abs</a>
       </li>
-      <!-- Arms -->
       <li class="col-4 col-md p-0">
         <a class="nav-link" data-bs-toggle="tab" href="#arms">Arms</a>
       </li>
-      <!-- Chest -->
       <li class="col-4 col-md p-0">
         <a class="nav-link" data-bs-toggle="tab" href="#chest">Chest</a>
       </li>
-      <!-- Legs -->
       <li class="col-4 col-md p-0">
         <a class="nav-link" data-bs-toggle="tab" href="#legs">Legs</a>
       </li>
-      <!-- Back -->
       <li class="col-4 col-md p-0">
         <a class="nav-link" data-bs-toggle="tab" href="#back">Back</a>
       </li>
     </ul>
-    <!-- Full Body -->
     <div class="tab-content mt-1">
       <!-- Full Body -->
       <div id="fullbody" class="tab-pane fade in show active">
@@ -63,6 +53,7 @@
       </div>
     </div>
   </div>
+  <!-- Displays Timer component when workout is selected -->
   <div v-else>
     <Timer :key="this.descWorkout" @sendFinished="setFinished" />
   </div>
