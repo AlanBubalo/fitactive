@@ -11,7 +11,6 @@
         <form @submit.prevent="save">
           <div class="profile-pic">
             <label class="-label" for="file">
-              <span class="glyphicon glyphicon-camera"></span>
               <span>Change Image</span>
             </label>
             <input
@@ -21,8 +20,8 @@
               accept=".png, .jpg, .jpeg"
             />
             <img
-              v-if="newImageUrl"
-              :src="newImageUrl"
+              v-if="localImageUrl"
+              :src="localImageUrl"
               width="200"
               alt="Profile image"
             />
@@ -161,7 +160,6 @@ $shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
       color: $white;
       transition: background-color 0.2s ease-in-out;
       border-radius: $radius;
-      margin-bottom: 0;
     }
   }
 
@@ -208,6 +206,7 @@ export default {
       saved: false,
       oldImageUrl: null,
       newImageUrl: null,
+      localImageUrl: null,
       imageName: null,
       selectedFile: null,
     };
@@ -234,7 +233,7 @@ export default {
             this.oldAge = this.newAge;
             this.oldGender = this.newGender;
             this.oldImageUrl = this.newImageUrl;
-            console.log(this.newImageUrl);
+            this.localImageUrl = this.newImageUrl;
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -246,20 +245,26 @@ export default {
     },
     save() {
       const ImageRef = ref(storage, this.imageName);
-      console.log(this.selectedFile);
       if (this.selectedFile) {
         uploadBytes(ImageRef, this.selectedFile)
           .then((data) => {
-            getDownloadURL(ImageRef).then((url) => {
-              this.setProfile();
-            });
+            getDownloadURL(ImageRef)
+              .then((url) => {
+                console.log(url);
+                this.setProfile(url);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           })
-          .catch((error) => {});
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
         this.setProfile();
       }
     },
-    setProfile() {
+    setProfile(url = null) {
       db.collection("profile")
         .doc(this.email)
         .set({
@@ -268,7 +273,7 @@ export default {
           height: this.newHeight,
           age: this.newAge,
           gender: this.newGender,
-          imageUrl: this.newImageUrl,
+          imageUrl: url,
         })
         .then((doc) => {
           console.log("Saved.");
@@ -282,7 +287,7 @@ export default {
     loadFile(event) {
       this.selectedFile = event.target.files[0];
       console.log(this.selectedFile);
-      this.newImageUrl = URL.createObjectURL(this.selectedFile);
+      this.localImageUrl = URL.createObjectURL(this.selectedFile);
       this.imageName = this.email + "/profile_picture";
     },
   },
@@ -293,7 +298,7 @@ export default {
       !this.newHeight ||
       !this.newAge ||
       !this.newGender ||
-      !this.newImageUrl
+      !this.localImageUrl
     ) {
       next(false);
       return;
@@ -305,7 +310,7 @@ export default {
       this.oldHeight != this.newHeight ||
       this.oldAge != this.newAge ||
       this.oldGender != this.newGender ||
-      this.oldImageUrl != this.newImageUrl
+      this.oldImageUrl != this.localImageUrl
     ) {
       const answer = window.confirm(
         "Do you really want to leave? You have unsaved changes!"

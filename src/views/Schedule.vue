@@ -262,7 +262,6 @@
 <script>
 // @ is an alias to /src
 import HeaderImage from "@/components/HeaderImage.vue";
-import ToDoList from "@/components/ToDoList.vue";
 import draggable from "vuedraggable";
 import { firebase, db } from "@/firebase";
 import router from "@/router";
@@ -275,7 +274,6 @@ export default {
         .getItem(Object.keys(window.sessionStorage))
         .slice(47)
         .split('"')[0],
-      drag: false,
       saved: false,
       beginner: [
         {
@@ -373,12 +371,13 @@ export default {
   },
   components: {
     HeaderImage,
-    ToDoList,
     draggable,
   },
   created() {
-    this.getDay();
     this.getSchedule();
+  },
+  mounted() {
+    this.getDay();
   },
   methods: {
     getSchedule() {
