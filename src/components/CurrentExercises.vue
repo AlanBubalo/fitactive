@@ -2,17 +2,28 @@
   <!-- Current Exercises -->
   <div class="exercises">
     <div
-      class="exercise text-center"
-      v-for="exercises in exercises"
-      :key="exercises"
+      class="exercise align-middle px-5 d-flex"
+      v-for="(exercise, id) in exercises"
+      :key="id"
     >
-      <p>{{ exercises }}</p>
+      <img
+        class="p-0 m-4 rounded-3"
+        :src="require('@/assets/exercises/' + exercise + '.jpg')"
+        :alt="exercise"
+      />
+      <p class="my-auto">{{ exercise }}</p>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 @import "@/colors";
+
+img {
+  box-shadow: none;
+  width: 100px;
+  height: auto;
+}
 
 .exercises {
   background: lighten($primary, 15%);
@@ -23,10 +34,6 @@
   background: $primary;
   color: $white;
   font-weight: thin;
-  * {
-    padding: 2rem;
-    margin: 0rem;
-  }
 }
 
 .current {
@@ -49,12 +56,20 @@
 export default {
   props: ["key", "c", "exercises"],
   data() {
-    return {};
+    return {
+      images: [],
+    };
   },
   created() {
+    this.getImage();
     this.updateExercises();
   },
   methods: {
+    getImage() {
+      for (let i = 0; i < this.exercises.length; i++)
+        this.images.push("@/assets/exercises/" + this.exercises[i] + ".jpg");
+      console.log(this.images[0]);
+    },
     updateExercises() {
       setTimeout(() => {
         $(".exercise:nth-child(" + this.c + ")").addClass("current");
