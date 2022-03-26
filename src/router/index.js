@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 console.log("index");
+
+// Usmjerivaci
 const routes = [
   {
     path: "/",
@@ -79,11 +81,13 @@ const routes = [
   },
 ];
 
+// Kreiranje usmjerivaca
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
+// Prije svakog usmjerivaca funkcija
 router.beforeEach((to, from, next) => {
   const authUser =
     Object.keys(window.sessionStorage).filter((item) =>

@@ -32,6 +32,7 @@
               alt="Profile image"
             />
           </div>
+          <!-- First Name -->
           <div class="form-group my-2">
             <label for="exampleInputName" class="py-1">First Name</label>
             <input
@@ -43,6 +44,7 @@
               required
             />
           </div>
+          <!-- Weight (kg) -->
           <div class="row">
             <div class="col-6">
               <div class="form-group my-2">
@@ -58,6 +60,7 @@
                 />
               </div>
             </div>
+            <!-- Height (cm) -->
             <div class="col-6">
               <div class="form-group my-2">
                 <label for="exampleInputHeight" class="py-1">Height (cm)</label>
@@ -72,6 +75,7 @@
                 />
               </div>
             </div>
+            <!-- Age -->
             <div class="col-6">
               <div class="form-group my-2">
                 <label for="exampleInputAge" class="py-1">Age</label>
@@ -86,6 +90,7 @@
                 />
               </div>
             </div>
+            <!-- Gender -->
             <div class="col-6">
               <div class="form-group my-2">
                 <label for="exampleInputGender" class="py-1">Gender</label>
@@ -102,6 +107,7 @@
               </div>
             </div>
           </div>
+          <!-- Save Button -->
           <button type="submit" class="btn my-btn bg-primary box-shadow">
             Save
           </button>

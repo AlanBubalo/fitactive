@@ -1,4 +1,5 @@
 <template>
+  <!-- Current Exercises -->
   <div class="exercises">
     <div
       class="exercise text-center"

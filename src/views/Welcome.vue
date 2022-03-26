@@ -10,6 +10,7 @@
     </div>
   </div>
   <div class="container">
+    <!-- Image + Text 1 -->
     <div class="row mt-5">
       <div class="col-sm-6 col-12">
         <img class="img1 rounded-2" src="@/assets/fitness.jpg" />
@@ -31,6 +32,7 @@
         </p>
       </div>
     </div>
+    <!-- Image + Text 2 -->
     <div class="row mt-4">
       <div
         class="col-sm-6 col-12 order-sm-first order-last p-4 d-flex flex-column justify-content-center"

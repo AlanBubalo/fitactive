@@ -12,6 +12,7 @@
           {{ errorMessage }}
         </div>
         <form @submit.prevent="signup">
+          <!-- Email Address -->
           <div class="form-group my-2">
             <label for="exampleInputEmail1" class="py-1">Email address</label>
             <input
@@ -23,6 +24,7 @@
               placeholder="Enter email"
             />
           </div>
+          <!-- Password -->
           <div class="form-group my-2">
             <label for="exampleInputPassword1" class="py-1">Password</label>
             <div class="d-flex justify-content-between bd-highlight">
@@ -47,6 +49,7 @@
               </div>
             </div>
           </div>
+          <!-- Confirm Password -->
           <div class="form-group my-2">
             <label for="exampleInputConfirmPassword1" class="py-1"
               >Confirm Password</label
@@ -60,6 +63,7 @@
             />
           </div>
           <div v-if="!isLoading">
+            <!-- Sign Up Button -->
             <button type="submit" class="btn my-btn bg-primary box-shadow">
               Sign up
             </button>
@@ -76,6 +80,7 @@
             </button>
           </div>
         </form>
+        <!-- Already have an account? -->
         <div class="d-flex justify-content-between bd-highlight">
           <p>
             Already have an account?

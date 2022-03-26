@@ -1,4 +1,5 @@
 <template>
+  <!-- Timer -->
   <div class="container p-0">
     <div class="bg-primary p-4">
       <div class="text-center fw-bold p-4">

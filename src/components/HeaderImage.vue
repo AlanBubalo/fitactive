@@ -1,4 +1,5 @@
 <template>
+  <!-- Header Image -->
   <div class="header-image text-white">
     <img class="img" alt="Header Image" :src="image" />
     <h1 class="title">{{ title }}</h1>

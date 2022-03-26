@@ -1,4 +1,5 @@
 <template>
+  <!-- Workout Exercises -->
   <div>
     <img
       :class="`img${num}`"
