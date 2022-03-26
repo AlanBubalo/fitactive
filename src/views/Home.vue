@@ -242,6 +242,7 @@ export default {
       notifs: [],
       notifCheck: null,
       imageUrl: null,
+      schedule: null,
     };
   },
   components: {
@@ -258,9 +259,6 @@ export default {
     this.getSchedule();
     this.getWaterIntake();
     this.getNotifs();
-    setInterval(() => {
-      this.tryToAddNotif();
-    }, 59900);
   },
   methods: {
     // Get profile data from firebase
@@ -344,6 +342,8 @@ export default {
         .then((doc) => {
           if (doc.exists) {
             // Get data based on today's day
+            this.schedule = doc.data();
+
             switch (this.currentDay) {
               case "Sunday":
                 this.today = doc.data().sun;
@@ -384,8 +384,7 @@ export default {
         .then((doc) => {
           if (doc.exists) {
             this.notifs = doc.data().notifs;
-            this.tryToAddLateNotif();
-            this.notifObserver();
+            this.tryToAddNotif();
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document of notifications!");
@@ -425,60 +424,39 @@ export default {
       this.notifs.push(notif);
       this.setNotifs();
     },
-    // Try to add a late notification
-    tryToAddLateNotif() {
-      const today = new Date();
-      // Late reminder to drink water
-      if (
-        today.getHours() > 20 &&
-        today.getMinutes() > 0 &&
-        this.GlassesDrank < this.GlassesTotal
-      ) {
-        this.addNotif("Don't forget to drink water before sleeping!");
-        this.notifCheck = 1;
-      } else this.notifCheck = 0;
-      // Set profile data to the firebase
-      db.collection("profile")
-        .doc(this.email)
-        .set({
-          name: this.Name,
-          weight: this.Weight,
-          height: this.Height,
-          age: this.Age,
-          gender: this.Gender,
-          notifCheck: this.notifCheck,
-          imageUrl: this.imageUrl,
-        })
-        .then(() => {
-          console.log("NotifCheck set!");
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    getRandomInt(max) {
+      return Math.floor(Math.random() * max);
     },
     // Try to add notification
     tryToAddNotif() {
-      const today = new Date();
-      // Reminder to drink water
+      let randomNumber = this.getRandomInt(100);
+      let chanceToGetNotif = 15;
+      var allEmpty = Object.keys(this.schedule).every((key) => {
+        return this.schedule[key].length === 0;
+      });
       if (
-        today.getMinutes() == 0 &&
-        today.getHours() == 20 &&
+        randomNumber < chanceToGetNotif &&
         this.GlassesDrank < this.GlassesTotal
-      ) {
+      )
         this.addNotif("Don't forget to drink water before sleeping!");
-      }
-      // Reminder to do workout
-      else if (today.getMinutes() == 38 && today.getHours() == 12) {
-        this.addNotif("You got today's exercises to get done!");
-      }
+      else if (randomNumber < 10 && allEmpty)
+        this.addNotif(
+          "Your workout schedule is empty. Don't forget to add exercises in your schedule!"
+        );
+      else if (randomNumber < 10)
+        this.addNotif("You've might lost some weight. Update your profile!");
+      else if (randomNumber < 5)
+        this.addNotif(
+          "Feel free to send us a message. Click on Settings and you will find a Contact Us button!"
+        );
+      else if (randomNumber < chanceToGetNotif && this.today.length)
+        this.addNotif(
+          "If you haven't done your workout for today get up and do them!"
+        );
     },
     // Get relative time as string to show how much time passed since a notification was received
     getRelativeTime(time) {
       return moment(time).fromNow();
-    },
-    // Observe when to clear or not an already sent late notification from tryToAddLateNotif function
-    notifObserver() {
-      if (this.notifCheck == 1) this.clearNotifs();
     },
   },
 };
