@@ -1,7 +1,7 @@
 <template>
   <!-- Contact Us -->
   <div class="header-image text-white">
-    <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
+    <img class="img" alt="FitActive Logo" src="@/assets/gymroom.jpg" />
     <div class="title">Contact Us</div>
   </div>
   <div class="container-fluid p-4">
@@ -56,7 +56,7 @@
   width: 100%;
   height: 350px;
   object-fit: cover;
-  object-position: 50% 45%;
+  object-position: 50% 65%;
   border-radius: 0 0 3rem 3rem;
 }
 
