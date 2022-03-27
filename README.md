@@ -16,7 +16,7 @@ Figma: [Link](https://www.figma.com/proto/9Qh8w7U50m8wDmv93WramF/FitActive?node-
 
 ## Javni link na aplikaciju
 
-Link: (https://fitactive.netlify.app)
+Link: https://fitactive.netlify.app
 
 ## Funkcionalnosti
 
