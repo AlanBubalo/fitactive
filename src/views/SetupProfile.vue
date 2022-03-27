@@ -136,7 +136,6 @@ $shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
   transition: all 0.3s ease;
   @include object-center;
   position: relative;
-  transition: all 0.3s ease;
 
   input {
     display: none;
@@ -156,16 +155,14 @@ $shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
     cursor: pointer;
     height: $circleSize;
     width: $circleSize;
-  }
+    border-radius: $radius;
 
-  &:hover {
-    .-label {
+    &:hover {
       @include object-center;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 10000;
       color: $white;
       transition: background-color 0.2s ease-in-out;
-      border-radius: $radius;
     }
   }
 
@@ -303,8 +300,7 @@ export default {
       !this.newWeight ||
       !this.newHeight ||
       !this.newAge ||
-      !this.newGender ||
-      !this.localImageUrl
+      !this.newGender
     ) {
       next(false);
       return;
