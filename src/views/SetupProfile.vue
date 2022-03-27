@@ -1,8 +1,11 @@
 <template>
   <!-- Setup Profile -->
-  <div class="header-image text-white">
-    <img class="img" alt="FitActive Logo" src="@/assets/run.jpg" />
-    <div class="title">Setup Your Profile</div>
+  <div class="advice">
+    <p>
+      Losing weight is far from being easy every day. It often requires
+      challenging ourselves, lifestyle changes, effort, hard work and
+      motivation.
+    </p>
   </div>
   <div class="container-fluid p-4">
     <div class="row">
@@ -303,8 +306,7 @@ export default {
       !this.newWeight ||
       !this.newHeight ||
       !this.newAge ||
-      !this.newGender ||
-      !this.localImageUrl
+      !this.newGender
     ) {
       next(false);
       return;

@@ -1,7 +1,7 @@
 <template>
   <!-- Settings -->
   <div class="header-image text-white">
-    <img class="img" alt="FitActive Logo" src="@/assets/gym.jpg" />
+    <img class="img" alt="FitActive Logo" src="@/assets/workoutroom.jpg" />
     <div class="title">Settings</div>
   </div>
   <div class="container p-4 mb-3">
@@ -62,7 +62,7 @@
   width: 100%;
   height: 350px;
   object-fit: cover;
-  object-position: 50% 45%;
+  object-position: 50% 75%;
   border-radius: 0 0 3rem 3rem;
 }
 </style>
