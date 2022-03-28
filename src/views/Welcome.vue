@@ -113,12 +113,8 @@
 
 <script>
 // @ is an alias to /src
-import HeaderImage from "@/components/HeaderImage.vue";
 
 export default {
   name: "Welcome",
-  components: {
-    HeaderImage,
-  },
 };
 </script>

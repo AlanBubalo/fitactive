@@ -42,9 +42,9 @@
                   class="btn small-btn-primary box-shadow py-1"
                   @click.prevent="showPassword"
                   type="button"
-                  :class="btn_text == 'Show' ? 'bg-white' : 'bg-primary'"
+                  :class="btnText == 'Show' ? 'bg-white' : 'bg-primary'"
                 >
-                  {{ btn_text }}
+                  {{ btnText }}
                 </button>
               </div>
             </div>
@@ -110,22 +110,17 @@
 
 <script>
 // @ is an alias to /src
-import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase, db } from "@/firebase";
-import router from "@/router";
 
 export default {
   name: "Signup",
-  components: {
-    HeaderImage,
-  },
   data() {
     return {
       email: "",
       password: "",
       passwordConfirm: "",
       type: "password",
-      btn_text: "Show",
+      btnText: "Show",
       errorMessage: "",
       isLoading: false,
     };
@@ -180,7 +175,7 @@ export default {
     },
     showPassword() {
       this.type = this.type == "password" ? "text" : "password";
-      this.btn_text = this.btn_text == "Show" ? "Hide" : "Show";
+      this.btnText = this.btnText == "Show" ? "Hide" : "Show";
     },
   },
 };

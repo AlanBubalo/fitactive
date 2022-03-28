@@ -186,7 +186,7 @@ $shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
 </style>
 
 <script>
-import { firebase, db } from "@/firebase";
+import { db } from "@/firebase";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import router from "@/router";
 const storage = getStorage();

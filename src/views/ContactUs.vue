@@ -67,8 +67,6 @@ textarea {
 
 <script>
 // @ is an alias to /src
-import HeaderImage from "@/components/HeaderImage.vue";
-import { firebase } from "@/firebase";
 import emailjs from "@emailjs/browser";
 import router from "@/router";
 import { init } from "@emailjs/browser";
@@ -87,9 +85,6 @@ export default {
       isSent: false,
       message: null,
     };
-  },
-  components: {
-    HeaderImage,
   },
   methods: {
     sendEmail(e) {

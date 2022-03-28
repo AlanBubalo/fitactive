@@ -69,16 +69,12 @@
 
 <script>
 // @ is an alias to /src
-import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase } from "@/firebase";
 
 export default {
   name: "Settings",
   data() {
     return {};
-  },
-  components: {
-    HeaderImage,
   },
   methods: {
     logout() {

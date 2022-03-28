@@ -70,7 +70,6 @@
 
 <script>
 // @ is an alias to /src
-import HeaderImage from "@/components/HeaderImage.vue";
 import { firebase } from "@/firebase";
 
 export default {
@@ -82,9 +81,6 @@ export default {
       isLoading: false,
       isSent: false,
     };
-  },
-  components: {
-    HeaderImage,
   },
   methods: {
     sendPassword() {

@@ -214,8 +214,7 @@ $fontColor: rgb(250, 250, 250);
 
 <script>
 // @ is an alias to /src
-import HeaderImage from "@/components/HeaderImage.vue";
-import { firebase, db } from "@/firebase";
+import { db } from "@/firebase";
 import router from "@/router";
 var moment = require("moment");
 
@@ -244,9 +243,6 @@ export default {
       imageUrl: null,
       schedule: null,
     };
-  },
-  components: {
-    HeaderImage,
   },
   computed: {
     // Return the amount to notification to display, or display 99+ if there are more than 99 notifications

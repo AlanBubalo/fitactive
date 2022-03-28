@@ -104,7 +104,7 @@ img {
 </style>
 
 <script>
-import { firebase, db } from "@/firebase";
+import { db } from "@/firebase";
 
 export default {
   name: "WorkoutExercises",

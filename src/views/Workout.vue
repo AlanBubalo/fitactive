@@ -81,7 +81,7 @@
 
 <script>
 // @ is an alias to /src
-import { firebase, db } from "@/firebase";
+import { db } from "@/firebase";
 import WorkoutExercises from "@/components/WorkoutExercises";
 import Timer from "@/components/Timer";
 
