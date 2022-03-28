@@ -25,15 +25,9 @@
             <img
               v-if="localImageUrl"
               :src="localImageUrl"
-              width="200"
               alt="Profile image"
             />
-            <img
-              v-else
-              src="@/assets/male.png"
-              width="200"
-              alt="Profile image"
-            />
+            <img v-else src="@/assets/male.png" alt="Profile image" />
           </div>
           <!-- First Name -->
           <div class="form-group my-2">
@@ -158,12 +152,11 @@ $shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
     cursor: pointer;
     height: $circleSize;
     width: $circleSize;
+    @include object-center;
     border-radius: $radius;
-
+    z-index: 10000;
     &:hover {
-      @include object-center;
       background-color: rgba(0, 0, 0, 0.5);
-      z-index: 10000;
       color: $white;
       transition: background-color 0.2s ease-in-out;
     }
